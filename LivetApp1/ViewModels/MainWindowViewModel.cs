@@ -1,0 +1,188 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+
+using Livet;
+using Livet.Commands;
+using Livet.Messaging;
+using Livet.Messaging.IO;
+using Livet.EventListeners;
+using Livet.Messaging.Windows;
+
+using LivetApp1.Models;
+using System.Windows;
+using LivetApp1.Views;
+using System.Windows.Controls;
+
+namespace LivetApp1.ViewModels
+{
+     public class MainWindowViewModel : ViewModel
+     {
+         #region MyMessageProperty
+
+
+
+
+         private string _MyMessage; //プロパティ
+
+         public string MyMessage
+         {
+             get
+             { return _MyMessage; }
+             set
+             {
+                 if (_MyMessage == value)
+                     return;
+                 _MyMessage = value;
+                 RaisePropertyChanged(); //変更通知。mymessageが変更されたことを知らせる。この場合はviewに知らせる.
+                 System.Diagnostics.Debug.WriteLine("MyMessage: " + this.MyMessage); //動作確認用。本来はこの行は必要ありません。
+
+             }
+         }
+         #endregion
+         #region MyDate
+         private DateTime _MyDate;
+
+         public DateTime MyDate
+         {
+             get
+             { return _MyDate; }
+             set
+             {
+                 if (_MyDate == value)
+                     return;
+                 _MyDate = value;
+                 RaisePropertyChanged();
+             }
+         }
+
+         #endregion
+         #region Testcommand
+         private ViewModelCommand _TestCommand;
+
+         public ViewModelCommand TestCommand
+         {
+             get
+             {
+                 if (_TestCommand == null)
+                 {
+                     _TestCommand = new ViewModelCommand(Test);
+                 }
+                 return _TestCommand;
+             }
+         }
+
+         public void Test()
+         {
+             System.Diagnostics.Debug.WriteLine("TestCommand が呼ばれました。");
+         }
+
+         #endregion
+         #region Test2command
+         private ListenerCommand<string> _Test2Command;
+
+         public ListenerCommand<string> Test2Command
+         {
+             get
+             {
+                 if (_Test2Command == null)
+                 {
+                     _Test2Command = new ListenerCommand<string>(Test2);
+                 }
+                 return _Test2Command;
+             }
+         }
+
+         public void Test2(string parameter)
+         {
+             System.Diagnostics.Debug.WriteLine("Test2Command が呼ばれました。パラメータは「" + parameter + "」です。");
+         }
+
+         #endregion
+
+         public void Initialize()
+         {
+             var message = new TransitionMessage(typeof(Views.Logon), new LogonViewModel(), TransitionMode.Modal, "ShowLogon");
+             Messenger.Raise(message);
+         }
+
+        #region ShowNew
+        private ViewModelCommand _ShowNewCommand;
+
+        public ViewModelCommand ShowNewCommand
+
+        {
+            get
+            {
+                if (_ShowNewCommand == null)
+                {
+                    _ShowNewCommand = new ViewModelCommand(ShowNew);
+                }
+                return _ShowNewCommand;
+            }
+        }
+
+        public void ShowNew()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowNew");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                NewViewModel ViewModel = new NewViewModel();
+                var message = new TransitionMessage(typeof(Views.New), ViewModel, TransitionMode.Modal, "ShowNew");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+        #region ShowWorkerList
+        private ViewModelCommand _ShowWorkerListCommand;
+
+        public ViewModelCommand ShowWorkerListCommand
+
+        {
+            get
+            {
+                if (_ShowWorkerListCommand == null)
+                {
+                    _ShowWorkerListCommand = new ViewModelCommand(ShowWorkerList);
+                }
+                return _ShowWorkerListCommand;
+            }
+        }
+
+        public void ShowWorkerList()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowWorkerList");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                WorkerListViewModel ViewModel = new WorkerListViewModel();
+                var message = new TransitionMessage(typeof(Views.WorkerList), ViewModel, TransitionMode.Modal, "ShowWorkerList");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+    }
+}
+ 
+
+
+  

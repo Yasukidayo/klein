@@ -1,0 +1,76 @@
+﻿<Window x:Class="LivetApp1.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:v="clr-namespace:LivetApp1.Views"
+        xmlns:vm="clr-namespace:LivetApp1.ViewModels"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <i:Interaction.Triggers>
+
+        <!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
+        <!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
+        <!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています -->
+
+        <!--WindowのContentRenderedイベントのタイミングでViewModelのInitializeメソッドが呼ばれます-->
+        <i:EventTrigger EventName="ContentRendered">
+            <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize"/>
+        </i:EventTrigger>
+
+        <!--Windowが閉じたタイミングでViewModelのDisposeメソッドが呼ばれます-->
+        <i:EventTrigger EventName="Closed">
+            <l:DataContextDisposeAction/>
+        </i:EventTrigger>
+
+        <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
+
+        <!-- MainWindowViewModel からの TransitionMessage("ShowNew") を受け取とってNew画面を表示する処理。 -->
+        <l:InteractionMessageTrigger MessageKey="ShowLogon" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction/>
+        </l:InteractionMessageTrigger>
+        <!-- MainWindowViewModel からの TransitionMessage("ShowNew") を受け取とって感謝カード作成画面を表示する処理。 -->
+        <!-- InvokeActionOnlyWhenWindowIsActive="False" を指定することで、MainWindow が非表示中であってもメッセージを受け取る-->
+        <l:InteractionMessageTrigger MessageKey="ShowNew" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="ShowWorkerList" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <StackPanel>
+           <TextBox Text="{Binding MyDate}"/>
+        
+
+            <TextBlock Width="160">
+                
+                あなたの職種を教えてください。
+            </TextBlock>
+
+            <ComboBox x:Name="MyComboBox"
+              Height="30"
+              Width="100"
+              Margin="10"
+              FontSize="20"
+              VerticalAlignment="Center"/>
+
+
+
+            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}"/>
+            <Button Content="社員リスト" Command="{Binding ShowWorkerListCommand}"/>
+        </StackPanel>
+      
+       
+
+    </Grid>
+
+</Window>
