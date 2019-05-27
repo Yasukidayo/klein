@@ -12,7 +12,7 @@ namespace LivetApp1.Models
     public class User : NotificationObject
     {
         /*
-         * NotificationObjectはプロパティ変更通知の仕組みを実装したオブジェクトです。
+         * NotificationObjectはプロパティ変更通知の仕組みを実装したオブジェクトです!
          */
         #region IdProperty
         private long _Id;
