@@ -36,7 +36,7 @@
         <StackPanel Width="300" Background="White" Orientation="Horizontal" >
             <CheckBox>部署名</CheckBox>
             <CheckBox>個人名</CheckBox>
-            <CheckBox>日付順</CheckBox>
+            <CheckBox>日付順　　</CheckBox>
         </StackPanel>
 
        
