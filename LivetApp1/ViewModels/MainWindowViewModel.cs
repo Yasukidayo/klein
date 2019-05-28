@@ -252,34 +252,34 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
-        /**
-        #region ShowKeijiban
-        private ViewModelCommand _ShowKeijibanCommand;
+       
+        #region ShowKejiban
+        private ViewModelCommand _ShowKejibanCommand;
 
-        public ViewModelCommand ShowKeijibanCommand
+        public ViewModelCommand ShowKejibanCommand
 
         {
             get
             {
-                if (_ShowKeijibanCommand == null)
+                if (_ShowKejibanCommand == null)
                 {
-                    _ShowKeijibanCommand = new ViewModelCommand(ShowKeijiban);
+                    _ShowKejibanCommand = new ViewModelCommand(ShowKejiban);
                 }
-                return _ShowKeijibanCommand;
+                return _ShowKejibanCommand;
             }
         }
 
-        public void ShowKeijiban()
+        public void ShowKejiban()
         {
-            System.Diagnostics.Debug.WriteLine("ShowKeijiban");
+            System.Diagnostics.Debug.WriteLine("ShowKejiban");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
             try
             {
                 // MainWindow を非表示
                 window.Hide();
-                KeijibanViewModel ViewModel = new KeijibanViewModel();
-                var message = new TransitionMessage(typeof(Views.Keijiban), ViewModel, TransitionMode.Modal, "ShowKeijiban");
+                kejibanViewModel ViewModel = new kejibanViewModel();
+                var message = new TransitionMessage(typeof(Views.kejiban), ViewModel, TransitionMode.Modal, "ShowKejiban");
                 Messenger.Raise(message);
             }
             finally
@@ -289,7 +289,7 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
-    **/
+   
 
       
     }

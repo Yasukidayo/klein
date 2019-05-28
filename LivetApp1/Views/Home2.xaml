@@ -29,6 +29,21 @@
         </i:EventTrigger>
 
         <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
+        <l:InteractionMessageTrigger MessageKey="ShowJirei" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="Showgyoumukaizen" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="ShowTourokugamen" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="ShowSanshou" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
 
     </i:Interaction.Triggers>
     
@@ -36,7 +51,10 @@
         <StackPanel>
 
             <TextBlock Text="このページは管理者画面のホームです。" />
-            <Button Content="業務改善" />
+            <Button Content="代表的な事例" Command="{Binding ShowJireiCommand}" />
+            <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" />
+            <Button Content="ユーザ登録" Command="{Binding ShowTourokugamenCommand}" />
+            <Button Content="ユーザ参照" Command="{Binding ShowSanshouCommand}" />
         </StackPanel>
     </Grid>
 </Window>
