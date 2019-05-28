@@ -33,6 +33,11 @@
     </i:Interaction.Triggers>
     
     <Grid>
-        <TextBlock Text="作成日:"/>
+        <StackPanel>
+            <UniformGrid Name="uniformGrid1" Columns="2">
+            <Button Content="戻る" Click="buttun1" Width="154"   Height="21" />
+        </UniformGrid>
+            <TextBlock Text="このページは社員リストです。" />
+        </StackPanel>
     </Grid>
 </Window>

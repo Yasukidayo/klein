@@ -34,6 +34,9 @@
     
     <Grid>
         <StackPanel>
+            <UniformGrid Name="uniformGrid1" Columns="2">
+                <Button Content="戻る" Click="buttun1" Width="154"   Height="21" />
+            </UniformGrid>
             <TextBox Text="Q" />
             <TextBlock Text="A" />
             <TextBox Text="Q" />
@@ -43,6 +46,7 @@
             <TextBox Text="Q" />
             <TextBlock Text="A" />
 
-        </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Window>

@@ -44,6 +44,14 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
+        <l:InteractionMessageTrigger MessageKey="ShowRanking" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+        
+        <l:InteractionMessageTrigger MessageKey="ShowHelp" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
     </i:Interaction.Triggers>
 
     <Grid>
@@ -67,6 +75,8 @@
 
             <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}"/>
             <Button Content="社員リスト" Command="{Binding ShowWorkerListCommand}"/>
+            <Button Content="ランキング" Command="{Binding ShowRankingCommand}"/>
+            <Button Content="ヘルプ" Command="{Binding ShowHelpCommand}"/>
         </StackPanel>
       
        
