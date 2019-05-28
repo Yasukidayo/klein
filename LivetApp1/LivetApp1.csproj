@@ -58,9 +58,13 @@
     <Compile Include="Services\RestService.cs" />
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\RankingViewModel.cs" />
     <Compile Include="ViewModels\WorkerListViewModel.cs" />
     <Compile Include="Views\New.xaml.cs">
       <DependentUpon>New.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ranking.xaml.cs">
+      <DependentUpon>Ranking.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WorkerList.xaml.cs">
       <DependentUpon>WorkerList.xaml</DependentUpon>
@@ -86,6 +90,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ranking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
