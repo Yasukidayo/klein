@@ -162,15 +162,15 @@ namespace LivetApp1.ViewModels
 
         public void ShowWorkerList()
         {
-            System.Diagnostics.Debug.WriteLine("ShowWorkerList");
+            System.Diagnostics.Debug.WriteLine("ShowShainList");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
             try
             {
                 // MainWindow を非表示
                 window.Hide();
-                WorkerListViewModel ViewModel = new WorkerListViewModel();
-                var message = new TransitionMessage(typeof(Views.WorkerList), ViewModel, TransitionMode.Modal, "ShowWorkerList");
+                ShainListViewModel ViewModel = new ShainListViewModel();
+                var message = new TransitionMessage(typeof(Views.ShainList), ViewModel, TransitionMode.Modal, "ShowShainList");
                 Messenger.Raise(message);
             }
             finally

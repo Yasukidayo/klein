@@ -15,7 +15,7 @@ using LivetApp1.Models;
 
 namespace LivetApp1.ViewModels
 {
-    public class WorkerListViewModel : ViewModel
+    public class ShainListViewModel : ViewModel
     {
         #region MyMessageProperty
         private string _MyMessage;
