@@ -23,14 +23,15 @@ namespace LivetApp1.Views
      */
 
     /// <summary>
-    /// WorkerList.xaml の相互作用ロジック
+    /// Ranking.xaml の相互作用ロジック
     /// </summary>
-    public partial class WorkerList : Window
+    public partial class Ranking : Window
     {
-        public WorkerList()
+        public Ranking()
         {
             InitializeComponent();
         }
+
         private void buttun1(object sender, RoutedEventArgs e)
         {
             this.Close();

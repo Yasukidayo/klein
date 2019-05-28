@@ -56,20 +56,24 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
-    <Compile Include="ViewModels\KeijibanViewModel.cs" />
+    <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\RankingViewModel.cs" />
     <Compile Include="ViewModels\WorkerListViewModel.cs" />
-    <Compile Include="Views\Keijiban.xaml.cs">
-      <DependentUpon>Keijiban.xaml</DependentUpon>
+    <Compile Include="Views\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\New.xaml.cs">
       <DependentUpon>New.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Ranking.xaml.cs">
+      <DependentUpon>Ranking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WorkerList.xaml.cs">
       <DependentUpon>WorkerList.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Keijiban.xaml">
+    <Page Include="Views\Help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ranking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

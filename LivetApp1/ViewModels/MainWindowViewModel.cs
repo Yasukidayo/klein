@@ -180,6 +180,79 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+        #region ShowRankiing
+        private ViewModelCommand _ShowRankingCommand;
+
+        public ViewModelCommand ShowRankingCommand
+
+        {
+            get
+            {
+                if (_ShowRankingCommand == null)
+                {
+                    _ShowRankingCommand = new ViewModelCommand(ShowRanking);
+                }
+                return _ShowRankingCommand;
+            }
+        }
+
+        public void ShowRanking()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowRanking");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                RankingViewModel ViewModel = new RankingViewModel();
+                var message = new TransitionMessage(typeof(Views.Ranking), ViewModel, TransitionMode.Modal, "ShowRanking");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+        #region ShowHelp
+        private ViewModelCommand _ShowHelpCommand;
+
+        public ViewModelCommand ShowHelpCommand
+
+        {
+            get
+            {
+                if (_ShowHelpCommand == null)
+                {
+                    _ShowHelpCommand = new ViewModelCommand(ShowHelp);
+                }
+                return _ShowHelpCommand;
+            }
+        }
+
+        public void ShowHelp()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowHelp");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                HelpViewModel ViewModel = new HelpViewModel();
+                var message = new TransitionMessage(typeof(Views.Help), ViewModel, TransitionMode.Modal, "ShowHelp");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+
     }
 }
  
