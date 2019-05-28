@@ -57,7 +57,9 @@
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
-    <Compile Include="ViewModels\KeijibannViewModel.cs" />
+    <Compile Include="ViewModels\Home2ViewModel.cs" />
+    <Compile Include="ViewModels\Logon2ViewModel.cs" />
+
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\RankingViewModel.cs" />
@@ -65,8 +67,11 @@
     <Compile Include="Views\Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Keijibann.xaml.cs">
-      <DependentUpon>Keijibann.xaml</DependentUpon>
+    <Compile Include="Views\Home2.xaml.cs">
+      <DependentUpon>Home2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Logon2.xaml.cs">
+      <DependentUpon>Logon2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\New.xaml.cs">
       <DependentUpon>New.xaml</DependentUpon>
@@ -81,11 +86,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Keijibann.xaml">
+    <Page Include="Views\Home2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Logon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Logon2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
