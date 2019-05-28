@@ -56,19 +56,32 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
+    <Compile Include="ViewModels\gyoumukaizenViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home2ViewModel.cs" />
+    <Compile Include="ViewModels\JireiViewModel.cs" />
+    <Compile Include="ViewModels\kejibanViewModel.cs" />
     <Compile Include="ViewModels\Logon2ViewModel.cs" />
-
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\RankingViewModel.cs" />
+    <Compile Include="ViewModels\SanshouViewModel.cs" />
+    <Compile Include="ViewModels\TourokugamenViewModel.cs" />
     <Compile Include="ViewModels\WorkerListViewModel.cs" />
+    <Compile Include="Views\gyoumukaizen.xaml.cs">
+      <DependentUpon>gyoumukaizen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home2.xaml.cs">
       <DependentUpon>Home2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jirei.xaml.cs">
+      <DependentUpon>Jirei.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\kejiban.xaml.cs">
+      <DependentUpon>kejiban.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Logon2.xaml.cs">
       <DependentUpon>Logon2.xaml</DependentUpon>
@@ -79,14 +92,32 @@
     <Compile Include="Views\Ranking.xaml.cs">
       <DependentUpon>Ranking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Sanshou.xaml.cs">
+      <DependentUpon>Sanshou.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tourokugamen.xaml.cs">
+      <DependentUpon>Tourokugamen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WorkerList.xaml.cs">
       <DependentUpon>WorkerList.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\gyoumukaizen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Jirei.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\kejiban.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +150,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Ranking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sanshou.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tourokugamen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
