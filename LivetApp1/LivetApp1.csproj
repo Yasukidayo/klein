@@ -67,7 +67,7 @@
     <Compile Include="ViewModels\RankingViewModel.cs" />
     <Compile Include="ViewModels\SanshouViewModel.cs" />
     <Compile Include="ViewModels\TourokugamenViewModel.cs" />
-    <Compile Include="ViewModels\WorkerListViewModel.cs" />
+    <Compile Include="ViewModels\ShainListViewModel.cs" />
     <Compile Include="Views\gyoumukaizen.xaml.cs">
       <DependentUpon>gyoumukaizen.xaml</DependentUpon>
     </Compile>
@@ -95,11 +95,11 @@
     <Compile Include="Views\Sanshou.xaml.cs">
       <DependentUpon>Sanshou.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShainList.xaml.cs">
+      <DependentUpon>ShainList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tourokugamen.xaml.cs">
       <DependentUpon>Tourokugamen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WorkerList.xaml.cs">
-      <DependentUpon>WorkerList.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\gyoumukaizen.xaml">
       <SubType>Designer</SubType>
@@ -157,11 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Tourokugamen.xaml">
+    <Page Include="Views\ShainList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WorkerList.xaml">
+    <Page Include="Views\Tourokugamen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
