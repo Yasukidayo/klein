@@ -252,7 +252,46 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+        /**
+        #region ShowKeijiban
+        private ViewModelCommand _ShowKeijibanCommand;
 
+        public ViewModelCommand ShowKeijibanCommand
+
+        {
+            get
+            {
+                if (_ShowKeijibanCommand == null)
+                {
+                    _ShowKeijibanCommand = new ViewModelCommand(ShowKeijiban);
+                }
+                return _ShowKeijibanCommand;
+            }
+        }
+
+        public void ShowKeijiban()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowKeijiban");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                KeijibanViewModel ViewModel = new KeijibanViewModel();
+                var message = new TransitionMessage(typeof(Views.Keijiban), ViewModel, TransitionMode.Modal, "ShowKeijiban");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+    **/
+
+      
     }
 }
  

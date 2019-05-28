@@ -52,6 +52,14 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
+        <l:InteractionMessageTrigger MessageKey="ShowKeijiban" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="ShowLogon2" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
     </i:Interaction.Triggers>
 
     <Grid>
@@ -77,6 +85,8 @@
             <Button Content="社員リスト" Command="{Binding ShowWorkerListCommand}"/>
             <Button Content="ランキング" Command="{Binding ShowRankingCommand}"/>
             <Button Content="ヘルプ" Command="{Binding ShowHelpCommand}"/>
+            <Button Content="掲示板" Command="{Binding ShowKeijibanCommand}"/>
+            <Button Content="管理者ログイン" Command="{Binding ShowLogon2Command}"/>
         </StackPanel>
       
        

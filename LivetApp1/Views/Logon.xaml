@@ -34,9 +34,15 @@
         <l:InteractionMessageTrigger MessageKey="Authorized" Messenger="{Binding Messenger}">
             <l:WindowInteractionMessageAction/>
         </l:InteractionMessageTrigger>
+         
         <l:InteractionMessageTrigger MessageKey="ShowLogon2" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="ShowNew" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+         
     </i:Interaction.Triggers>
     
     <Grid>
@@ -54,7 +60,8 @@
             </UniformGrid>
             <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding LogonCommand}" Content="Logon"/>
 
-
+            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}"/>
+            <Button Content="管理者ログイン" Command="{Binding ShowLogon2Command}"/>
         </StackPanel>
     </Grid>
 </Window>

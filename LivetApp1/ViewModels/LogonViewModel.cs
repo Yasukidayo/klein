@@ -12,6 +12,8 @@ using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
 using LivetApp1.Models;
+using System.Windows;
+
 
 namespace LivetApp1.ViewModels
 {
@@ -70,7 +72,78 @@ namespace LivetApp1.ViewModels
 
         }
         #endregion
-     
+        #region ShowLogon2
+        private ViewModelCommand _ShowLogon2Command;
+
+        public ViewModelCommand ShowLogon2Command
+
+        {
+            get
+            {
+                if (_ShowLogon2Command == null)
+                {
+                    _ShowLogon2Command = new ViewModelCommand(ShowLogon2);
+                }
+                return _ShowLogon2Command;
+            }
+        }
+
+        public void ShowLogon2()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowLogon2");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                Logon2ViewModel ViewModel = new Logon2ViewModel();
+                var message = new TransitionMessage(typeof(Views.Logon2), ViewModel, TransitionMode.Modal, "ShowLogon2");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+        #region ShowNew
+        private ViewModelCommand _ShowNewCommand;
+
+        public ViewModelCommand ShowNewCommand
+
+        {
+            get
+            {
+                if (_ShowNewCommand == null)
+                {
+                    _ShowNewCommand = new ViewModelCommand(ShowNew);
+                }
+                return _ShowNewCommand;
+            }
+        }
+
+        public void ShowNew()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowNew");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                NewViewModel ViewModel = new NewViewModel();
+                var message = new TransitionMessage(typeof(Views.New), ViewModel, TransitionMode.Modal, "ShowNew");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
 
     }
 }

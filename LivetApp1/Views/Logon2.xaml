@@ -30,6 +30,10 @@
 
         <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
 
+        <l:InteractionMessageTrigger MessageKey="ShowHome2" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+         
     </i:Interaction.Triggers>
     <Grid>
         <TextBlock/>
@@ -44,7 +48,7 @@
                 <TextBox Height="20" Width="120" Text="{Binding User.Password}"/>
             </UniformGrid>
             <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding LogonCommand}" Content="Logon"/>
-
+            <Button Content="ログインせずにホームへ" Command="{Binding ShowHome2Command}"/>
 
         </StackPanel>
     </Grid>
