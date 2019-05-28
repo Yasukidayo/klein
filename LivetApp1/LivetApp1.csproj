@@ -59,6 +59,7 @@
     <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home2ViewModel.cs" />
     <Compile Include="ViewModels\Logon2ViewModel.cs" />
+
     <Compile Include="ViewModels\LogonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\RankingViewModel.cs" />
