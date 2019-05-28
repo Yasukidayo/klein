@@ -65,6 +65,9 @@
     <Compile Include="Views\Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Home2.xaml.cs">
+      <DependentUpon>Home2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\New.xaml.cs">
       <DependentUpon>New.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,10 @@
       <DependentUpon>WorkerList.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
