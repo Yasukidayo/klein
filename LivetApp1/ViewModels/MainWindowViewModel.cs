@@ -144,23 +144,23 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
-        #region ShowWorkerList
-        private ViewModelCommand _ShowWorkerListCommand;
+        #region ShainList
+        private ViewModelCommand _ShainListCommand;
 
-        public ViewModelCommand ShowWorkerListCommand
+        public ViewModelCommand ShainListCommand
 
         {
             get
             {
-                if (_ShowWorkerListCommand == null)
+                if (_ShainListCommand == null)
                 {
-                    _ShowWorkerListCommand = new ViewModelCommand(ShowWorkerList);
+                    _ShainListCommand = new ViewModelCommand(ShainList);
                 }
-                return _ShowWorkerListCommand;
+                return _ShainListCommand;
             }
         }
 
-        public void ShowWorkerList()
+        public void ShainList()
         {
             System.Diagnostics.Debug.WriteLine("ShowShainList");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
