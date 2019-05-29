@@ -86,9 +86,9 @@ namespace LivetApp1.Models
         #endregion
 
         #region DepartmenrProperty
-        private long _Department;
+        private Department _Department;
 
-        public long Department
+        public Department Department
         {
             get
             { return _Department; }
@@ -102,7 +102,22 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region RootProperty
+        private Root _Root;
 
+        public Root Root
+        {
+            get
+            { return _Root; }
+            set
+            {
+                if (_Root == value)
+                    return;
+                _Root = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
         public async Task<User> LogonAsync()
         {
             IRestService rest = new RestService();
