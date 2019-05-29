@@ -91,6 +91,15 @@ namespace LivetApp1.Models
             IRestService rest = new RestService();
             User authorizedUser = await rest.LogonAsync(this);
             return authorizedUser;
+          
+        }
+
+        public async Task<User> LogonAsync2()
+        {
+            IRestService rest = new RestService();
+            User authorizedUser2 = await rest.LogonAsync2(this);
+            return authorizedUser2;
+
         }
 
     }

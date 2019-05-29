@@ -29,7 +29,7 @@
         </i:EventTrigger>
 
         <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
-        <l:InteractionMessageTrigger MessageKey="Logon" Messenger="{Binding Messenger}">
+        <l:InteractionMessageTrigger MessageKey="Logon2" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
          
@@ -50,7 +50,7 @@
                 <TextBlock Height="20" Width="70" Text="Password"/>
                 <TextBox Height="20" Width="120" Text="{Binding User.Password}"/>
             </UniformGrid>
-            <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding LogonCommand}" Content="Logon"/>
+            <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding Logon2Command}" Content="Logon2"/>
             <Button Content="ログインせずにホームへ移動" Command="{Binding ShowHome2Command}"/>
 
         </StackPanel>

@@ -42,39 +42,39 @@ namespace LivetApp1.ViewModels
         }
 
         #region LogonCommand
-        private ViewModelCommand _LogonCommand;
+        private ViewModelCommand _Logon2Command;
 
-        public ViewModelCommand LogonCommand
+        public ViewModelCommand Logon2Command
         {
             get
             {
-                if (_LogonCommand == null)
+                if (_Logon2Command == null)
                 {
-                    _LogonCommand = new ViewModelCommand(Logon);
+                    _Logon2Command = new ViewModelCommand(Logon2);
                 }
-                return _LogonCommand;
+                return _Logon2Command;
             }
         }
 
-        public async void Logon()
+        public async void Logon2()
         {
-            User authorizedUser = await this.User.LogonAsync();
-            System.Diagnostics.Debug.WriteLine("Logon");
+            User authorizedUser2 = await this.User.LogonAsync2();
+            System.Diagnostics.Debug.WriteLine("Logon2");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
-            if (authorizedUser != null) // Logon 成功
+            if (authorizedUser2 != null) // Logon 成功
             {
                 try
                 {
-                    // MainWindow を非表示
+                    
                     window.Hide();
                     Home2ViewModel ViewModel = new Home2ViewModel();
-                    var message = new TransitionMessage(typeof(Views.Home2), ViewModel, TransitionMode.Modal, "Logon");
+                    var message = new TransitionMessage(typeof(Views.Home2), ViewModel, TransitionMode.Modal, "Logon2");
                     Messenger.Raise(message);
                 }
                 finally
                 {
-                    // MainWindow を再表示
+                    
                     window.ShowDialog();
                 }
             }

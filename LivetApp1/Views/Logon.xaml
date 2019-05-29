@@ -36,7 +36,7 @@
         </l:InteractionMessageTrigger>
          
         <l:InteractionMessageTrigger MessageKey="ShowLogon2" Messenger="{Binding Messenger}">
-            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
         <l:InteractionMessageTrigger MessageKey="ShowNew" Messenger="{Binding Messenger}">

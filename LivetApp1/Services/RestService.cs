@@ -12,6 +12,7 @@ namespace LivetApp1.Services
 {
     class RestService : IRestService
     {
+      
         private HttpClient Client;
         private string BaseUrl;
 
@@ -23,7 +24,6 @@ namespace LivetApp1.Services
         public async Task<User> LogonAsync(User user)
         {
             var jObject = JsonConvert.SerializeObject(user);
-
             //Make Json object into content type
             var content = new StringContent(jObject);
             //Adding header of the contenttype
@@ -44,6 +44,35 @@ namespace LivetApp1.Services
             {
                 // TODO
                 System.Diagnostics.Debug.WriteLine("Exception in RestService.LogonAsync: " + e);
+            }
+            return responseUser;
+        }
+
+
+        public async Task<User> LogonAsync2(User user)
+        {
+            var jObject = JsonConvert.SerializeObject(user);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            User responseUser = null;
+            try
+            {
+                var response = await Client.PostAsync(this.BaseUrl + "/api/Logon2", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUser = JsonConvert.DeserializeObject<User>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                // TODO
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.LogonAsync2: " + e);
             }
             return responseUser;
         }
