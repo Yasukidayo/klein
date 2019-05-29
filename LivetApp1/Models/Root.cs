@@ -30,6 +30,44 @@ namespace LivetApp1.Models
         }
         #endregion
 
+                
+        #region Flag1Property
+
+
+        private string _BodyFlag1;
+        [JsonProperty("BodyFlag1")]
+        public string BodyFlag1
+        {
+            get
+            { return _BodyFlag1; }
+            set
+            {
+                if (_BodyFlag1 == value)
+                    return;
+                _BodyFlag1 = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region Flag2Property
+
+        private string _BodyFlag2;
+        [JsonProperty("BodyFlag2")]
+        public string BodyFlag2
+        {
+            get
+            { return _BodyFlag2; }
+            set
+            {
+                if (_BodyFlag2 == value)
+                    return;
+                _BodyFlag2 = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         #region IsAdminProperty
 
         private bool _IsAdmin;
