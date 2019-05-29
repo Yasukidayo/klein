@@ -64,7 +64,7 @@
             <TextBox Text="{Binding MyDate}"/>
             <DockPanel>
                 <Menu DockPanel.Dock="Top" Margin="427,0,10,0" RenderTransformOrigin="0.5,0.5">
-                    <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowRankingCommand}" />
+                     <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowHelpCommand}" />
                 </Menu>
             </DockPanel>
 
