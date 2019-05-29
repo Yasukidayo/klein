@@ -7,17 +7,18 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         Title="Shain" Height="350" Width="525">
-    
+
+
     <Window.DataContext>
         <vm:ShainViewModel/>
     </Window.DataContext>
-    
-     <i:Interaction.Triggers>
-     
-     	<!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
-    	<!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
-    	<!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています --> 
-        
+
+    <i:Interaction.Triggers>
+
+        <!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
+        <!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
+        <!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています -->
+
         <!--WindowのContentRenderedイベントのタイミングでViewModelのInitializeメソッドが呼ばれます-->
         <i:EventTrigger EventName="ContentRendered">
             <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize"/>
@@ -31,8 +32,32 @@
         <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
 
     </i:Interaction.Triggers>
-    
+
     <Grid>
-        
+        <StackPanel Margin="0,0.49,0,-0.49">
+            <UniformGrid Name="uniformGrid1" Columns="2">
+                <Button Content="戻る" Click="buttun1" Height="21" Margin="0,0,136,0" />
+            </UniformGrid>
+        </StackPanel>
+        <Image Source="/Resourses/shasin.png" Height="113" VerticalAlignment="Top" Width="120" Margin="0,23,397,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="0" Margin="-354,349.087,0,-30.087" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <TextBlock HorizontalAlignment="Left" Margin="13,94,0,0" TextWrapping="Wrap" Text="　　名前　" VerticalAlignment="Top" Height="14.96" Width="72"/>
+        <Button Content="感謝カード作成" HorizontalAlignment="Left" Margin="0,113.96,0,0" VerticalAlignment="Top" Width="124.2"/>
+        <Image Source="/Resourses/shasin.png" Height="113" VerticalAlignment="Top" Margin="136,23,256,0" RenderTransformOrigin="0.317,0.897"/>
+        <TextBlock HorizontalAlignment="Left" Height="2.08" Margin="-74,133.92,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="110"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="14.96" Width="87" Margin="159,94,0,0"><Run Text="　　　名前"/><LineBreak/><Run/></TextBlock>
+        <Button Content="感謝カード作成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="19.96" Margin="136,113.96,0,0" RenderTransformOrigin="0.5,0.5"/>
+        <Image Source="/Resourses/shasin.png" Height="113" VerticalAlignment="Top" Margin="277,23,120,0" RenderTransformOrigin="0.487,0.412"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="14.96" Width="87.2" Margin="295,94,0,0"><Run Text="　　　名前"/><LineBreak/><Run/></TextBlock>
+        <Button Content="感謝カード作成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.227,0.752" Margin="277,113.96,0,0"/>
+        <Image Source="/Resourses/shasin.png" Height="129" VerticalAlignment="Top" Width="120" Margin="0,180,397,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,251,0,0" TextWrapping="Wrap" Text="　名前" VerticalAlignment="Top" Width="59"/>
+        <Button Content="感謝カード作成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="0,271.96,0,0"/>
+        <Image Source="/Resourses/shasin.png" Height="113" VerticalAlignment="Top" Width="120" Margin="141,180,256,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="　　　名前" VerticalAlignment="Top" Margin="159,251,0,0" Width="87"/>
+        <Button Content="感謝カード作成" HorizontalAlignment="Left" Margin="141,273.04,0,0" VerticalAlignment="Top" Width="120" Height="18.88"/>
+        <Image Source="/Resourses/shasin.png" Height="113" VerticalAlignment="Top" Width="120" Margin="277,179,120,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="295,251,0,0" Width="87.2"><Run Text="　　　名前"/><LineBreak/><Run/></TextBlock>
+        <Button Content="感謝カード作成" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="277,273.04,0,0" Height="18.88"/>
     </Grid>
 </Window>
