@@ -85,6 +85,23 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region DepartmenrProperty
+        private long _Department;
+
+        public long Department
+        {
+            get
+            { return _Department; }
+            set
+            {
+                if (_Department == value)
+                    return;
+                _Department = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
 
         public async Task<User> LogonAsync()
         {
