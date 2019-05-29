@@ -169,8 +169,8 @@ namespace LivetApp1.ViewModels
             {
                 // MainWindow を非表示
                 window.Hide();
-                ShainListViewModel ViewModel = new ShainListViewModel();
-                var message = new TransitionMessage(typeof(Views.ShainList), ViewModel, TransitionMode.Modal, "ShowShainList");
+                ShainViewModel ViewModel = new ShainViewModel();
+                var message = new TransitionMessage(typeof(Views.Shain), ViewModel, TransitionMode.Modal, "ShowShainList");
                 Messenger.Raise(message);
             }
             finally
