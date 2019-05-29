@@ -40,7 +40,7 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
-        <l:InteractionMessageTrigger MessageKey="ShainList" Messenger="{Binding Messenger}">
+        <l:InteractionMessageTrigger MessageKey="ShowShainList" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
