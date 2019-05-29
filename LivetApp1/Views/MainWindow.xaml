@@ -40,14 +40,14 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
-        <l:InteractionMessageTrigger MessageKey="ShowWorkerList" Messenger="{Binding Messenger}">
+        <l:InteractionMessageTrigger MessageKey="ShainList" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
         <l:InteractionMessageTrigger MessageKey="ShowRanking" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
-        
+
         <l:InteractionMessageTrigger MessageKey="ShowHelp" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
@@ -61,12 +61,18 @@
 
     <Grid>
         <StackPanel>
-           <TextBox Text="{Binding MyDate}"/>
-        
+            <TextBox Text="{Binding MyDate}"/>
+            <DockPanel>
+                <Menu DockPanel.Dock="Top" Margin="427,0,10,0" RenderTransformOrigin="0.5,0.5">
+                    <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowRankingCommand}" />
+                </Menu>
+            </DockPanel>
+
 
             <TextBlock Width="160">
                 
                 あなたの職種を教えてください。
+
             </TextBlock>
 
             <ComboBox x:Name="MyComboBox"
@@ -77,15 +83,16 @@
               VerticalAlignment="Center"/>
 
 
+            <WrapPanel Orientation="Vertical">
+                <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Width="174" Height="54"/>
+                <Button Content="社員リスト" Command="{Binding ShainListCommand}" Height="54"/>
+                <Button Content="ランキング" Command="{Binding ShowRankingCommand}" Height="54"/>
+                <Button Content="掲示板" Command="{Binding ShowKejibanCommand}" Height="53"/>
+            </WrapPanel>
 
-            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}"/>
-            <Button Content="社員リスト" Command="{Binding ShowWorkerListCommand}"/>
-            <Button Content="ランキング" Command="{Binding ShowRankingCommand}"/>
-            <Button Content="ヘルプ" Command="{Binding ShowHelpCommand}"/>
-            <Button Content="掲示板" Command="{Binding ShowKejibanCommand}"/>
         </StackPanel>
-      
-       
+
+
 
     </Grid>
 

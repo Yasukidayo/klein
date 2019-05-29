@@ -23,11 +23,11 @@ namespace LivetApp1.Views
      */
      
     /// <summary>
-    /// ShainList.xaml の相互作用ロジック
+    /// Shain.xaml の相互作用ロジック
     /// </summary>
-    public partial class ShainList : Window
+    public partial class Shain : Window
     {
-        public ShainList()
+        public Shain()
         {
             InitializeComponent();
         }

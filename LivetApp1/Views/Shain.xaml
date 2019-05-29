@@ -1,4 +1,4 @@
-﻿<Window x:Class="LivetApp1.Views.ShainList"
+﻿<Window x:Class="LivetApp1.Views.Shain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -6,10 +6,10 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="ShainList" Height="350" Width="525">
+        Title="Shain" Height="350" Width="525">
     
     <Window.DataContext>
-        <vm:ShainListViewModel/>
+        <vm:ShainViewModel/>
     </Window.DataContext>
     
      <i:Interaction.Triggers>
