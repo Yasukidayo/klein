@@ -10,5 +10,7 @@ namespace LivetApp1.Services
     interface IRestService
     {
         Task<User> LogonAsync(User user);
+        Task<User> LogonAsync2(User user);
+       
     }
 }

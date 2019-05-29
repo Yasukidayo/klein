@@ -85,12 +85,38 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region DepartmenrProperty
+        private long _Department;
+
+        public long Department
+        {
+            get
+            { return _Department; }
+            set
+            {
+                if (_Department == value)
+                    return;
+                _Department = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
 
         public async Task<User> LogonAsync()
         {
             IRestService rest = new RestService();
             User authorizedUser = await rest.LogonAsync(this);
             return authorizedUser;
+          
+        }
+
+        public async Task<User> LogonAsync2()
+        {
+            IRestService rest = new RestService();
+            User authorizedUser2 = await rest.LogonAsync2(this);
+            return authorizedUser2;
+
         }
 
     }
