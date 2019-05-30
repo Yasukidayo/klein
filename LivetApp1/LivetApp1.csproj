@@ -55,6 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Root.cs" />
+    <Compile Include="Models\ThanksCard.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
