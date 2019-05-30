@@ -11,6 +11,7 @@ using Livet.Messaging.IO;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
+using System.Windows;
 using LivetApp1.Models;
 
 namespace LivetApp1.ViewModels
@@ -58,9 +59,81 @@ namespace LivetApp1.ViewModels
          * LivetのViewModelではプロパティ変更通知(RaisePropertyChanged)やDispatcherCollectionを使ったコレクション変更通知は
          * 自動的にUIDispatcher上での通知に変換されます。変更通知に際してUIDispatcherを操作する必要はありません。
          */
-         
+       
         public void Initialize()
         {
         }
+        #region ShowNew
+        private ViewModelCommand _ShowNewCommand;
+
+        public ViewModelCommand ShowNewCommand
+
+        {
+            get
+            {
+                if (_ShowNewCommand == null)
+                {
+                    _ShowNewCommand = new ViewModelCommand(ShowNew);
+                }
+                return _ShowNewCommand;
+            }
+        }
+
+        public void ShowNew()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowNew");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                NewViewModel ViewModel = new NewViewModel();
+                var message = new TransitionMessage(typeof(Views.New), ViewModel, TransitionMode.Modal, "ShowNew");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+        #region ShainList
+        private ViewModelCommand _ShainListCommand;
+
+        public ViewModelCommand ShainListCommand
+
+        {
+            get
+            {
+                if (_ShainListCommand == null)
+                {
+                    _ShainListCommand = new ViewModelCommand(ShainList);
+                }
+                return _ShainListCommand;
+            }
+        }
+
+        public void ShainList()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowShainList");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                ShainViewModel ViewModel = new ShainViewModel();
+                var message = new TransitionMessage(typeof(Views.Shain), ViewModel, TransitionMode.Modal, "ShowShainList");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
     }
 }
