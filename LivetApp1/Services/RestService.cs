@@ -76,5 +76,97 @@ namespace LivetApp1.Services
             }
             return responseUser;
         }
+
+        public async Task<List<User>> GetUsersAsync()
+        {
+            List<User> responseUsers = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/Users");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUsers = JsonConvert.DeserializeObject<List<User>>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetUsersAsync: " + e);
+            }
+            return responseUsers;
+        }
+
+        public async Task<User> PostUserAsync(User user)
+        {
+            var jObject = JsonConvert.SerializeObject(user);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            User responseUser = null;
+            try
+            {
+                var response = await Client.PostAsync(this.BaseUrl + "/api/Users", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUser = JsonConvert.DeserializeObject<User>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostUserAsync: " + e);
+            }
+            return responseUser;
+        }
+
+        public async Task<User> PutUserAsync(User user)
+        {
+            var jObject = JsonConvert.SerializeObject(user);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            User responseUser = null;
+            try
+            {
+                var response = await Client.PutAsync(this.BaseUrl + "/api/Users/" + user.Id, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUser = JsonConvert.DeserializeObject<User>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PutUserAsync: " + e);
+            }
+            return responseUser;
+        }
+
+        public async Task<User> DeleteUserAsync(long Id)
+        {
+            User responseUser = null;
+            try
+            {
+                var response = await Client.DeleteAsync(this.BaseUrl + "/api/Users/" + Id);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUser = JsonConvert.DeserializeObject<User>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteUserAsync: " + e);
+            }
+            return responseUser;
+        }
+
+
     }
 }

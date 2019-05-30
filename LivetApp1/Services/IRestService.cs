@@ -11,6 +11,13 @@ namespace LivetApp1.Services
     {
         Task<User> LogonAsync(User user);
         Task<User> LogonAsync2(User user);
-       
+
+        // User REST API Client
+        Task<List<User>> GetUsersAsync();
+        Task<User> PostUserAsync(User user);
+        Task<User> PutUserAsync(User user);
+        Task<User> DeleteUserAsync(long Id);
+
+
     }
 }
