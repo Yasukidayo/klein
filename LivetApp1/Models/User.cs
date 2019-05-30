@@ -134,6 +134,34 @@ namespace LivetApp1.Models
 
         }
 
+        public async Task<List<User>> GetUsersAsync()
+        {
+            IRestService rest = new RestService();
+            List<User> users = await rest.GetUsersAsync();
+            return users;
+        }
+
+        public async Task<User> PostUserAsync(User user)
+        {
+            IRestService rest = new RestService();
+            User createdUser = await rest.PostUserAsync(user);
+            return createdUser;
+        }
+
+        public async Task<User> PutUserAsync(User user)
+        {
+            IRestService rest = new RestService();
+            User updatedUser = await rest.PutUserAsync(user);
+            return updatedUser;
+        }
+
+        public async Task<User> DeleteUserAsync(long Id)
+        {
+            IRestService rest = new RestService();
+            User deletedUser = await rest.DeleteUserAsync(Id);
+            return deletedUser;
+        }
+
     }
   
 }
