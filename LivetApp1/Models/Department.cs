@@ -78,7 +78,9 @@ namespace LivetApp1.Models
                 RaisePropertyChanged();
             }
         }
-        #endregion  
+        #endregion
+               
+
     
     }
 
