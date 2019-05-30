@@ -7,17 +7,17 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         Title="Home2" Height="350" Width="525">
-    
+
     <Window.DataContext>
         <vm:Home2ViewModel/>
     </Window.DataContext>
-    
-     <i:Interaction.Triggers>
-     
-     	<!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
-    	<!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
-    	<!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています --> 
-        
+
+    <i:Interaction.Triggers>
+
+        <!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
+        <!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
+        <!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています -->
+
         <!--WindowのContentRenderedイベントのタイミングでViewModelのInitializeメソッドが呼ばれます-->
         <i:EventTrigger EventName="ContentRendered">
             <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize"/>
@@ -46,15 +46,16 @@
         </l:InteractionMessageTrigger>
 
     </i:Interaction.Triggers>
-    
-    <Grid>
-        <StackPanel>
 
+    <Grid>
+
+        <StackPanel >
             <TextBlock Text="このページは管理者画面のホームです。" />
-            <Button Content="代表的な事例" Command="{Binding ShowJireiCommand}" />
             <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" />
-            <Button Content="ユーザ登録" Command="{Binding ShowTourokugamenCommand}" />
-            <Button Content="ユーザ参照" Command="{Binding ShowSanshouCommand}" />
+            <Button Content="ユーザ登録" Command="{Binding ShowTourokugamenCommand}" RenderTransformOrigin="0.499,0.521" Margin="133,0" Width="250.909" />
+            <Button Content="代表的な事例" Command="{Binding ShowJireiCommand}" />
+            <Button Content="ユーザ参照" Command="{Binding ShowSanshouCommand}" Height="114" Margin="0,0,133,0" RenderTransformOrigin="0.5,0.5" />
+
         </StackPanel>
     </Grid>
 </Window>
