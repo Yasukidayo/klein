@@ -19,5 +19,9 @@ namespace LivetApp1.Services
         Task<User> DeleteUserAsync(long Id);
 
 
+        // TanksCard REST API Client
+        Task<List<ThanksCard>> GetThanksCardsAsync();
+        Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard);
+
     }
 }

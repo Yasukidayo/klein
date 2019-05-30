@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="感謝カードの作成。"  Height="550" Width="725">
+        Title="感謝カードの作成。"  Height="600" Width="725">
     <!--fontsizeいれると全体のサイズが大きくなる -->
 
 
@@ -73,6 +73,8 @@
             <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"/>
             <TextBlock Text="タイトル:"/>
             <TextBox Text="{Binding ThanksCard.Title}"/>
+            <CheckBox Content="事業改善案"  IsChecked="False" />
+            <CheckBox Content="代表案件"  IsChecked="False" />
             <TextBlock   Text="感謝の言葉:"/>
             <TextBox  Height="300"  Text="{Binding ThanksCard.Body}"/>
             <UniformGrid Name="uniformGrid1" Columns="2">

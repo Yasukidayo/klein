@@ -21,6 +21,8 @@ namespace LivetApp1.Services
             this.Client = new HttpClient();
             this.BaseUrl = "https://localhost:5001";
         }
+
+        #region rogon処理
         public async Task<User> LogonAsync(User user)
         {
             var jObject = JsonConvert.SerializeObject(user);
@@ -76,6 +78,9 @@ namespace LivetApp1.Services
             }
             return responseUser;
         }
+        #endregion
+
+        #region User
 
         public async Task<List<User>> GetUsersAsync()
         {
@@ -165,6 +170,53 @@ namespace LivetApp1.Services
                 System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteUserAsync: " + e);
             }
             return responseUser;
+        }
+        #endregion
+
+
+        public async Task<List<ThanksCard>> GetThanksCardsAsync()
+        {
+            List<ThanksCard> responseThanksCards = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/ThanksCard");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseThanksCards = JsonConvert.DeserializeObject<List<ThanksCard>>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetThanksCardsAsync: " + e);
+            }
+            return responseThanksCards;
+        }
+
+        public async Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard)
+        {
+            var jObject = JsonConvert.SerializeObject(thanksCard);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            ThanksCard responseThanksCard = null;
+            try
+            {
+                var response = await Client.PostAsync(this.BaseUrl + "/api/ThanksCard", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseThanksCard = JsonConvert.DeserializeObject<ThanksCard>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostThanksCardAsync: " + e);
+            }
+            return responseThanksCard;
         }
 
 

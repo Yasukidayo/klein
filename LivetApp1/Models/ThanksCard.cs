@@ -113,6 +113,11 @@ namespace LivetApp1.Models
                 RaisePropertyChanged();
             }
         }
+
+        internal Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region CreatedDateTimeProperty
