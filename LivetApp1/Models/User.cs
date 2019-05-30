@@ -118,6 +118,8 @@ namespace LivetApp1.Models
             }
         }
         #endregion
+
+        #region Logon処理
         public async Task<User> LogonAsync()
         {
             IRestService rest = new RestService();
@@ -133,6 +135,8 @@ namespace LivetApp1.Models
             return authorizedUser2;
 
         }
+        #endregion
+
 
         public async Task<List<User>> GetUsersAsync()
         {
