@@ -46,6 +46,23 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region FromIdProperty
+       
+ private long _FromId;
+
+        public long FromId
+        {
+            get
+            { return _FromId; }
+            set
+            {
+                if (_FromId == value)
+                    return;
+                _FromId = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
 
         #region FromProperty
         private User _From;
@@ -59,6 +76,23 @@ namespace LivetApp1.Models
                 if (_From == value)
                     return;
                 _From = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region ToIdProperty
+        private long _ToId;
+
+        public long ToId
+        {
+            get
+            { return _ToId; }
+            set
+            {
+                if (_ToId == value)
+                    return;
+                _ToId = value;
                 RaisePropertyChanged();
             }
         }
@@ -112,11 +146,6 @@ namespace LivetApp1.Models
                 _Body = value;
                 RaisePropertyChanged();
             }
-        }
-
-        internal Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard)
-        {
-            throw new NotImplementedException();
         }
         #endregion
 
@@ -172,5 +201,27 @@ namespace LivetApp1.Models
             }
         }
         #endregion
+
+        #region ThanksCard
+        public ThanksCard()
+        {
+            this.CreatedDateTime = DateTime.Now;
+        }
+
+        public async Task<List<ThanksCard>> GetThanksCardsAsync()
+        {
+            IRestService rest = new RestService();
+            List<ThanksCard> thanksCards = await rest.GetThanksCardsAsync();
+            return thanksCards;
+        }
+
+        public async Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard)
+        {
+            IRestService rest = new RestService();
+            ThanksCard createdThanksCard = await rest.PostThanksCardAsync(thanksCard);
+            return createdThanksCard;
+        }
+        #endregion
+
     }
 }

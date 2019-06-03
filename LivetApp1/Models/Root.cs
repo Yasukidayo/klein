@@ -85,5 +85,36 @@ namespace LivetApp1.Models
             }
         }
         #endregion
+
+        #region Root
+
+        public async Task<List<Root>> GetrootsAsync()
+        {
+            IRestService rest = new RestService();
+            List<Root> Roots = await rest.GetRootsAsync();
+            return Roots;
+        }
+
+        public async Task<Root> PostRootAsync(Root root)
+        {
+            IRestService rest = new RestService();
+            Root createdRoot = await rest.PostRootAsync(root);
+            return createdRoot;
+        }
+
+        public async Task<Root> PutRootAsync(Root root)
+        {
+            IRestService rest = new RestService();
+            Root updatedRoot = await rest.PutRootAsync(root);
+            return updatedRoot;
+        }
+
+        public async Task<Root> DeleteRootAsync(long Id)
+        {
+            IRestService rest = new RestService();
+            Root deletedRoot = await rest.DeleteRootAsync(Id);
+            return deletedRoot;
+        }
+        #endregion
     }
 }

@@ -49,6 +49,7 @@
                     <DataGridTextColumn Header="名前" Binding="{Binding Name}" />
                     <DataGridTextColumn Header="パスワード" Binding="{Binding Password}" />
                     <DataGridTextColumn Header="部署" Binding="{Binding Department.Name}" />
+                    <DataGridTextColumn Header="権限" Binding="{Binding Root.IsAdmin}" />
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

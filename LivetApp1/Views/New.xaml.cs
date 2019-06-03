@@ -32,26 +32,11 @@ namespace LivetApp1.Views
             InitializeComponent();
       
 
-            MyComboBox1.Items.Add("い");
-            MyComboBox1.Items.Add("ろ");
-            MyComboBox1.Items.Add("は");
-            MyComboBox1.Items.Add("に");
-            MyComboBox1.Items.Add("ほ");
-            MyComboBox1.Items.Add("へ");
-            MyComboBox1.Items.Add("と");
+     
         }
        
 
-        private void MyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+  
         private void buttun1(object sender, RoutedEventArgs e)
         {
             this.Close();
