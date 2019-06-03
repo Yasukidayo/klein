@@ -49,6 +49,26 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region PasswordProperty　//追加
+
+
+        private string _Password;
+        [JsonProperty("Password")]
+        public string Password
+        {
+            get
+            { return _Password; }
+            set
+            {
+                if (_Password == value)
+                    return;
+                _Password = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion 
+
+
         #region IsAdminProperty
 
         private bool _IsAdmin;
