@@ -9,13 +9,6 @@
         Title="感謝カードの作成。"  Height="600" Width="725">
     <!--fontsizeいれると全体のサイズが大きくなる -->
 
-
-
-
-
-
-
-
     <Window.DataContext>
         <vm:NewViewModel/>
     </Window.DataContext>
@@ -36,8 +29,12 @@
             <l:DataContextDisposeAction/>
         </i:EventTrigger>
 
-       
+        <l:InteractionMessageTrigger MessageKey="Created" Messenger="{Binding Messenger}">
+            <l:WindowInteractionMessageAction/>
+        </l:InteractionMessageTrigger>
+        
     </i:Interaction.Triggers>
+    
     <Grid>
         <StackPanel>
 
@@ -46,7 +43,7 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17"/><InlineUIContainer>
-                    <ComboBox ItemsSource="{Binding Users}" x:Name ="MyComboBox1"  SelectedValue="{Binding ThanksCard.From}" Width="169" Height="15"/>
+                    <ComboBox ItemsSource="{Binding Users}" x:Name ="MyComboBox1" Width="169" Height="15"/>
                 </InlineUIContainer></TextBlock>
                 <TextBlock ><Run Text="名前:" FontSize="17"/><InlineUIContainer>
                         <ComboBox ItemsSource="{Binding Users}" x:Name ="MyComboBox2"  SelectedValue="{Binding ThanksCard.From}" Width="169" Height="15"/>
@@ -60,7 +57,7 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17" /><InlineUIContainer>
-                    <ComboBox ItemsSource="{Binding Users}" x:Name ="MyComboBox3"  SelectedValue="{Binding ThanksCard.To}" Width="169" Height="15"/>
+                    <ComboBox ItemsSource="{Binding Users}" x:Name ="MyComboBox3"   Width="169" Height="15"/>
                 </InlineUIContainer></TextBlock>
                 <TextBlock ><Run Text="名前:" FontSize="17" /><InlineUIContainer>
                         <ComboBox ItemsSource="{Binding Users}" x:Name ="MyComboBox4"  SelectedValue="{Binding ThanksCard.To}" Width="169" Height="15"/>
@@ -71,7 +68,7 @@
             
             <TextBlock Text="作成日:"/>
             <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"/>
-            <TextBlock Text="タイトル:"/>
+
             <TextBox Text="{Binding ThanksCard.Title}"/>
             <CheckBox Content="事業改善案"  IsChecked="False" />
             <CheckBox Content="代表案件"  IsChecked="False" />

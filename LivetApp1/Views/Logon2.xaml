@@ -51,7 +51,7 @@
                 <TextBox Height="20" Width="120" Text="{Binding User.Password}"/>
             </UniformGrid>
             <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding Logon2Command}" Content="Logon2"/>
-            <Button Content="ログインせずにホームへ移動" Command="{Binding ShowHome2Command}"/>
+            <Button Content="ログインせずにホームへ移動" Command="{Binding ShowHomCommand}"/>
 
         </StackPanel>
     </Grid>

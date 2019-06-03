@@ -14,40 +14,37 @@ using Livet.Messaging.Windows;
 using LivetApp1.Models;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows;
+using LivetApp1.Services;
 
 namespace LivetApp1.ViewModels
 {
     public class NewViewModel : ViewModel
     {
-       
-        #region MyMessageProperty
-        private string _MyMessage;
+        
+         #region MyMessageProperty
+         private string _MyMessage;
 
-        public string MyMessage
-        {
-            get
-            { return _MyMessage; }
-            set
-            {
-                if (_MyMessage == value)
-                    return;
-                _MyMessage = value;
-                RaisePropertyChanged();
-                System.Diagnostics.Debug.WriteLine("MyMessage: " + this.MyMessage); //動作確認用。本来はこの行は必要ありません。
+         public string MyMessage
+         {
+             get
+             { return _MyMessage; }
+             set
+             {
+                 if (_MyMessage == value)
+                     return;
+                 _MyMessage = value;
+                 RaisePropertyChanged();
+                 System.Diagnostics.Debug.WriteLine("MyMessage: " + this.MyMessage); //動作確認用。本来はこの行は必要ありません。
 
-            }
-        }
+             }
+         }
         #endregion
 
         public void Initialize()
         {
-          
-
-            this.MyMessage = "ページ移動に成功しました。";
-
         }
 
-     
+
 
     }
 }

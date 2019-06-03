@@ -129,6 +129,8 @@ namespace LivetApp1.ViewModels
             System.Diagnostics.Debug.WriteLine("ShowNew");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
+          
+            
             try
             {
                 // MainWindow を非表示
@@ -143,8 +145,10 @@ namespace LivetApp1.ViewModels
                 window.ShowDialog();
             }
         }
-        #endregion
-        #region ShainList
+
+    
+            #endregion
+            #region ShainList
         private ViewModelCommand _ShainListCommand;
 
         public ViewModelCommand ShainListCommand
@@ -287,7 +291,7 @@ namespace LivetApp1.ViewModels
                 // MainWindow を再表示
                 window.ShowDialog();
             }
-        }
+         }
         #endregion
    
 
