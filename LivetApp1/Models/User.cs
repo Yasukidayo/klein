@@ -139,7 +139,7 @@ namespace LivetApp1.Models
         }
         #endregion
 
-
+        #region User
         public async Task<List<User>> GetUsersAsync()
         {
             IRestService rest = new RestService();
@@ -168,7 +168,7 @@ namespace LivetApp1.Models
             return deletedUser;
         }
 
-
+        #endregion
     }
-  
+
 }
