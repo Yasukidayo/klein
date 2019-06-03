@@ -49,24 +49,6 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        #region PasswordProperty
-
-        private string _Password;
-        [JsonProperty("Password")]
-        public string Password
-        {
-            get
-            { return _Password; }
-            set
-            { 
-                if (_Password == value)
-                    return;
-                _Password = value;
-                RaisePropertyChanged();
-            }
-        }
-        #endregion
-
         #region IsAdminProperty
 
         private bool _IsAdmin;
@@ -165,6 +147,7 @@ namespace LivetApp1.Models
             User deletedUser = await rest.DeleteUserAsync(Id);
             return deletedUser;
         }
+
 
     }
   

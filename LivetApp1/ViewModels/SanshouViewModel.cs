@@ -19,32 +19,34 @@ namespace LivetApp1.ViewModels
     public class SanshouViewModel : ViewModel
     {
         #region UsersProperty
-        private List<User> _Users;
+        private List<User> _User;
 
-        public List<User> Users
+        public List<User> User
         {
             get
-            { return _Users; }
+            { return _User; }
             set
             {
-                if (_Users == value)
+                if (_User == value)
                     return;
-                _Users = value;
+                _User = value;
                 RaisePropertyChanged();
             }
         }
         #endregion
 
-        public void Initialize()
+        public async void Initialize()
         {
             this.UpdateUsers();
+            User user = new User();
+            this.User = await user.GetUsersAsync();
         }
 
         private async void UpdateUsers()
         {
             if (SessionService.Instance.AuthorizedUser != null)
             {
-                this.Users = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
+                this.User = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
             }
         }
 
@@ -53,6 +55,7 @@ namespace LivetApp1.ViewModels
 
         public ListenerCommand<User> UserDeleteCommand
         {
+
             get
             {
                 if (_UserDeleteCommand == null)
@@ -67,9 +70,10 @@ namespace LivetApp1.ViewModels
         {
             System.Diagnostics.Debug.WriteLine("DeleteCommand" + User.Id);
             User deletedUser = await User.DeleteUserAsync(User.Id);
-
+            
             this.Initialize();
         }
         #endregion
+        
     }
 }

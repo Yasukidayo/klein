@@ -72,6 +72,7 @@
     <Compile Include="ViewModels\SanshouViewModel.cs" />
     <Compile Include="ViewModels\ShainViewModel.cs" />
     <Compile Include="ViewModels\TourokugamenViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\gyoumukaizen.xaml.cs">
       <DependentUpon>gyoumukaizen.xaml</DependentUpon>
     </Compile>
