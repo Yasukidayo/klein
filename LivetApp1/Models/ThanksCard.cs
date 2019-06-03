@@ -46,6 +46,23 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region FromIdProperty
+       
+ private long _FromId;
+
+        public long FromId
+        {
+            get
+            { return _FromId; }
+            set
+            {
+                if (_FromId == value)
+                    return;
+                _FromId = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
 
         #region FromProperty
         private User _From;
@@ -59,6 +76,23 @@ namespace LivetApp1.Models
                 if (_From == value)
                     return;
                 _From = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region ToIdProperty
+        private long _ToId;
+
+        public long ToId
+        {
+            get
+            { return _ToId; }
+            set
+            {
+                if (_ToId == value)
+                    return;
+                _ToId = value;
                 RaisePropertyChanged();
             }
         }
