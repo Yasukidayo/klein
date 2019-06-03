@@ -49,7 +49,7 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        #region PasswordProperty　//追加
+        #region PasswordProperty　
 
 
         private string _Password;
