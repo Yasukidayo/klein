@@ -80,9 +80,38 @@ namespace LivetApp1.Models
             }
         }
         #endregion
-               
 
-    
+        #region Department
+
+        public async Task<List<Department>> GetDepartmentsAsync()
+        {
+            IRestService rest = new RestService();
+            List<Department> Departments = await rest.GetDepartmentsAsync();
+            return Departments;
+        }
+
+        public async Task<Department> PostDepartmentAsync(Department Department)
+        {
+            IRestService rest = new RestService();
+            Department createdDepartment = await rest.PostDepartmentAsync(Department);
+            return createdDepartment;
+        }
+
+        public async Task<Department> PutDepartmentAsync(Department department)
+        {
+            IRestService rest = new RestService();
+            Department updatedDepartment = await rest.PutDepartmentAsync(department);
+            return updatedDepartment;
+        }
+
+        public async Task<Department> DeleteDepartmentAsync(long Id)
+        {
+            IRestService rest = new RestService();
+            Department deletedDepartment = await rest.DeleteDepartmentAsync(Id);
+            return deletedDepartment;
+        }
+        #endregion
     }
-
 }
+    
+   
