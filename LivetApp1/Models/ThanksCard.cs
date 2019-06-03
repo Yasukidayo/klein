@@ -113,11 +113,6 @@ namespace LivetApp1.Models
                 RaisePropertyChanged();
             }
         }
-
-        internal Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
 
         #region CreatedDateTimeProperty
@@ -172,5 +167,27 @@ namespace LivetApp1.Models
             }
         }
         #endregion
+
+        #region ThanksCard
+        public ThanksCard()
+        {
+            this.CreatedDateTime = DateTime.Now;
+        }
+
+        public async Task<List<ThanksCard>> GetThanksCardsAsync()
+        {
+            IRestService rest = new RestService();
+            List<ThanksCard> thanksCards = await rest.GetThanksCardsAsync();
+            return thanksCards;
+        }
+
+        public async Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard)
+        {
+            IRestService rest = new RestService();
+            ThanksCard createdThanksCard = await rest.PostThanksCardAsync(thanksCard);
+            return createdThanksCard;
+        }
+        #endregion
+
     }
 }
