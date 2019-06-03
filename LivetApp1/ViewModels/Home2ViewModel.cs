@@ -120,7 +120,7 @@ namespace LivetApp1.ViewModels
                 // MainWindow を非表示
                 window.Hide();
                 TourokugamenViewModel ViewModel = new TourokugamenViewModel();
-                var message = new TransitionMessage(typeof(Views.tourokugamen), ViewModel, TransitionMode.Modal, "ShowTourokugamen");
+                var message = new TransitionMessage(typeof(Views.Tourokugamen), ViewModel, TransitionMode.Modal, "ShowTourokugamen");
                 Messenger.Raise(message);
             }
             finally

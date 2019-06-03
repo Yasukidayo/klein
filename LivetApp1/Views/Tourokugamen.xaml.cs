@@ -23,18 +23,13 @@ namespace LivetApp1.Views
      */
 
     /// <summary>
-    /// tourokugamen.xaml の相互作用ロジック
+    /// Tourokugamen.xaml の相互作用ロジック
     /// </summary>
-    public partial class tourokugamen : Window
+    public partial class Tourokugamen : Window
     {
-        public tourokugamen()
+        public Tourokugamen()
         {
             InitializeComponent();
-        }
-
-        private void buttun1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
