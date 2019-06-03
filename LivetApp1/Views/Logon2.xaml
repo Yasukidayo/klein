@@ -33,10 +33,7 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
          
-        <l:InteractionMessageTrigger MessageKey="ShowHome2" Messenger="{Binding Messenger}">
-            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
-        </l:InteractionMessageTrigger>
-         
+       
     </i:Interaction.Triggers>
     <Grid>
         <TextBlock/>
