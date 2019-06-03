@@ -38,5 +38,16 @@
             <Button Content="戻る" Click="buttun1" Margin="0,0,168.25,292" />
         </UniformGrid>
 
+        <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,28,0,-28">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" />
+                <DataGridTextColumn Header="From" Binding="{Binding From.Name}" />
+                <DataGridTextColumn Header="To" Binding="{Binding To.Name}" />
+                <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
