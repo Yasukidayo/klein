@@ -14,9 +14,9 @@ namespace LivetApp1.Models
     {
 
         #region IdProperty
-        private long _Id;
+        private int _Id;
 
-        public long Id
+        public int Id
         {
             get
             { return _Id; }

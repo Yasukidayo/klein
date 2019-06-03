@@ -87,7 +87,7 @@ namespace LivetApp1.Services
             List<User> responseUsers = null;
             try
             {
-                var response = await Client.GetAsync(this.BaseUrl + "/api/Users");
+                var response = await Client.GetAsync(this.BaseUrl + "/api/users");
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();

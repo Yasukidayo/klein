@@ -23,5 +23,7 @@ namespace LivetApp1.Services
         Task<List<ThanksCard>> GetThanksCardsAsync();
         Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard);
 
+       
+
     }
 }

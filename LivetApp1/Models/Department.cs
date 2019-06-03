@@ -29,10 +29,11 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        #region CodeProperty
-        private int _CD;
 
-        public int CD
+        #region CodeProperty
+        private long _CD;
+
+        public long CD
         {
             get
             { return _CD; }
