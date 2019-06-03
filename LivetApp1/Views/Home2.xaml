@@ -51,11 +51,12 @@
 
         <StackPanel >
             <TextBlock Text="このページは管理者画面のホームです。" />
-            <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" />
-            <Button Content="ユーザ登録" Command="{Binding ShowTourokugamenCommand}" RenderTransformOrigin="0.499,0.521" Margin="133,0" Width="250.909" />
-            <Button Content="代表的な事例" Command="{Binding ShowJireiCommand}" />
-            <Button Content="ユーザ参照" Command="{Binding ShowSanshouCommand}" Height="114" Margin="0,0,133,0" RenderTransformOrigin="0.5,0.5" />
-
         </StackPanel>
+        <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" HorizontalAlignment="Left" Margin="184.697,84.058,0,0" VerticalAlignment="Top" Width="156.818" RenderTransformOrigin="-0.081,0.304" Height="50"/>
+        <Button Content="登録画面" Command="{Binding ShowTourokugamenCommand}" HorizontalAlignment="Left" Margin="184.697,134.058,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.162,0" Height="50"/>
+        <Button Content="事例" Command="{Binding ShowJireiCommand}" HorizontalAlignment="Left" Margin="184.697,184.058,0,0" VerticalAlignment="Top" Width="156" Height="50"/>
+        <Button Content="参照" Command="{Binding ShowSanshouCommand}" HorizontalAlignment="Left" Margin="184.697,230.23,0,0" VerticalAlignment="Top" Width="156" Height="50"/>
+        <Button Content="ログアウト" HorizontalAlignment="Left" Margin="392.969,10,0,0" VerticalAlignment="Top" Width="100.758" Height="29.051"/>
+
     </Grid>
 </Window>
