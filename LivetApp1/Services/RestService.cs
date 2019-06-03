@@ -312,5 +312,98 @@ namespace LivetApp1.Services
         }
         #endregion
 
+        #region Root
+        public async Task<List<Root>> GetRootsAsync()
+        {
+            List<Root> responseRoots = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/Roots");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseRoots = JsonConvert.DeserializeObject<List<Root>>(responseContent);
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetRootsAsync: " + e);
+            }
+            return responseRoots;
+        }
+
+        public async Task<Root> PostRootAsync(Root root)
+        {
+            var jObject = JsonConvert.SerializeObject(root);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Root responseRoot = null;
+            try
+            {
+                var response = await Client.PostAsync(this.BaseUrl + "/api/Roots", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseRoot = JsonConvert.DeserializeObject<Root>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostRootAsync: " + e);
+            }
+            return responseRoot;
+        }
+
+        public async Task<Root> PutRootAsync(Root root)
+        {
+            var jObject = JsonConvert.SerializeObject(root);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Root responseRoot = null;
+            try
+            {
+                var response = await Client.PutAsync(this.BaseUrl + "/api/Roots/" + root.Id, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseRoot = JsonConvert.DeserializeObject<Root>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PutRootAsync: " + e);
+            }
+            return responseRoot;
+        }
+
+        public async Task<Root> DeleteRootAsync(long Id)
+        {
+            Root responseRoot = null;
+            try
+            {
+                var response = await Client.DeleteAsync(this.BaseUrl + "/api/Roots/" + Id);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseRoot = JsonConvert.DeserializeObject<Root>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteRootAsync: " + e);
+            }
+            return responseRoot;
+        }
+        #endregion
+
     }
 }
