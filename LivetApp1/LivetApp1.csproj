@@ -105,9 +105,6 @@
     <Compile Include="Views\Tourokugamen.xaml.cs">
       <DependentUpon>Tourokugamen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\usertuika.xaml.cs">
-      <DependentUpon>usertuika.xaml</DependentUpon>
-    </Compile>
     <Page Include="Views\gyoumukaizen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,10 +166,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Tourokugamen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\usertuika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
