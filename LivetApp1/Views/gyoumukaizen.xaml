@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="gyoumukaizen" Height="350" Width="525">
+        Title="gyoumukaizen" Height="350" Width="625">
 
     <Window.DataContext>
         <vm:gyoumukaizenViewModel/>
@@ -33,21 +33,63 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <StackPanel>
-            <UniformGrid Name="uniformGrid1" Columns="2">
-                <Button Content="戻る" Click="buttun1"   Height="29" Margin="0,0,115,0" />
-            </UniformGrid>
-        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="482.2" Text="Id   タイトル　　感謝の言葉　　From　　To   作成日時"/>
+        <UniformGrid Name="uniformGrid1" Columns="2">
+            <Button Content="戻る" Click="buttun1" Margin="0,0,168.25,292" Height="auto"/>
+        </UniformGrid>
 
         <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,28,0,-28">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" />
-                <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" />
-                <DataGridTextColumn Header="From" Binding="{Binding From.Name}" />
-                <DataGridTextColumn Header="To" Binding="{Binding To.Name}" />
-                <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" />
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="30">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="150" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="130">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
 </Window>
