@@ -29,10 +29,6 @@ namespace LivetApp1.Services
         Task<Department> PutDepartmentAsync(Department department);
         Task<Department> DeleteDepartmentAsync(long Id);
 
-        // Root REST API Client
-        Task<List<Root>> GetRootsAsync();
-        Task<Root> PostRootAsync(Root root);
-        Task<Root> PutRootAsync(Root root);
-        Task<Root> DeleteRootAsync(long Id);
+     
     }
 }

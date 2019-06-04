@@ -104,22 +104,7 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        #region RootProperty
-        private Root _Root;
-
-        public Root Root
-        {
-            get
-            { return _Root; }
-            set
-            {
-                if (_Root == value)
-                    return;
-                _Root = value;
-                RaisePropertyChanged();
-            }
-        }
-        #endregion
+        
 
         #region Logon処理
         public async Task<User> LogonAsync()
