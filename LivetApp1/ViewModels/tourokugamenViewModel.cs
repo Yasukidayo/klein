@@ -29,7 +29,7 @@ namespace LivetApp1.ViewModels
                 if (_User == value)
                     return;
                 _User = value;
-                RaisePropertyChanged(nameof(User));
+                RaisePropertyChanged(nameof(User));  //nameof(User)
             }
         }
         #endregion
@@ -70,7 +70,9 @@ namespace LivetApp1.ViewModels
 
         public async void Initialize()
         {
+
             this.User = new User();
+            User.IsAdmin = true;
 
             Department department = new Department();
             this.Department = await department.GetDepartmentsAsync();
@@ -98,7 +100,10 @@ namespace LivetApp1.ViewModels
 
         public async void Submit()
         {
-            User createdUser = await User.PostUserAsync(this.User);
+          
+            User createdUser = await User.PostUserAsync(this.User);         
+         
+
             //TODO: Error handling
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Created"));
         }

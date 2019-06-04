@@ -87,6 +87,24 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region DepartmentIdProperty
+
+        private long _DepartmentId;
+
+        public long DepartmentId
+        {
+            get
+            { return _DepartmentId; }
+            set
+            {
+                if (_DepartmentId == value)
+                    return;
+                _DepartmentId = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         #region DepartmenrProperty
         private Department _Department;
 
@@ -99,6 +117,23 @@ namespace LivetApp1.Models
                 if (_Department == value)
                     return;
                 _Department = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region RootIdProperty
+        private long _RootId;
+
+        public long RootId
+        {
+            get
+            { return _RootId; }
+            set
+            {
+                if (_RootId == value)
+                    return;
+                _RootId = value;
                 RaisePropertyChanged();
             }
         }
