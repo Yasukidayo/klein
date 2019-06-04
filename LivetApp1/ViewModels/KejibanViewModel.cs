@@ -81,5 +81,7 @@ namespace LivetApp1.ViewModels
             ThanksCard thanksCard = new ThanksCard();
             this.ThanksCards = await thanksCard.GetThanksCardsAsync();
         }
-    }
+
+      
+        }
 }
