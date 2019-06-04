@@ -81,5 +81,17 @@ namespace LivetApp1.ViewModels
             ThanksCard thanksCard = new ThanksCard();
             this.ThanksCards = await thanksCard.GetThanksCardsAsync();
         }
-    }
+
+        private void B_delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (lastIndex == kIndex_notSelected)
+            {
+                return;
+            }
+            Person prsn = dg1.Items[lastIndex] as Person;
+            myList.Remove(prsn);
+
+            MessageBox.Show("deleted " + prsn.Name);
+            lastIndex = kIndex_notSelected;
+        }
 }
