@@ -293,9 +293,30 @@ namespace LivetApp1.ViewModels
             }
          }
         #endregion
-   
 
-      
+
+        #region ThanksCardsProperty
+        private List<ThanksCard> _ThanksCards;
+
+        public List<ThanksCard> ThanksCards
+        {
+            get
+            { return _ThanksCards; }
+            set
+            {
+                if (_ThanksCards == value)
+                    return;
+                _ThanksCards = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        public async void Initialize2()
+        {
+            ThanksCard thanksCard = new ThanksCard();
+            this.ThanksCards = await thanksCard.GetThanksCardsAsync();
+        }
     }
 }
  

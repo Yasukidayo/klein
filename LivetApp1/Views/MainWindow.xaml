@@ -23,6 +23,10 @@
             <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize"/>
         </i:EventTrigger>
 
+        <i:EventTrigger EventName="ContentRendered">
+            <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize2"/>
+        </i:EventTrigger>
+
         <!--Windowが閉じたタイミングでViewModelのDisposeメソッドが呼ばれます-->
         <i:EventTrigger EventName="Closed">
             <l:DataContextDisposeAction/>
@@ -70,7 +74,7 @@
             
             <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,40,0,0" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="50" >
+                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -78,7 +82,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="150"  >
+                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextWrapping" Value="Wrap" />
