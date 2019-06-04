@@ -34,9 +34,6 @@ namespace LivetApp1.Views
             InitializeComponent();
          
 
-            MyComboBox.Items.Add("営業");
-            MyComboBox.Items.Add("SE");
-            MyComboBox.Items.Add("NE");
         }
 
       
@@ -47,6 +44,11 @@ namespace LivetApp1.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
         
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }  
 
