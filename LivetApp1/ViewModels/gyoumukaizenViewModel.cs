@@ -18,8 +18,27 @@ namespace LivetApp1.ViewModels
     public class gyoumukaizenViewModel : ViewModel
     {
 
-        public void Initialize()
+        #region ThanksCardsProperty
+        private List<ThanksCard> _ThanksCards;
+
+        public List<ThanksCard> ThanksCards
         {
+            get
+            { return _ThanksCards; }
+            set
+            {
+                if (_ThanksCards == value)
+                    return;
+                _ThanksCards = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        public async void Initialize()
+        {
+            ThanksCard thanksCard = new ThanksCard();
+            this.ThanksCards = await thanksCard.GetThanksCardsAsync();
         }
     }
 }
