@@ -7,17 +7,17 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         Title="ともよせストア" Height="350" Width="525">
-    
+
     <Window.DataContext>
         <vm:LogonViewModel/>
     </Window.DataContext>
-    
-     <i:Interaction.Triggers>
-     
-     	<!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
-    	<!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
-    	<!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています --> 
-        
+
+    <i:Interaction.Triggers>
+
+        <!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
+        <!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
+        <!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています -->
+
         <!--WindowのContentRenderedイベントのタイミングでViewModelのInitializeメソッドが呼ばれます-->
         <i:EventTrigger EventName="ContentRendered">
             <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize"/>
@@ -29,12 +29,12 @@
         </i:EventTrigger>
 
         <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
-         
+
         <!-- LogonViewModel からの TransitionMessage("Authorized") を受け取とってログオン画面を閉じる処理。 -->
         <l:InteractionMessageTrigger MessageKey="Authorized" Messenger="{Binding Messenger}">
             <l:WindowInteractionMessageAction/>
         </l:InteractionMessageTrigger>
-         
+
         <l:InteractionMessageTrigger MessageKey="ShowLogon2" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
@@ -42,23 +42,23 @@
         <l:InteractionMessageTrigger MessageKey="ShowNew" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
-         
+
     </i:Interaction.Triggers>
-    
+
     <Grid>
         <TextBlock/>
-        
+
         <StackPanel>
-          
+
             <UniformGrid  Columns="3">
-            <TextBlock  Height="20" Width="70"   Text="Name" RenderTransformOrigin="-1.72,1.6"/>
-            <TextBox Height="20" Width="120" Text="{Binding User.Name}"/>
+                <TextBlock  Height="20" Width="70"   Text="Name" RenderTransformOrigin="-1.72,1.6"/>
+                <TextBox Height="20" Text="{Binding User.Name}" Margin="20,0,26,0"/>
             </UniformGrid>
             <UniformGrid  Columns="3" HorizontalAlignment="Right" Width="517">
                 <TextBlock Height="20" Width="70" Text="Password"/>
-                <TextBox Height="20" Width="120" Text="{Binding User.Password}"/>
+                <TextBox Height="20" Text="{Binding User.Password}" Margin="26,0,24,0"/>
             </UniformGrid>
-            <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding LogonCommand}" Content="Logon"/>
+            <Button Height="22"  Margin="174,10" Command="{Binding LogonCommand}" Content="Logon"/>
 
             <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}"/>
             <Button Content="管理者ログイン" Command="{Binding ShowLogon2Command}"/>
