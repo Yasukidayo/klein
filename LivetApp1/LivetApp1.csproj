@@ -208,7 +208,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Image\kokuban.jpg" />
+    <Content Include="Image\mizutama.jpg" />
+    <Content Include="Resourses\mizutama.jpg" />
     <Content Include="Resourses\shasin.png" />
+    <Content Include="Resourses\simple.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
