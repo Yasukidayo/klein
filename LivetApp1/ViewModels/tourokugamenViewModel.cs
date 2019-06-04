@@ -11,12 +11,14 @@ using Livet.Messaging.IO;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
+using System.Windows;
 using LivetApp1.Models;
 
 namespace LivetApp1.ViewModels
 {
     public class TourokugamenViewModel : ViewModel
     {
+    
         #region User変更通知プロパティ
         private User _User;
 
@@ -51,17 +53,14 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-
         public async void Initialize()
         {
             this.User = new User();
 
-            Department department = new Department();
-            this.Department = await department.GetDepartmentsAsync();
+            Department dept = new Department();
+            this.Department = await dept.GetDepartmentsAsync();
 
-
-
-
+           
         }
 
         #region SubmitCommand

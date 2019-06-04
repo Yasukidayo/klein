@@ -87,6 +87,23 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region DepartmentIdProperty
+        private long _DepartmentId;
+
+        public long DepartmentId
+        {
+            get
+            { return _DepartmentId; }
+            set
+            {
+                if (_DepartmentId == value)
+                    return;
+                _DepartmentId = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         #region DepartmenrProperty
         private Department _Department;
 
