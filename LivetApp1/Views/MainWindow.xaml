@@ -67,29 +67,55 @@
                     <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowHelpCommand}" />
                 </Menu>
             </DockPanel>
+            
+            <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,40,0,0" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="50" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
 
+                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="150"  >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
 
-            <TextBlock Width="160">
-                
-                あなたの職種を教えてください。
+                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
 
-            </TextBlock>
+                </DataGrid.Columns>
+            </DataGrid>
 
-            <ComboBox x:Name="MyComboBox"
-              Height="30"
-              Width="100"
-              Margin="10"
-              FontSize="20"
-              VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel>
 
-
-            <WrapPanel Orientation="Vertical">
+            <WrapPanel Orientation="Vertical" Margin="0,60,332,0">
                 <Button Content="社員リスト" Command="{Binding ShainListCommand}" Height="54"/>
                 <Button Content="ランキング" Command="{Binding ShowRankingCommand}" Height="54"/>
                 <Button Content="掲示板" Command="{Binding ShowKejibanCommand}" Height="53"/>
-                <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Width="174" Height="54"/>
+                <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Width="144" Height="54"/>
             </WrapPanel>
 
+
+          
         </StackPanel>
 
 
