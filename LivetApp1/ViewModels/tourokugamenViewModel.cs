@@ -51,22 +51,6 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-        #region RootProperty
-        private List<Root> _Root;
-
-        public List<Root> Root
-        {
-            get
-            { return _Root; }
-            set
-            {
-                if (_Root == value)
-                    return;
-                _Root = value;
-                RaisePropertyChanged();
-            }
-        }
-        #endregion
 
         public async void Initialize()
         {
@@ -75,10 +59,9 @@ namespace LivetApp1.ViewModels
             Department department = new Department();
             this.Department = await department.GetDepartmentsAsync();
 
-            Root root = new Root();
-            this.Root = await root.GetrootsAsync();
 
-           
+
+
         }
 
         #region SubmitCommand
