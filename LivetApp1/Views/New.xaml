@@ -73,7 +73,7 @@
             <CheckBox Content="事業改善案"  IsChecked="False" />
             <CheckBox Content="代表案件"  IsChecked="False" />
             <TextBlock   Text="感謝の言葉:"/>
-            <TextBox  Height="300"  Text="{Binding ThanksCard.Body}"/>
+            <TextBox  Height="300" AcceptsReturn="True"  Text="{Binding ThanksCard.Body}"/>
             <UniformGrid Name="uniformGrid1" Columns="2">
 
                 <Button Content="作成"  Command="{Binding SubmitCommand}" Width="154"  Height="21"/>
