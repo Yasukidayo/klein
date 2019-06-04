@@ -36,5 +36,10 @@ namespace LivetApp1.Views
         {
             this.Close();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
