@@ -51,7 +51,8 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-       void Initialize()
+
+        public async void Initialize()
         {
             this.User = new User();
 
