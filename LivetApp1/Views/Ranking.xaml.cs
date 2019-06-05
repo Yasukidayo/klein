@@ -41,5 +41,10 @@ namespace LivetApp1.Views
         {
 
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

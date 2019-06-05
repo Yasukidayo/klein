@@ -38,7 +38,7 @@
             <Button Content="戻る" Click="buttun1" Margin="0,0,168.25,292" Height="auto"/>
         </UniformGrid>
 
-        <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,28,0,-28">
+        <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,28,0,-28" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="30">
                     <DataGridTextColumn.ElementStyle>
