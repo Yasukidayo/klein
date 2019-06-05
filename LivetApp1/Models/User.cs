@@ -170,6 +170,11 @@ namespace LivetApp1.Models
             return deletedUser;
         }
 
+        public static implicit operator User(List<User> v)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 

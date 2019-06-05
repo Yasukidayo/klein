@@ -43,7 +43,10 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17"/><InlineUIContainer>
-                    <ComboBox ItemsSource="{Binding Department}"  DisplayMemberPath="Name" Width="169" Height="19"/>
+                    <ComboBox x:Name ="Dep1" ItemsSource="{Binding Department}"  DisplayMemberPath="Name" Width="169" Height="19">
+                      
+                    
+                    </ComboBox>
                 </InlineUIContainer></TextBlock>
                 <TextBlock ><Run Text="名前:" FontSize="17"/><InlineUIContainer>
                         <ComboBox ItemsSource="{Binding User}" DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="169" Height="19"/>
@@ -57,7 +60,7 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17" /><InlineUIContainer>
-                    <ComboBox ItemsSource="{Binding Department}"  DisplayMemberPath="Name"   Width="169" Height="19"/>
+                    <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"   Width="169" Height="19"/>
                 </InlineUIContainer></TextBlock>
                 
                 <TextBlock ><Run Text="名前:" FontSize="17" /><InlineUIContainer>
@@ -70,8 +73,8 @@
             <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"/>
             <TextBlock   Text="タイトル:"/>
             <TextBox Text="{Binding ThanksCard.Title}"/>
-            <CheckBox Content="事業改善案"  IsChecked="False" />
-            <CheckBox Content="代表案件"  IsChecked="False" />
+            <CheckBox Content="事業改善案"  IsChecked="{Binding ThanksCard.Flag1}" />
+            <CheckBox Content="代表案件"  IsChecked="{Binding ThanksCard.Flag2}" />
             <TextBlock   Text="感謝の言葉:"/>
             <TextBox  Height="300" AcceptsReturn="True"  Text="{Binding ThanksCard.Body}"/>
             <UniformGrid Name="uniformGrid1" Columns="2">
