@@ -35,10 +35,28 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region GyoumuProperty
+        private List<ThanksCard> _Gyoumu;
+
+        public List<ThanksCard> Gyoumu
+        {
+            get
+            { return _Gyoumu; }
+            set
+            {
+                if (_Gyoumu == value)
+                    return;
+                _Gyoumu = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         public async void Initialize()
         {
             ThanksCard thanksCard = new ThanksCard();
             this.ThanksCards = await thanksCard.GetThanksCardsAsync();
+            Gyoumu = ThanksCards.Where(x => x.Flag1 == true).ToList();
         }
     }
 }
