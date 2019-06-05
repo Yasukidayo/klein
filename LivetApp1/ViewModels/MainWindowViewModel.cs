@@ -21,28 +21,7 @@ namespace LivetApp1.ViewModels
 {
      public class MainWindowViewModel : ViewModel
      {
-         #region MyMessageProperty
-
-
-
-
-         private string _MyMessage; //プロパティ
-
-         public string MyMessage
-         {
-             get
-             { return _MyMessage; }
-             set
-             {
-                 if (_MyMessage == value)
-                     return;
-                 _MyMessage = value;
-                 RaisePropertyChanged(); //変更通知。mymessageが変更されたことを知らせる。この場合はviewに知らせる.
-                 System.Diagnostics.Debug.WriteLine("MyMessage: " + this.MyMessage); //動作確認用。本来はこの行は必要ありません。
-
-             }
-         }
-         #endregion
+        
          #region MyDate
          private DateTime _MyDate;
 
@@ -60,48 +39,8 @@ namespace LivetApp1.ViewModels
          }
 
          #endregion
-         #region Testcommand
-         private ViewModelCommand _TestCommand;
-
-         public ViewModelCommand TestCommand
-         {
-             get
-             {
-                 if (_TestCommand == null)
-                 {
-                     _TestCommand = new ViewModelCommand(Test);
-                 }
-                 return _TestCommand;
-             }
-         }
-
-         public void Test()
-         {
-             System.Diagnostics.Debug.WriteLine("TestCommand が呼ばれました。");
-         }
-
-         #endregion
-         #region Test2command
-         private ListenerCommand<string> _Test2Command;
-
-         public ListenerCommand<string> Test2Command
-         {
-             get
-             {
-                 if (_Test2Command == null)
-                 {
-                     _Test2Command = new ListenerCommand<string>(Test2);
-                 }
-                 return _Test2Command;
-             }
-         }
-
-         public void Test2(string parameter)
-         {
-             System.Diagnostics.Debug.WriteLine("Test2Command が呼ばれました。パラメータは「" + parameter + "」です。");
-         }
-
-         #endregion
+       
+      
 
          public void Initialize()
          {
@@ -347,13 +286,17 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+      
+
+
         public async void Initialize2()
         {
           
             IRestService service = new RestService();   // ThanksCard thanksCard = new ThanksCard();
             ThanksCards = await service.GetThanksCardsAsync();  // this.ThanksCards = await thanksCard.GetThanksCardsAsync();
              User AuthorizedUser = SessionService.Instance.AuthorizedUser;
-
+          
+          
             //ここでユーザーカードにログイン済みのユーザーのみにフィルタリングする。
             ToThanksCards = ThanksCards.Where(x =>
                                      x.ToId == AuthorizedUser.Id //ここでログイン済みのユーザーがもらったものを表示
