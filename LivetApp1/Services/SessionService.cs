@@ -9,7 +9,7 @@ using Livet;
 
 namespace LivetApp1.Services
 {
-    public class SessionService 
+    public sealed class SessionService 
     {
         private static SessionService instance = new SessionService { IsAuthorized = false };
 

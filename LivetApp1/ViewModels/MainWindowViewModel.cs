@@ -332,21 +332,19 @@ namespace LivetApp1.ViewModels
 
         public async void Initialize2()
         {
-            ThanksCard thanksCard = new ThanksCard();
-            this.ThanksCards = await thanksCard.GetThanksCardsAsync();
-
-       //     IRestService service = new RestService();
-       //     ThanksCards = await service.GetThanksCardsAsync();
-       //     User AuthorizedUser = SessionService.Instance.AuthorizedUser;
+          
+            IRestService service = new RestService();   // ThanksCard thanksCard = new ThanksCard();
+            ThanksCards = await service.GetThanksCardsAsync();  // this.ThanksCards = await thanksCard.GetThanksCardsAsync();
+             User AuthorizedUser = SessionService.Instance.AuthorizedUser;
 
             //ここでユーザーカードにログイン済みのユーザーのみにフィルタリングする。
-       //     UserThanksCards = ThanksCards.Where(x =>
-       //                         x.FromId == AuthorizedUser.Id //ここでログイン済みのユーザーの送ったものを抽出
-       //                         ||
-       //                         x.ToId == AuthorizedUser.Id //ここでログイン済みのユーザーがもらったものを表示
-       //                            ).ToList();
+            UserThanksCards = ThanksCards.Where(x =>
+                                     x.FromId == AuthorizedUser.Id //ここでログイン済みのユーザーの送ったものを抽出
+                                     ||
+                                     x.ToId == AuthorizedUser.Id //ここでログイン済みのユーザーがもらったものを表示
+                                        ).ToList();
 
-           
+
         }
     }
 }

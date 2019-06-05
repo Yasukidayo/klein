@@ -13,7 +13,7 @@ using Livet.Messaging.Windows;
 
 using LivetApp1.Models;
 using System.Windows;
-
+using LivetApp1.Services;
 
 namespace LivetApp1.ViewModels
 {
@@ -63,6 +63,8 @@ namespace LivetApp1.ViewModels
 
             if (authorizedUser != null) // Logon 成功
             {
+                SessionService.Instance.IsAuthorized = true;
+                SessionService.Instance.AuthorizedUser = authorizedUser;
                 Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Authorized"));
             }
             else // Logon 失敗
