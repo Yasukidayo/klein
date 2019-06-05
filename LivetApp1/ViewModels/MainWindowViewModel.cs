@@ -15,6 +15,7 @@ using LivetApp1.Models;
 using System.Windows;
 using LivetApp1.Views;
 using System.Windows.Controls;
+using LivetApp1.Services;
 
 namespace LivetApp1.ViewModels
 {
@@ -148,7 +149,7 @@ namespace LivetApp1.ViewModels
 
     
             #endregion
-            #region ShainList
+        #region ShainList
         private ViewModelCommand _ShainListCommand;
 
         public ViewModelCommand ShainListCommand
@@ -312,10 +313,40 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region UserThanksCardsProperty
+        private List<ThanksCard> _UserThanksCards;
+
+        public List<ThanksCard> UserThanksCards
+        {
+            get
+            { return _UserThanksCards; }
+            set
+            {
+                if (_UserThanksCards == value)
+                    return;
+                _UserThanksCards = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         public async void Initialize2()
         {
-            ThanksCard thanksCard = new ThanksCard();
-            this.ThanksCards = await thanksCard.GetThanksCardsAsync();
+           // ThanksCard thanksCard = new ThanksCard();
+           // this.ThanksCards = await thanksCard.GetThanksCardsAsync();
+
+            IRestService service = new RestService();
+            ThanksCards = await service.GetThanksCardsAsync();
+            User AuthorizedUser = SessionService.Instance.AuthorizedUser;
+
+            //ここでユーザーカードにログイン済みのユーザーのみにフィルタリングする。
+            UserThanksCards = ThanksCards.Where(x =>
+                                x.FromId == AuthorizedUser.Id //ここでログイン済みのユーザーの送ったものを抽出
+                                ||
+                                x.ToId == AuthorizedUser.Id //ここでログイン済みのユーザーがもらったものを表示
+                                   ).ToList();
+
+           
         }
     }
 }
