@@ -60,45 +60,15 @@ namespace LivetApp1.ViewModels
         public async void Logon()
         {
             User authorizedUser = await this.User.LogonAsync();
-
-            if (authorizedUser != null) // Logon 成功
-            {
-                Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Authorized"));
-            }
-            else // Logon 失敗
-            {
-                System.Diagnostics.Debug.WriteLine("ログオンに失敗しました。");
-            }
-
-        }
-        #endregion
-        #region ShowLogon2
-        private ViewModelCommand _ShowLogon2Command;
-
-        public ViewModelCommand ShowLogon2Command
-
-        {
-            get
-            {
-                if (_ShowLogon2Command == null)
-                {
-                    _ShowLogon2Command = new ViewModelCommand(ShowLogon2);
-                }
-                return _ShowLogon2Command;
-            }
-        }
-
-        public void ShowLogon2()
-        {
-            System.Diagnostics.Debug.WriteLine("ShowLogon2");
+            System.Diagnostics.Debug.WriteLine("ShowLogon");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
             try
             {
                 // MainWindow を非表示
                 window.Hide();
-                Logon2ViewModel ViewModel = new Logon2ViewModel();
-                var message = new TransitionMessage(typeof(Views.Logon2), ViewModel, TransitionMode.Modal, "ShowLogon2");
+                LogonViewModel ViewModel = new LogonViewModel();
+                var message = new TransitionMessage(typeof(Views.Logon), ViewModel, TransitionMode.Modal, "Authorized");
                 Messenger.Raise(message);
             }
             finally
@@ -108,6 +78,7 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+       
         #region ShowNew
         private ViewModelCommand _ShowNewCommand;
 
