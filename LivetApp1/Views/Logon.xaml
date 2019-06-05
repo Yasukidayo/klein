@@ -59,9 +59,8 @@
                 <TextBox Height="20" Text="{Binding User.Password}" Margin="26,0,24,0"/>
             </UniformGrid>
             <Button Height="22"  Margin="174,10" Command="{Binding LogonCommand}" Content="Logon"/>
+            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Height="98"  Margin="0,140,0,0" Click="Button_Click_1"/>
 
-            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Height="38"/>
-          
         </StackPanel>
         <StackPanel HorizontalAlignment="Right">
             <Button Content="管理者ログイン" Command="{Binding ShowLogon2Command}" Height="24"/>
