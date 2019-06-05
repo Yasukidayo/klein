@@ -313,18 +313,18 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-        #region UserThanksCardsProperty
-        private List<ThanksCard> _UserThanksCards;
+        #region ToThanksCardsAToProperty
+        private List<ThanksCard> _ToThanksCards;
 
-        public List<ThanksCard> UserThanksCards
+        public List<ThanksCard> ToThanksCards
         {
             get
-            { return _UserThanksCards; }
+            { return _ToThanksCards; }
             set
             {
-                if (_UserThanksCards == value)
+                if (_ToThanksCards == value)
                     return;
-                _UserThanksCards = value;
+                _ToThanksCards = value;
                 RaisePropertyChanged();
             }
         }
@@ -338,9 +338,9 @@ namespace LivetApp1.ViewModels
              User AuthorizedUser = SessionService.Instance.AuthorizedUser;
 
             //ここでユーザーカードにログイン済みのユーザーのみにフィルタリングする。
-            UserThanksCards = ThanksCards.Where(x =>
-                                     x.FromId == AuthorizedUser.Id //ここでログイン済みのユーザーの送ったものを抽出
-                                     ||
+            ToThanksCards = ThanksCards.Where(x =>
+                                 //    x.FromId == AuthorizedUser.Id //ここでログイン済みのユーザーの送ったものを抽出
+                                 //    ||
                                      x.ToId == AuthorizedUser.Id //ここでログイン済みのユーザーがもらったものを表示
                                         ).ToList();
 

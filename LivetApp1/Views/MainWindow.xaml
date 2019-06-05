@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="400" Width="525">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -66,13 +66,15 @@
     <Grid>
         <StackPanel>
             <TextBox Text="{Binding MyDate}"/>
+            <TextBlock Text="{Binding AuthorizedUser}"/>
             <DockPanel>
                 <Menu DockPanel.Dock="Top" Margin="427,0,10,0" RenderTransformOrigin="0.5,0.5">
                     <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowHelpCommand}" />
                 </Menu>
             </DockPanel>
             
-            <DataGrid ItemsSource="{Binding UserThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,40,0,0" >
+            
+            <DataGrid ItemsSource="{Binding ToThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,40,0,0" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
                         <DataGridTextColumn.ElementStyle>
