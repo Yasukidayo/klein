@@ -71,6 +71,7 @@
     <Compile Include="ViewModels\SanshouViewModel.cs" />
     <Compile Include="ViewModels\ShainViewModel.cs" />
     <Compile Include="ViewModels\TourokugamenViewModel.cs" />
+    <Compile Include="ViewModels\ZyushinViewModel.cs" />
     <Compile Include="Views\gyoumukaizen.xaml.cs">
       <DependentUpon>gyoumukaizen.xaml</DependentUpon>
     </Compile>
@@ -103,6 +104,9 @@
     </Compile>
     <Compile Include="Views\Tourokugamen.xaml.cs">
       <DependentUpon>Tourokugamen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zyushin.xaml.cs">
+      <DependentUpon>Zyushin.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\gyoumukaizen.xaml">
       <SubType>Designer</SubType>
@@ -165,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Tourokugamen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Zyushin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
