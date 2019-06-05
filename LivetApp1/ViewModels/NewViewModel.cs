@@ -91,7 +91,31 @@ namespace LivetApp1.ViewModels
                 this.User = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
             }
         }
-     
+
+        #region Command
+        private ViewModelCommand _SelectCommand;
+
+        public ViewModelCommand selectCommand
+        {
+            get
+            {
+                if (_SelectCommand == null)
+                {
+                    _SelectCommand = new ViewModelCommand(Select);
+                }
+                return _SelectCommand;
+            }
+        }
+
+        public async void Select()
+        { 
+            
+        }
+           
+        #endregion
+
+
+
         #region SubmitCommand
         private ViewModelCommand _SubmitCommand;
 
