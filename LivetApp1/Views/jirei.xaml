@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="jirei" Height="350" Width="625">
+        Title="jirei" Height="550" Width="725">
     
     <Window.DataContext>
         <vm:JireiViewModel/>
@@ -33,22 +33,15 @@
     </i:Interaction.Triggers>
     
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="482.2" Text="Id   タイトル　　感謝の言葉　　From　　To   作成日時"/>
-        <UniformGrid Name="uniformGrid1" Columns="2">
-            <Button Content="戻る" Click="buttun1" Margin="0,0,168.25,292" Height="auto"/>
-        </UniformGrid>
+        <StackPanel>
+            <Canvas>
+                <Button Content="戻る" Click="buttun1" Height="20" Width="150"  Canvas.Left="10" />
+            </Canvas>
 
-        <DataGrid ItemsSource="{Binding Jirei}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,28,0,-28">
+        <DataGrid ItemsSource="{Binding Jirei}" AutoGenerateColumns="False" CanUserAddRows="False" Height="480" Width="704"  Margin="0,30,0,0" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="30">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="150" >
+               
+                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="120" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -64,7 +57,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
+                <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="70" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -72,7 +65,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
+                <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="70" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -87,9 +80,15 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="削除" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
+        </StackPanel>
     </Grid>
 </Window>

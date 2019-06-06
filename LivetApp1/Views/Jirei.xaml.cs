@@ -36,5 +36,10 @@ namespace LivetApp1.Views
         {
             this.Close();
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
