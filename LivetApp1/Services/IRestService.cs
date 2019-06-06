@@ -29,6 +29,7 @@ namespace LivetApp1.Services
         Task<Department> PutDepartmentAsync(Department department);
         Task<Department> DeleteDepartmentAsync(long Id);
 
-     
+        // DepartmentUsers REST API Client
+        Task<List<User>> GetDepUsersAsync(long? DepartmentId);
     }
 }
