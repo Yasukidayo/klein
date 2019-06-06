@@ -121,5 +121,39 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+        #region ShowLogout
+        private ViewModelCommand _ShowLogoutCommand;
+
+        public ViewModelCommand ShowLogoutCommand
+
+        {
+            get
+            {
+                if (_ShowLogoutCommand == null)
+                {
+                    _ShowLogoutCommand = new ViewModelCommand(ShowLogout);
+                }
+                return _ShowLogoutCommand;
+            }
+        }
+        public void ShowLogout()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowLogout");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                LogonViewModel ViewModel = new LogonViewModel();
+                var message = new TransitionMessage(typeof(Views.Logon), ViewModel, TransitionMode.Modal, "ShowLogout");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+#endregion
     }
 }

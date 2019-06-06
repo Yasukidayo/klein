@@ -139,6 +139,7 @@ namespace LivetApp1.ViewModels
             get
             {
                 if (_ShowSanshouCommand == null)
+
                 {
                     _ShowSanshouCommand = new ViewModelCommand(ShowSanshou);
                 }
@@ -166,5 +167,42 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+        #region ShowLogout
+        private ViewModelCommand _ShowLogon2Command;
+
+        public ViewModelCommand ShowLogon2Command
+
+        {
+            get
+            {
+                if (_ShowLogon2Command == null)
+                {
+                    _ShowLogon2Command = new ViewModelCommand(ShowLogon2);
+                }
+                return _ShowLogon2Command;
+            }
+        }
+
+        public void ShowLogon2()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowLogon2");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                Logon2ViewModel ViewModel = new Logon2ViewModel();
+                var message = new TransitionMessage(typeof(Views.Logon2), ViewModel, TransitionMode.Modal, "ShowLogon2");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+
     }
 }
