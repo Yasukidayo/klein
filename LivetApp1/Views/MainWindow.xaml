@@ -60,6 +60,10 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
+        <l:InteractionMessageTrigger MessageKey="ShowLogout" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
 
     </i:Interaction.Triggers>
 
@@ -155,6 +159,7 @@
                 <Button Content="ランキング" Command="{Binding ShowRankingCommand}" Height="54"/>
                 <Button Content="掲示板" Command="{Binding ShowKejibanCommand}" Height="53"/>
                 <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Width="144" Height="54"/>
+                <Button Content="ログアウト" Command="{Binding ShowLogoutCommand}" Width="144" Height="54"/>
             </WrapPanel>
 
 
