@@ -40,6 +40,7 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+
         #region UsersProperty
         private List<User> _User;
 
@@ -57,7 +58,24 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-        #region UsersProperty
+        #region ToUsersProperty
+        private List<User> _ToUser;
+
+        public List<User> ToUser
+        {
+            get
+            { return _ToUser; }
+            set
+            {
+                if (_ToUser == value)
+                    return;
+                _ToUser = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region FromUsersProperty
         private List<User> _FromUser;
 
         public List<User> FromUser
@@ -73,6 +91,7 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+
 
 
         #region DepartmentsProperty
@@ -103,34 +122,60 @@ namespace LivetApp1.ViewModels
             User user = new User();
             this.User = await user.GetUsersAsync();
 
-           
             if (SessionService.Instance.AuthorizedUser != null)
             {
                 this.User = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
+                this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
+                this.ToUser = this.FromUser;
             }
+
         }
 
-        #region Command
-        private ViewModelCommand _SelectCommand;
+        #region FromDepartmentsChangedCommand
+        private ListenerCommand<long> _FromDepartmentsChangedCommand;
 
-        public ViewModelCommand selectCommand
+        public ListenerCommand<long> FromDepartmentsChangedCommand
         {
             get
             {
-                if (_SelectCommand == null)
+                if (_FromDepartmentsChangedCommand == null)
                 {
-                    _SelectCommand = new ViewModelCommand(Select);
+                    _FromDepartmentsChangedCommand = new ListenerCommand<long>(FromDepartmentsChanged);
                 }
-                return _SelectCommand;
+                return _FromDepartmentsChangedCommand;
             }
         }
 
-        public async void Select()
-        { 
-            
+        public async void FromDepartmentsChanged(long DepartmentId)
+        {
+            System.Diagnostics.Debug.WriteLine(DepartmentId);
+            this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
         }
-           
         #endregion
+
+        #region ToDepartmentsChangedCommand
+        private ListenerCommand<long> _ToDepartmentsChangedCommand;
+
+        public ListenerCommand<long> ToDepartmentsChangedCommand
+        {
+            get
+            {
+                if (_ToDepartmentsChangedCommand == null)
+                {
+                    _ToDepartmentsChangedCommand = new ListenerCommand<long>(ToDepartmentsChanged);
+                }
+                return _ToDepartmentsChangedCommand;
+            }
+        }
+
+        public async void ToDepartmentsChanged(long DepartmentId)
+        {
+            System.Diagnostics.Debug.WriteLine(DepartmentId);
+            this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
+        }
+        #endregion
+
+    
 
 
 

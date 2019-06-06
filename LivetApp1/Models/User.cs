@@ -121,7 +121,15 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        
+        #region DepUserProperty
+        public async Task<List<User>> GetDepUsersAsync(long? DepartmentId)
+        {
+            IRestService rest = new RestService();
+            List<User> users = await rest.GetDepUsersAsync(DepartmentId);
+            return users;
+        }
+
+        #endregion
 
         #region Logon処理
         public async Task<User> LogonAsync()

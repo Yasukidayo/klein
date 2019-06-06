@@ -43,9 +43,8 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17"/><InlineUIContainer>
-                    <ComboBox x:Name ="Dep1" ItemsSource="{Binding Department}"  DisplayMemberPath="Name" Width="169" Height="19">
-                      
-                    
+                 <ComboBox x:Name="Dep1" ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="169" Height="19">
+                   
                     </ComboBox>
                 </InlineUIContainer></TextBlock>
                 <TextBlock ><Run Text="名前:" FontSize="17"/><InlineUIContainer>

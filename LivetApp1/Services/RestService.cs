@@ -312,7 +312,27 @@ namespace LivetApp1.Services
         }
         #endregion
 
-     
+        #region DepUser
+        public async Task<List<User>> GetDepUsersAsync(long? DepartmentId)
+        {
+            List<User> responseUsers = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/DepUsers/" + DepartmentId);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseUsers = JsonConvert.DeserializeObject<List<User>>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetUsersAsync: " + e);
+            }
+            return responseUsers;
+        }
+        #endregion
+
 
     }
 }
