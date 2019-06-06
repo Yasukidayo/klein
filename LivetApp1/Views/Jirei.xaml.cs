@@ -32,11 +32,16 @@ namespace LivetApp1.Views
             InitializeComponent();
         }
 
-        private void buttun1(object sender, RoutedEventArgs e)
+        private void Button1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        private void Button2(object sender, RoutedEventArgs e)
+        {
+         
+         
+        }
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

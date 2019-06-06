@@ -35,7 +35,7 @@
     <Grid>
         <StackPanel>
             <Canvas>
-                <Button Content="戻る" Click="buttun1" Height="20" Width="150"  Canvas.Left="10" />
+                <Button Content="戻る" Click="Button1" Height="20" Width="150"  Canvas.Left="10" />
             </Canvas>
 
         <DataGrid ItemsSource="{Binding Jirei}" AutoGenerateColumns="False" CanUserAddRows="False" Height="480" Width="704"  Margin="0,30,0,0" SelectionChanged="DataGrid_SelectionChanged">
@@ -80,14 +80,23 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTemplateColumn Header="">
+                
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Button2"  Content= "送信" Click ="Button2" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="削除" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                            <Button x:Name="button3" Content="削除" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-            </DataGrid.Columns>
+                 
+                </DataGrid.Columns>
         </DataGrid>
         </StackPanel>
     </Grid>
