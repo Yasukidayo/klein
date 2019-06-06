@@ -43,7 +43,7 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17"/><InlineUIContainer>
-                 <ComboBox x:Name="FromDepartments" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id">
+                 <ComboBox x:Name="FromDepartments" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="169" Height="19">
                     <!-- Deparment が選択されたら FromDepartmentsChangedCommand を発行する -->
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">

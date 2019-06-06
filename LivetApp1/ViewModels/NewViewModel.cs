@@ -40,6 +40,8 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+
+
         #region ToUsersProperty
         private List<User> _ToUser;
 
@@ -75,6 +77,7 @@ namespace LivetApp1.ViewModels
         #endregion
 
 
+
         #region DepartmentsProperty
         private List<Department> _Department;
 
@@ -101,7 +104,7 @@ namespace LivetApp1.ViewModels
             this.Department = await department.GetDepartmentsAsync();
             if (SessionService.Instance.AuthorizedUser != null)
             {
-                this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
+                this.FromUser = await SessionService.Instance.AuthorizedUser.GetDeptUsersAsync(null);
                 this.ToUser = this.FromUser;
             }
 
@@ -125,7 +128,7 @@ namespace LivetApp1.ViewModels
         public async void FromDepartmentsChanged(long DepartmentId)
         {
             System.Diagnostics.Debug.WriteLine(DepartmentId);
-            this.FromUsers = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
+            this.FromUser = await SessionService.Instance.AuthorizedUser.GetDeptUsersAsync(DepartmentId);
         }
         #endregion
 
@@ -147,7 +150,7 @@ namespace LivetApp1.ViewModels
         public async void ToDepartmentsChanged(long DepartmentId)
         {
             System.Diagnostics.Debug.WriteLine(DepartmentId);
-            this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
+            this.ToUser = await SessionService.Instance.AuthorizedUser.GetDeptUsersAsync(DepartmentId);
         }
         #endregion
 
