@@ -41,6 +41,22 @@ namespace LivetApp1.ViewModels
         #endregion
 
 
+        #region UsersProperty
+        private List<User> _User;
+
+        public List<User> User
+        {
+            get
+            { return _User; }
+            set
+            {
+                if (_User == value)
+                    return;
+                _User = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
 
         #region ToUsersProperty
         private List<User> _ToUser;
@@ -102,9 +118,14 @@ namespace LivetApp1.ViewModels
 
             Department department = new Department();
             this.Department = await department.GetDepartmentsAsync();
+
+            User user = new User();
+            this.User = await user.GetUsersAsync();
+
             if (SessionService.Instance.AuthorizedUser != null)
             {
-                this.FromUser = await SessionService.Instance.AuthorizedUser.GetDeptUsersAsync(null);
+                this.User = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
+                this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
                 this.ToUser = this.FromUser;
             }
 
@@ -128,7 +149,7 @@ namespace LivetApp1.ViewModels
         public async void FromDepartmentsChanged(long DepartmentId)
         {
             System.Diagnostics.Debug.WriteLine(DepartmentId);
-            this.FromUser = await SessionService.Instance.AuthorizedUser.GetDeptUsersAsync(DepartmentId);
+            this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
         }
         #endregion
 
@@ -150,7 +171,7 @@ namespace LivetApp1.ViewModels
         public async void ToDepartmentsChanged(long DepartmentId)
         {
             System.Diagnostics.Debug.WriteLine(DepartmentId);
-            this.ToUser = await SessionService.Instance.AuthorizedUser.GetDeptUsersAsync(DepartmentId);
+            this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
         }
         #endregion
 
