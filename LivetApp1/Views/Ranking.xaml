@@ -34,7 +34,7 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <TextBox Text="{Binding User.Name}" Margin="150,21,0,19" IsReadOnly="True" />
+        <TextBox Text="{Binding User.Name}" Margin="150,21,0,19" IsReadOnly="True" TextChanged="TextBox_TextChanged_1" />
 
         <StackPanel>
 

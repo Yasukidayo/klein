@@ -8,6 +8,7 @@
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         Title="ともよせストア" Height="350" Width="525">
 
+
     <Window.DataContext>
         <vm:LogonViewModel/>
     </Window.DataContext>
@@ -46,9 +47,13 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <TextBlock/>
-
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="267*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" VerticalAlignment="Top" Background="#EE82EE" Height="320" Grid.RowSpan="2" Margin="470,0,0,-1"/>
+        <TextBlock Grid.RowSpan="2"/>
+        <StackPanel Grid.RowSpan="2">
 
             <UniformGrid  Columns="3">
                 <TextBlock  Height="20" Width="70"   Text="Name" RenderTransformOrigin="-1.72,1.6"/>
@@ -59,10 +64,10 @@
                 <TextBox Height="20" Text="{Binding User.Password}" Margin="26,0,24,0"/>
             </UniformGrid>
             <Button Height="22"  Margin="174,10" Command="{Binding LogonCommand}" Content="Logon"/>
-            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Height="98"  Margin="0,140,0,0" Click="Button_Click_1"/>
+            <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Height="52"  Margin="0,20,0,0" Click="Button_Click_1" Background="#FFEEEE0D"/>
 
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right">
+        <StackPanel HorizontalAlignment="Right" Grid.RowSpan="2" Width="76">
             <Button Content="管理者ログイン" Command="{Binding ShowLogon2Command}" Height="24"/>
         </StackPanel>
     </Grid>
