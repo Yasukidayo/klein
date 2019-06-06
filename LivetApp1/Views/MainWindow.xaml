@@ -72,9 +72,17 @@
                     <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowHelpCommand}" />
                 </Menu>
             </DockPanel>
-            <TextBlock Text="受信箱" Margin="170,20,301,0"/>
+        
             <DataGrid ItemsSource="{Binding ToThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,25,3,0" >
                 <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
@@ -91,13 +99,6 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
                     <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
@@ -108,9 +109,16 @@
 
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBlock Text="送信箱" Margin="170,5,299,0"/>
+           
             <DataGrid ItemsSource="{Binding FromThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,50,0,0" >
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
@@ -126,13 +134,7 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                  
                     <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">

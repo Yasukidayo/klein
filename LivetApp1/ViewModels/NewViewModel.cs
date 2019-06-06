@@ -57,6 +57,24 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region UsersProperty
+        private List<User> _FromUser;
+
+        public List<User> FromUser
+        {
+            get
+            { return _FromUser; }
+            set
+            {
+                if (_FromUser == value)
+                    return;
+                _FromUser = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+
         #region DepartmentsProperty
         private List<Department> _Department;
 
