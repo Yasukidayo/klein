@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="tourokugamen" Height="250" Width="325">
+        Title="登録画面" Height="250" Width="325">
 
     <Window.DataContext>
         <vm:TourokugamenViewModel/>

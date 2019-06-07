@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="gyoumukaizen" Height="550" Width="745">
+        Title="業務改善案" Height="550" Width="745">
 
     <Window.DataContext>
         <vm:gyoumukaizenViewModel/>
