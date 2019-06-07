@@ -217,7 +217,7 @@
     <Content Include="Image\kokuban.jpg" />
     <Content Include="Image\mizutama.jpg" />
     <Content Include="Resourses\mizutama.jpg" />
-    <Content Include="Resourses\shasin.png" />
+    <Resource Include="Resourses\shasin.png" />
     <Content Include="Resourses\simple.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
