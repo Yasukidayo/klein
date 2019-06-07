@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="Sanshou" Height="350" Width="525">
+        Title="Sanshou" Height="350" Width="425">
 
     <Window.DataContext>
         <vm:SanshouViewModel/>
@@ -33,40 +33,40 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="22*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2">
-            <UniformGrid Name="uniformGrid1" Columns="2">
-                <Button Content="戻る" Click="buttun1" Width="154"   Height="21" />
-            </UniformGrid>
+        <StackPanel>
 
-            <!-- ユーザ一覧(Userモデルのリスト)である MainWindowViewModel.Users をグリッド表示する。-->
-            <DataGrid ItemsSource="{Binding User}" AutoGenerateColumns="False" CanUserAddRows="False">
+
+
+            <Canvas>
+                <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
+            
+            <DataGrid ItemsSource="{Binding User}" Height="220" Width="400"  AutoGenerateColumns="False"
+                      CanUserAddRows="False" Canvas.Left="5" Canvas.Top="30"  LoadingRow="DataGrid_LoadingRow"  >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                    <DataGridTextColumn Header="名前" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="パスワード" Binding="{Binding Password}" />
-                    <DataGridTextColumn Header="部署" Binding="{Binding Department.Name}" />
+                    <DataGridTextColumn Header="名前" Binding="{Binding Name}" Width="100"/>
+                    <DataGridTextColumn Header="パスワード" Binding="{Binding Password}" Width="100"/>
+                    <DataGridTextColumn Header="部署" Binding="{Binding Department.Name}" Width="75"/>
                     <DataGridTextColumn Header="権限" Binding="{Binding IsAdmin}" />
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <!-- CommandParameter に {Binding} とだけ記述すると、UserMstViewModel.Users の要素、つまり User モデルを指定したことになる。-->
-                                <Button Content="編集" Command="{Binding DataContext.UserEditCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button Content="編集" Command="{Binding DataContext.UserEditCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="削除" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                    <Button Content="削除"  Foreground="#FFFFFF" Background="#FF0000" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            </Canvas>
+            <!-- ユーザ一覧(Userモデルのリスト)である MainWindowViewModel.Users をグリッド表示する。-->
         </StackPanel>
     </Grid>
 </Window>
