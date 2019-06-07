@@ -101,92 +101,95 @@
                 </Menu>
             </DockPanel>
             <Canvas>
-                <Button Content="受信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="21"/>
+
+                <Button Content="受信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="1"/>
                 <DataGrid ItemsSource="{Binding ToThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False"
-                          SelectionChanged="DataGrid_SelectionChanged" LoadingRow="DataGrid_LoadingRow"  Height="120" Width="460" Canvas.Left="150" Canvas.Top="40" >
-                <DataGrid.Columns>
+                          SelectionChanged="DataGrid_SelectionChanged" LoadingRow="DataGrid_LoadingRow"  Height="145" Width="460" Canvas.Left="150" Canvas.Top="22" >
+                    <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                        <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                        <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                        <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                </DataGrid.Columns>
-            </DataGrid>
-                <Button Content="送信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="191"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="送信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="176"/>
                 <DataGrid ItemsSource="{Binding FromThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" 
-                      SelectionChanged="DataGrid_SelectionChanged"  LoadingRow="DataGrid_LoadingRow" Height="120" Width="460" Canvas.Left="150" Canvas.Top="210" >
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                      SelectionChanged="DataGrid_SelectionChanged"  LoadingRow="DataGrid_LoadingRow" Height="145" Width="460" Canvas.Left="150" Canvas.Top="197" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="100" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                        <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                        <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                </DataGrid.Columns>
-            </DataGrid>
+                    </DataGrid.Columns>
+                </DataGrid>
 
             </Canvas>
         </StackPanel>
         <StackPanel>
+
+            <Button Content="ログアウト" Command="{Binding ShowLogoutCommand}" Height="20" Width="80" Margin="0,0,467,0"/>
 
             <WrapPanel Orientation="Vertical" Margin="0,60,365,0">
                 <Button Content="社員リスト" Command="{Binding ShainListCommand}" Height="54"/>
                 <Button Content="ランキング" Command="{Binding ShowRankingCommand}" Height="54"/>
                 <Button Content="掲示板" Command="{Binding ShowKejibanCommand}" Height="53"/>
                 <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Width="144" Height="54"/>
-                <Button Content="ログアウト" Command="{Binding ShowLogoutCommand}" Width="144" Height="54"/>
+
             </WrapPanel>
 
 

@@ -41,7 +41,7 @@ namespace LivetApp1.ViewModels
             this.User = new User();
         }
 
-        #region LogonCommand
+        #region Logon2Command
         private ViewModelCommand _Logon2Command;
 
         public ViewModelCommand Logon2Command
