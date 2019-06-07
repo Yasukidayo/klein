@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="tourokugamen" Height="350" Width="525">
+        Title="tourokugamen" Height="250" Width="325">
     
     <Window.DataContext>
         <vm:TourokugamenViewModel/>
@@ -37,21 +37,19 @@
     
     <Grid>
         <StackPanel>
-            <UniformGrid Name="uniformGrid1" Columns="2">
-                <Button Content="戻る" Click="buttun1" Width="154"   Height="21" />
-            </UniformGrid>
+          <Canvas>
+                <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
 
-
-            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red"/>
-            <TextBlock Text="Name:"/>
-            <TextBox Text="{Binding User.Name}"/>
-            <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding User.Password}"/>
-            <TextBlock Text="管理者権限:"/>
-            <CheckBox IsChecked="{Binding User.IsAdmin}"/>
-            <TextBlock Text="所属部署:"/>
-            <ComboBox ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValue="{Binding User.DepartmentId}" SelectedValuePath="Id"/>
-            <Button Content="作成" Command="{Binding SubmitCommand}"/>
+                <TextBlock Text="Name"  Canvas.Left="50" Canvas.Top="50"/>
+                <TextBox Text="{Binding User.Name}"  Width="150" Canvas.Left="110" Canvas.Top="50"/>
+                <TextBlock Text="Password" Canvas.Left="50" Canvas.Top="70"/>
+                <TextBox Text="{Binding User.Password}" Width="150" Canvas.Left="110" Canvas.Top="70"/>
+                <TextBlock Text="管理者権限" Canvas.Left="50" Canvas.Top="90"/>
+                <CheckBox IsChecked="{Binding User.IsAdmin}" Canvas.Left="110" Canvas.Top="90"/>
+                <TextBlock Text="所属部署" Canvas.Left="50" Canvas.Top="110"/>
+                <ComboBox ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValue="{Binding User.DepartmentId}" SelectedValuePath="Id"  Width="150" Canvas.Left="110" Canvas.Top="110"/>
+                <Button Content="作成" Command="{Binding SubmitCommand}"  Width="120" Height="40" Canvas.Left="115" Canvas.Top="160"/>
+            </Canvas>
         </StackPanel>
     </Grid>
 </Window>

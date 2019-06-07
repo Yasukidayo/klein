@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="gyoumukaizen" Height="550" Width="725">
+        Title="gyoumukaizen" Height="550" Width="745">
 
     <Window.DataContext>
         <vm:gyoumukaizenViewModel/>
@@ -39,7 +39,7 @@
         </Canvas>
 
             <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False" 
-                      Height="480" Width="704"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
+                      Height="480" Width="724"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="タイトル"   Binding="{Binding Title}" Width="120" >

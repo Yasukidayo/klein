@@ -32,7 +32,12 @@ namespace LivetApp1.Views
             InitializeComponent();
         }
 
-        private void buttun1(object sender, RoutedEventArgs e)
+        void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)　//行番号を取得
+        {
+            e.Row.Header = (e.Row.GetIndex()).ToString();
+        }
+
+        private void Button1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
