@@ -33,7 +33,7 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
-        
+
 
 
     </i:Interaction.Triggers>
@@ -70,7 +70,7 @@
                 <TextBlock Height="20" Width="70" Text="Password"/>
                 <TextBox Height="20" Text="{Binding User.Password}" Margin="26,0,24,0"/>
             </UniformGrid>
-            <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding Logon2Command}" Content="ログイン"/>
+            <Button Height="22"  Margin="158,10,154,10" Command="{Binding Logon2Command}" Content="ログイン"/>
         </StackPanel>
     </Grid>
 </Window>
