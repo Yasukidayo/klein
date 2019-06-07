@@ -76,26 +76,27 @@
        
         <StackPanel>
             <Canvas>
-                <TextBlock  Height="22" Width="70"   Text="Name" Canvas.Left="95" Canvas.Top="63"/>
-                <TextBox Height="20" Width="200" Text="{Binding User.Name}" Canvas.Left="160" Canvas.Top="60"/>
+                <TextBlock Canvas.Left="95" Canvas.Top="63" Height="22" Width="70"   Text="Name" />
+                <TextBox  Canvas.Left="160" Canvas.Top="60" Height="20" Width="200"   Text="{Binding User.Name}"/>
 
                     <TextBlock Height="22" Width="70" Text="Password" Canvas.Left="95" Canvas.Top="93"/>
 
 
-                <PasswordBox Height="20"  Width="200"     Canvas.Left="160" Canvas.Top="90">
+                <PasswordBox Height="20" Width="200"  Canvas.Left="160" Canvas.Top="90" 
+                             InputMethod.PreferredImeState="On" InputMethod.PreferredImeConversionMode="Alphanumeric">
                     <i:Interaction.Behaviors>
                         <l:PasswordBoxBindingSupportBehavior Password="{Binding User.Password}" />
                     </i:Interaction.Behaviors>
                 </PasswordBox>
 
-                <Button Height="22" Width="100" Command="{Binding LogonCommand}" 
-                        Content="Login" Canvas.Left="210" Canvas.Top="140"/>
-                <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Height="32" Width="160"
-                   Canvas.Left="180" Canvas.Top="180" Click="Button_Click_1"/>
+                <Button Height="22" Width="100" Canvas.Left="210" Canvas.Top="140"
+                        Command="{Binding LogonCommand}" Content="Login"/>
+                <Button Content="感謝カードを作る" Height="32" Width="160" Canvas.Left="180" Canvas.Top="180" 
+                        Command="{Binding ShowNewCommand}" Click="Button_Click_1"/>
             </Canvas>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" Grid.RowSpan="4" Width="76">
-            <Button Content="管理者ログイン" Command="{Binding ShowLogon2Command}" Height="24"/>
+            <Button Content="管理者ログイン" Height="24" Command="{Binding ShowLogon2Command}"/>
         </StackPanel>
 
     </Grid>

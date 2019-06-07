@@ -31,7 +31,11 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
-     
+        <l:InteractionMessageTrigger MessageKey="ShowLogon" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+
 
 
 
@@ -69,8 +73,9 @@
                 <TextBox Height="20" Width="200" Text="{Binding User.Name}" Canvas.Left="160" Canvas.Top="60"/>
 
                 <TextBlock Height="22" Width="70" Text="Password" Canvas.Left="95" Canvas.Top="93"/>
-            
-                <PasswordBox Height="20"  Width="200"     Canvas.Left="160" Canvas.Top="90">
+
+                <PasswordBox Height="20"  Width="200" InputMethod.PreferredImeState="On"
+                         InputMethod.PreferredImeConversionMode="Alphanumeric" Canvas.Left="160" Canvas.Top="90">
                     <i:Interaction.Behaviors>
                         <l:PasswordBoxBindingSupportBehavior Password="{Binding User.Password}" />
                     </i:Interaction.Behaviors>
@@ -83,7 +88,7 @@
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" Grid.RowSpan="4" Width="76">
-            <Button Content="一般ログイン" Click="Button1" Height="24"/>
+            <Button Content="一般ログイン" Command="{Binding ShowLogonCommand}" Height="24"/>
         </StackPanel>
     </Grid>
 </Window>
