@@ -121,6 +121,42 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
-       
+        #region Logon
+        private ViewModelCommand _Logon3Command;
+
+        public ViewModelCommand Logon3Command
+
+        {
+            get
+            {
+                if (_Logon3Command == null)
+                {
+                    _Logon3Command = new ViewModelCommand(Logon3);
+                }
+                return _Logon3Command;
+            }
+        }
+
+        public void Logon3()
+        {
+            System.Diagnostics.Debug.WriteLine("Logon3");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                LogonViewModel ViewModel = new LogonViewModel();
+                var message = new TransitionMessage(typeof(Views.Logon), ViewModel, TransitionMode.Modal, "Logon3");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+#endregion
+
     }
 }
