@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="MainWindow" Height="400" Width="525">
+        Title="ホーム" Height="402" Width="625">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -94,15 +94,16 @@
         <TextBlock/>
 
         <StackPanel>
-            <TextBox Text="{Binding MyDate}"/>
 
             <DockPanel>
                 <Menu DockPanel.Dock="Top" Margin="427,0,10,0" RenderTransformOrigin="0.5,0.5">
                     <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowHelpCommand}" />
                 </Menu>
             </DockPanel>
-
-            <DataGrid ItemsSource="{Binding ToThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,25,3,0" >
+            <Canvas>
+                <Button Content="受信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="21"/>
+                <DataGrid ItemsSource="{Binding ToThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False"
+                          SelectionChanged="DataGrid_SelectionChanged" LoadingRow="DataGrid_LoadingRow"  Height="120" Width="460" Canvas.Left="150" Canvas.Top="40" >
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="50" >
@@ -138,8 +139,9 @@
 
                 </DataGrid.Columns>
             </DataGrid>
-
-            <DataGrid ItemsSource="{Binding FromThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,50,0,0" >
+                <Button Content="送信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="191"/>
+                <DataGrid ItemsSource="{Binding FromThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" 
+                      SelectionChanged="DataGrid_SelectionChanged"  LoadingRow="DataGrid_LoadingRow" Height="120" Width="460" Canvas.Left="150" Canvas.Top="210" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
                         <DataGridTextColumn.ElementStyle>
@@ -175,7 +177,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-
+            </Canvas>
         </StackPanel>
         <StackPanel>
 
