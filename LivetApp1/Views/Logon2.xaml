@@ -38,6 +38,27 @@
 
     </i:Interaction.Triggers>
     <Grid>
+        <TextBlock Grid.Column="0"  FontSize="30" VerticalAlignment="Bottom" Background="#AFEEEE" Height="319" Grid.RowSpan="4" Margin="182,-1,-23,1" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="14.503"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="21.242"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" Background="#FFB6C1" Grid.RowSpan="4" Margin="-84,-1,283,1" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="14.472"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="30.742"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
         <TextBlock/>
 
         <StackPanel>
@@ -50,8 +71,6 @@
                 <TextBox Height="20" Text="{Binding User.Password}" Margin="26,0,24,0"/>
             </UniformGrid>
             <Button Height="22" Width="200"  Margin="158,10,159,10" Command="{Binding Logon2Command}" Content="ログイン"/>
-           
-
         </StackPanel>
     </Grid>
 </Window>

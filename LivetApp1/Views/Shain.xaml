@@ -36,11 +36,35 @@
 
     </i:Interaction.Triggers>
     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,-6">
-        <Grid Height="700">
+        <Grid Height="561">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="500*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" Background="#FFB6C1" Margin="-74,-1,274,228" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="14.472"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="30.742"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <TextBlock Grid.Column="0"  FontSize="30" VerticalAlignment="Bottom" Background="#AFEEEE" Height="335" Margin="222,-3,-23,228" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="14.503"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="21.242"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
 
             <StackPanel Margin="0,0,0,-324" Grid.RowSpan="2" Height="1387" VerticalAlignment="Top">
                 <UniformGrid Name="uniformGrid1" Columns="2">
