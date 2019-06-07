@@ -31,6 +31,10 @@ namespace LivetApp1.Views
         {
             InitializeComponent();
         }
+        void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = (e.Row.GetIndex()).ToString() ;
+        }
 
         private void Button1(object sender, RoutedEventArgs e)
         {
@@ -39,8 +43,8 @@ namespace LivetApp1.Views
 
         private void Button2(object sender, RoutedEventArgs e)
         {
-
-
+            
+           
         }
     }
 }

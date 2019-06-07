@@ -12,6 +12,7 @@ using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
 using LivetApp1.Models;
+using System.Windows.Controls;
 
 namespace LivetApp1.ViewModels
 {
@@ -51,6 +52,7 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+       
 
         public async void Initialize()
         {
