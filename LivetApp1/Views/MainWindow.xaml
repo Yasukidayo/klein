@@ -68,15 +68,40 @@
     </i:Interaction.Triggers>
 
     <Grid>
+        <TextBlock Grid.Column="0"  FontSize="30" VerticalAlignment="Bottom" Background="#AFEEEE" Height="365" Margin="176,0,-30,1" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="14.503"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="21.242"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" Background="#FFB6C1" Grid.RowSpan="4" Margin="-84,-1,283,1" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="14.472"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="30.742"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock/>
+
         <StackPanel>
             <TextBox Text="{Binding MyDate}"/>
-           
+
             <DockPanel>
                 <Menu DockPanel.Dock="Top" Margin="427,0,10,0" RenderTransformOrigin="0.5,0.5">
                     <MenuItem Header="ヘルプ (_H)" Width="80" RenderTransformOrigin="0.94,0.679" Height="20" Command="{Binding ShowHelpCommand}" />
                 </Menu>
             </DockPanel>
-        
+
             <DataGrid ItemsSource="{Binding ToThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,25,3,0" >
                 <DataGrid.Columns>
 
@@ -113,7 +138,7 @@
 
                 </DataGrid.Columns>
             </DataGrid>
-           
+
             <DataGrid ItemsSource="{Binding FromThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged" Margin="170,50,0,0" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="50" >
@@ -138,7 +163,7 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                  
+
                     <DataGridTextColumn Header="作成日時" Binding="{Binding CreatedDateTime}" Width="70">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
@@ -163,10 +188,8 @@
             </WrapPanel>
 
 
-          
+
         </StackPanel>
-
-
 
     </Grid>
 
