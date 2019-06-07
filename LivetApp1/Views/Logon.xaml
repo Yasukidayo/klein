@@ -73,6 +73,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
+
         <TextBlock Grid.RowSpan="4" RenderTransformOrigin="0.513,0.505"/>
         <StackPanel Grid.RowSpan="4">
 
