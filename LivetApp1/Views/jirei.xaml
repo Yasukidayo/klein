@@ -38,10 +38,13 @@
                 <Button Content="戻る" Click="Button1" Height="20" Width="150"  Canvas.Left="10" />
             </Canvas>
 
-        <DataGrid ItemsSource="{Binding Jirei}" AutoGenerateColumns="False" CanUserAddRows="False" Height="480" Width="704"  Margin="0,30,0,0" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid ItemsSource="{Binding Jirei}" AutoGenerateColumns="False" CanUserAddRows="False"
+                  Height="480" Width="704"  Margin="0,30,0,0" SelectionChanged="DataGrid_SelectionChanged"   LoadingRow="DataGrid_LoadingRow" >
             <DataGrid.Columns>
-               
-                <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="120" >
+
+                
+
+                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="120" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -91,7 +94,7 @@
                     <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="button3" Content="削除" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button x:Name="Button3" Content="削除" Foreground="#FFFFFF" Background="#FF0000" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

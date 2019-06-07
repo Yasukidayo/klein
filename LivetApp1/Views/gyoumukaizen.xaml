@@ -38,7 +38,8 @@
             <Button Content="戻る" Click="Button1" Height="20" Width="150"  Canvas.Left="10" />
         </Canvas>
 
-            <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False" Height="480" Width="704"  Margin="0,30,0,0">
+            <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False" 
+                      Height="480" Width="704"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="タイトル"   Binding="{Binding Title}" Width="120" >
@@ -83,14 +84,14 @@
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Button2"  Content= "送信" Click ="Button2" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button x:Name="Button2"  Content= "送信する" Click ="Button2" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="削除" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button Content="削除" Foreground="#FFFFFF" Background="#FF0000"  Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
