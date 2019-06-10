@@ -32,67 +32,70 @@
         <l:InteractionMessageTrigger MessageKey="Created" Messenger="{Binding Messenger}">
             <l:WindowInteractionMessageAction/>
         </l:InteractionMessageTrigger>
-        
+
     </i:Interaction.Triggers>
-    
+
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="390*"/>
+            <RowDefinition Height="179*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2">
+            <Canvas>
 
+                <TextBlock Text="From:" FontSize="25" Canvas.Top="40" Canvas.Left="60" />
 
-            <TextBlock Text="From:" FontSize="20" />
-            <UniformGrid  Columns="3">
-
-                <TextBlock ><Run Text="部署名:" FontSize="17"/><InlineUIContainer>
-                    <ComboBox x:Name="Dep1" ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="169" Height="19">
-                      <i:Interaction.Triggers>
+                <TextBlock Text="部署名" FontSize="21"  Canvas.Top="44" Canvas.Left="123" />
+                <ComboBox x:Name="Dep1" ItemsSource="{Binding Department}" DisplayMemberPath="Name"  FontSize="11"
+                              SelectedValuePath="Id" Width="169" Height="21" Canvas.Top="48" Canvas.Left="190" >
+                    <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                           <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep1, Path=SelectedValue}"/>
+                            <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep1, Path=SelectedValue}"/>
                         </i:EventTrigger>
-                       </i:Interaction.Triggers> 
-                    </ComboBox>
-                </InlineUIContainer></TextBlock>
-                
-                <TextBlock ><Run Text="名前:" FontSize="17"/><InlineUIContainer>
-                        <ComboBox ItemsSource="{Binding FromUser}" DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="169" Height="19"/>
-            
-                    </InlineUIContainer></TextBlock>
+                    </i:Interaction.Triggers>
+                </ComboBox>
 
-            </UniformGrid>
+                <TextBlock Text="名前" FontSize="21" Canvas.Top="44" Canvas.Left="383" />
+                <ComboBox ItemsSource="{Binding FromUser}" DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.FromId}"
+                    FontSize="11" SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="49" Canvas.Left="435" />
 
-            <TextBlock Text="To:" FontSize="20"/>
-            
-            <UniformGrid  Columns="3">
 
-                <TextBlock ><Run Text="部署名:" FontSize="17" /><InlineUIContainer>
-                    <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"  SelectedValuePath="Id" Width="169" Height="19">
-                       <i:Interaction.Triggers>
-                         <i:EventTrigger EventName="SelectionChanged">
-                           <i:InvokeCommandAction Command="{Binding ToDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep2, Path=SelectedValue}"/>
-                         </i:EventTrigger>
-                       </i:Interaction.Triggers> 
-                     </ComboBox>  
 
-                </InlineUIContainer></TextBlock>
-                
-                <TextBlock ><Run Text="名前:" FontSize="17" /><InlineUIContainer>
-                        <ComboBox ItemsSource="{Binding ToUser}"  DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.ToId}" SelectedValuePath="Id" Width="169" Height="19"/>
-                    </InlineUIContainer></TextBlock>
+                <TextBlock Text="To:" FontSize="25"  Canvas.Top="80" Canvas.Left="89" />
 
-            </UniformGrid>
-            
-            <TextBlock Text="作成日:"/>
-            <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"/>
-            <TextBlock   Text="タイトル:"/>
-            <TextBox Text="{Binding ThanksCard.Title}"/>
-            <CheckBox Content="事業改善案"  IsChecked="{Binding ThanksCard.Flag1}" />
-            <CheckBox Content="代表案件"  IsChecked="{Binding ThanksCard.Flag2}" />
-            <TextBlock   Text="感謝の言葉:"/>
-            <TextBox  Height="300" AcceptsReturn="True"  Text="{Binding ThanksCard.Body}"/>
-            <UniformGrid Name="uniformGrid1" Columns="2">
+                <TextBlock Text="部署名" FontSize="21"  Canvas.Top="84" Canvas.Left="123"/>
+                <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"  FontSize="11"
+                              SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="88" Canvas.Left="190">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ToDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep2, Path=SelectedValue}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+                <TextBlock  Text="名前" FontSize="21" Canvas.Top="84" Canvas.Left="383" />
+                <ComboBox ItemsSource="{Binding ToUser}"  DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.ToId}"
+                            FontSize="11" SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="89" Canvas.Left="435"/>
 
-                <Button Content="作成"  Command="{Binding SubmitCommand}" Width="154"  Height="21"/>
-                <Button Content="キャンセル" Click="buttun1" Width="154"   Height="21" />
-            </UniformGrid>
+                <TextBlock Text="作成日" FontSize="18" Canvas.Top="126" Canvas.Left="5"/>
+                <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"  FontSize="10"
+                             Width="120" Height="20"  Canvas.Top="129" Canvas.Left="62"/>
+                <TextBlock   Text="タイトル"  FontSize="18" Canvas.Top="155" Canvas.Left="5" />
+                <TextBox Text="{Binding ThanksCard.Title}"  
+                         Width="660" Height="20"  Canvas.Top="159" Canvas.Left="62" />
+                <CheckBox Content="事業改善案"  IsChecked="{Binding ThanksCard.Flag1}" 
+                       FontSize="13"     Canvas.Top="190" Canvas.Left="5" Height="30" />
+                <CheckBox Content="代表案件"  IsChecked="{Binding ThanksCard.Flag2}"
+                        FontSize="13"   Canvas.Top="190" Canvas.Left="110" Height="30"  />
+                <TextBlock   Text="本文" FontSize="18" Canvas.Top="215" Canvas.Left="5"/>
+                <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True" 
+                          Canvas.Top="240"  Height="280" Width="720"/>
+
+
+                <Button Content="作成"  Command="{Binding SubmitCommand}"
+                        Width="150"  Height="21" Canvas.Top="525" Canvas.Left="111"/>
+                <Button Content="キャンセル" Click="buttun1" Height="21" Width="150" Canvas.Top="525" Canvas.Right="111" />
+            </Canvas>
+
         </StackPanel>
 
 

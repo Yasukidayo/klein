@@ -12,55 +12,183 @@ using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
 using LivetApp1.Models;
+using LivetApp1.Services;
 
 namespace LivetApp1.ViewModels
 {
     public class KansyaViewModel : ViewModel
     {
-        /* コマンド、プロパティの定義にはそれぞれ 
-         * 
-         *  lvcom   : ViewModelCommand
-         *  lvcomn  : ViewModelCommand(CanExecute無)
-         *  llcom   : ListenerCommand(パラメータ有のコマンド)
-         *  llcomn  : ListenerCommand(パラメータ有のコマンド・CanExecute無)
-         *  lprop   : 変更通知プロパティ(.NET4.5ではlpropn)
-         *  
-         * を使用してください。
-         * 
-         * Modelが十分にリッチであるならコマンドにこだわる必要はありません。
-         * View側のコードビハインドを使用しないMVVMパターンの実装を行う場合でも、ViewModelにメソッドを定義し、
-         * LivetCallMethodActionなどから直接メソッドを呼び出してください。
-         * 
-         * ViewModelのコマンドを呼び出せるLivetのすべてのビヘイビア・トリガー・アクションは
-         * 同様に直接ViewModelのメソッドを呼び出し可能です。
-         */
 
-        /* ViewModelからViewを操作したい場合は、View側のコードビハインド無で処理を行いたい場合は
-         * Messengerプロパティからメッセージ(各種InteractionMessage)を発信する事を検討してください。
-         */
 
-        /* Modelからの変更通知などの各種イベントを受け取る場合は、PropertyChangedEventListenerや
-         * CollectionChangedEventListenerを使うと便利です。各種ListenerはViewModelに定義されている
-         * CompositeDisposableプロパティ(LivetCompositeDisposable型)に格納しておく事でイベント解放を容易に行えます。
-         * 
-         * ReactiveExtensionsなどを併用する場合は、ReactiveExtensionsのCompositeDisposableを
-         * ViewModelのCompositeDisposableプロパティに格納しておくのを推奨します。
-         * 
-         * LivetのWindowテンプレートではViewのウィンドウが閉じる際にDataContextDisposeActionが動作するようになっており、
-         * ViewModelのDisposeが呼ばれCompositeDisposableプロパティに格納されたすべてのIDisposable型のインスタンスが解放されます。
-         * 
-         * ViewModelを使いまわしたい時などは、ViewからDataContextDisposeActionを取り除くか、発動のタイミングをずらす事で対応可能です。
-         */
+        #region ThanksCardProperty
+        private ThanksCard _ThanksCard;
 
-        /* UIDispatcherを操作する場合は、DispatcherHelperのメソッドを操作してください。
-         * UIDispatcher自体はApp.xaml.csでインスタンスを確保してあります。
-         * 
-         * LivetのViewModelではプロパティ変更通知(RaisePropertyChanged)やDispatcherCollectionを使ったコレクション変更通知は
-         * 自動的にUIDispatcher上での通知に変換されます。変更通知に際してUIDispatcherを操作する必要はありません。
-         */
-
-        public void Initialize()
+        public ThanksCard ThanksCard
         {
+            get
+            { return _ThanksCard; }
+            set
+            {
+                if (_ThanksCard == value)
+                    return;
+                _ThanksCard = value;
+                RaisePropertyChanged();
+            }
         }
+        #endregion
+
+        #region UsersProperty
+        private List<User> _User;
+
+        public List<User> User
+        {
+            get
+            { return _User; }
+            set
+            {
+                if (_User == value)
+                    return;
+                _User = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region ToUsersProperty
+        private List<User> _ToUser;
+
+        public List<User> ToUser
+        {
+            get
+            { return _ToUser; }
+            set
+            {
+                if (_ToUser == value)
+                    return;
+                _ToUser = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region LogonUserProperty
+        private User _AuthorizedUser;
+        public User AuthorizedUser
+        {
+            get
+            { return _AuthorizedUser; }
+            set
+            {
+                if (_AuthorizedUser == value)
+                    return;
+                _AuthorizedUser = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+        #region DepartmentsProperty
+        private List<Department> _Department;
+
+        public List<Department> Department
+        {
+            get
+            { return _Department; }
+            set
+            {
+                if (_Department == value)
+                    return;
+                _Department = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+
+        public async void Initialize()
+        {
+            this.ThanksCard = new ThanksCard();
+            Department department = new Department();
+            this.AuthorizedUser = SessionService.Instance.AuthorizedUser;
+
+            User user = new User();
+
+            IRestService service = new RestService();
+            this.ToUser = await service.GetDepUsersAsync(null);
+
+            if (SessionService.Instance.AuthorizedUser != null)
+            {
+
+                this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
+                this.User = await user.GetUsersAsync();
+                this.Department = await department.GetDepartmentsAsync();
+
+            }
+
+        }
+
+
+      
+
+        #region ToDepartmentsChangedCommand
+        private ListenerCommand<long> _ToDepartmentsChangedCommand;
+
+        public ListenerCommand<long> ToDepartmentsChangedCommand
+        {
+            get
+            {
+                if (_ToDepartmentsChangedCommand == null)
+                {
+                    _ToDepartmentsChangedCommand = new ListenerCommand<long>(ToDepartmentsChanged);
+                }
+                return _ToDepartmentsChangedCommand;
+            }
+        }
+
+        public async void ToDepartmentsChanged(long DepartmentId)
+        {
+            System.Diagnostics.Debug.WriteLine(DepartmentId);
+
+            if (SessionService.Instance.AuthorizedUser != null)
+            {
+                this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
+            }
+            else
+            {
+                IRestService service = new RestService();
+                this.ToUser = await service.GetDepUsersAsync(DepartmentId);
+            }
+        }
+        #endregion
+
+
+
+
+
+        #region SubmitCommand
+        private ViewModelCommand _SubmitCommand;
+
+        public ViewModelCommand SubmitCommand
+        {
+            get
+            {
+                if (_SubmitCommand == null)
+                {
+                    _SubmitCommand = new ViewModelCommand(Submit);
+                }
+                return _SubmitCommand;
+            }
+        }
+
+        public async void Submit()
+        {
+            ThanksCard createdThanksCard = await ThanksCard.PostThanksCardAsync(this.ThanksCard);
+            //TODO: Error handling
+            Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Created"));
+        }
+        #endregion
+        //To部署が変更されたときに発生するコマンド
+     
+
     }
 }

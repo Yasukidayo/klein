@@ -38,7 +38,7 @@
         </l:InteractionMessageTrigger>
         <!-- MainWindowViewModel からの TransitionMessage("ShowNew") を受け取とって感謝カード作成画面を表示する処理。 -->
         <!-- InvokeActionOnlyWhenWindowIsActive="False" を指定することで、MainWindow が非表示中であってもメッセージを受け取る-->
-        <l:InteractionMessageTrigger MessageKey="ShowNew" Messenger="{Binding Messenger}">
+        <l:InteractionMessageTrigger MessageKey="ShowKansya" Messenger="{Binding Messenger}">
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
@@ -185,7 +185,7 @@
             <WrapPanel Orientation="Vertical" Margin="0,60,365,0">
                 <Button Content="社員リスト" Command="{Binding ShainListCommand}" Height="70"/>
                 <Button Content="掲示板" Command="{Binding ShowKejibanCommand}" Height="70"/>
-                <Button Content="感謝カードを作る" Command="{Binding ShowNewCommand}" Width="144" Height="70"/>
+                <Button Content="感謝カードを作る" Command="{Binding ShowKansyaCommand}" Width="144" Height="70"/>
 
             </WrapPanel>
 
