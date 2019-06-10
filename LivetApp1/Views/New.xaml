@@ -71,6 +71,7 @@
                          </i:EventTrigger>
                        </i:Interaction.Triggers> 
                      </ComboBox>  
+
                 </InlineUIContainer></TextBlock>
                 
                 <TextBlock ><Run Text="名前:" FontSize="17" /><InlineUIContainer>
