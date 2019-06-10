@@ -75,56 +75,44 @@
 
             <Image Source="/Resourses/shasin.png" Height="120" VerticalAlignment="Top" Margin="0,28.03,380,0"/>
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="0" Margin="-354,349,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-            <TextBlock HorizontalAlignment="Left" Margin="13,108.03,0,0" TextWrapping="Wrap" Text="　　名前　" VerticalAlignment="Top" Height="15" Width="72"/>
+            <TextBlock HorizontalAlignment="Left" Margin="13,108.03,0,0" TextWrapping="Wrap" Text="　部署　名前　" VerticalAlignment="Top" Height="15" Width="72"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="7,128.03,0,0" VerticalAlignment="Top" Width="124" Height="20"/>
 
             <Image Source="/Resourses/shasin.png" Height="120" VerticalAlignment="Top" Margin="136,23,239,0" RenderTransformOrigin="0.317,0.897"/>
             <TextBlock HorizontalAlignment="Left" Height="3" Margin="-74,134,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="110"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" Width="87" Margin="159,108.03,0,0"><Run Text="　　　名前"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" Width="87" Margin="159,108.03,0,0"><Run Text="　部署　　名前"/><LineBreak/><Run/></TextBlock>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="20" Margin="141,128.03,0,0" RenderTransformOrigin="0.5,0.5"/>
 
             <Image Source="/Resourses/shasin.png" Height="120" VerticalAlignment="Top" Margin="277,28.03,103,0" RenderTransformOrigin="0.487,0.412"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" Width="88" Margin="295,108.03,0,0"><Run Text="　　　名前"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" Width="88" Margin="295,108.03,0,0"><Run Text="　部署　　名前"/><LineBreak/><Run/></TextBlock>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.227,0.752" Margin="278,128.03,0,0" Height="20"/>
 
             <Image Source="/Resourses/shasin.png" Height="120" VerticalAlignment="Top" Margin="0,180,380,0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="26,259,0,0" TextWrapping="Wrap" Text="　名前" VerticalAlignment="Top" Width="59" Height="16"/>
+            <TextBlock HorizontalAlignment="Left" Margin="26,259,0,0" TextWrapping="Wrap" Text="部署　名前" VerticalAlignment="Top" Width="59" Height="16"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,280,0,0" Height="20" RenderTransformOrigin="0.583,0.345"/>
 
             <Image Source="/Resourses/shasin.png" Height="120" VerticalAlignment="Top" Margin="141,180,239,0"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="　　　名前" VerticalAlignment="Top" Margin="159,262.05,0,0" Width="87" Height="16"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="　部署　　名前" VerticalAlignment="Top" Margin="159,262.05,0,0" Width="87" Height="16"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="141,281,0,0" VerticalAlignment="Top" Width="120" Height="19"/>
 
             <Image Source="/Resourses/shasin.png" Height="120" VerticalAlignment="Top" Margin="277,179,103,0"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="295,262.05,0,0" Width="88" Height="32"><Run Text="　　　名前"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="295,262.05,0,0" Width="88" Height="32"><Run Text="　部署　　名前"/><LineBreak/><Run/></TextBlock>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="283,281,0,0" Height="19"/>
 
             <Image Source="/Resourses/shasin.png" Height="120"  VerticalAlignment="Top" Margin="0,349,380,0"/>
             <TextBlock HorizontalAlignment="Left" Height="1.5" Margin="26,452.406,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="10"/>
-            <TextBlock HorizontalAlignment="Left" Margin="35.8,431.446,0,0" TextWrapping="Wrap" Text="   名前" VerticalAlignment="Top" RenderTransformOrigin="-0.213,-0.752"/>
+            <TextBlock HorizontalAlignment="Left" Margin="35.8,431.446,0,0" TextWrapping="Wrap" Text=" 部署  名前" VerticalAlignment="Top" RenderTransformOrigin="-0.213,-0.752"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="10,447.406,0,0" VerticalAlignment="Top" Width="120"/>
 
             <Image Source="/Resourses/shasin.png" Height="120"  VerticalAlignment="Top" Margin="159,349,212,0" RenderTransformOrigin="0.692,0.333" Width="137"/>
-            <TextBlock HorizontalAlignment="Left" Margin="213,431.446,0,0" TextWrapping="Wrap" Text="　名前　" VerticalAlignment="Top" RenderTransformOrigin="0.292,0.091"/>
+            <TextBlock HorizontalAlignment="Left" Margin="213,431.446,0,0" TextWrapping="Wrap" Text="部署　名前　" VerticalAlignment="Top" RenderTransformOrigin="0.292,0.091"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="163.5,447.406,0,0" VerticalAlignment="Top" Width="128.5"/>
 
             <Image Source="/Resourses/shasin.png" Height="120"  VerticalAlignment="Top" Margin="342,349,38,0" Width="137"/>
-            <TextBlock HorizontalAlignment="Left" Margin="390,431.446,0,0" TextWrapping="Wrap" Text="　名前　" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="390,431.446,0,0" TextWrapping="Wrap" Text="部署　名前　" VerticalAlignment="Top"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="351,447.406,0,0" VerticalAlignment="Top" Width="128"/>
 
-            <Image Source="/Resourses/shasin.png" Height="120"  VerticalAlignment="Top" Margin="0,506,380,0" Width="137"/>
-            <TextBlock HorizontalAlignment="Left" Margin="52,589.906,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" Height="15" Text="名前"/>
-            <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="10,604.906,0,0" VerticalAlignment="Top" Width="120"/>
-
-            <Image Source="/Resourses/shasin.png" Height="120"  VerticalAlignment="Top" Margin="163.5,504.866,216.5,0" Width="137"/>
-            <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="172,604.906,0,0" VerticalAlignment="Top" Width="120"/>
-            <TextBlock HorizontalAlignment="Left" Margin="213,589.906,0,0" TextWrapping="Wrap" Text="名前" VerticalAlignment="Top" Width="33"/>
-
-            <Image Source="/Resourses/shasin.png" Height="120"  VerticalAlignment="Top" Margin="342,506,38,0" Width="137"/>
-            <TextBlock HorizontalAlignment="Left" Margin="390,588.946,0,0" TextWrapping="Wrap" Text="　名前　" VerticalAlignment="Top" RenderTransformOrigin="0.562,0.185"/>
-            <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="351,604.906,0,0" VerticalAlignment="Top" Width="120"/>
-
-
+            
 
 
 

@@ -67,7 +67,7 @@
                     <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"   Width="169" Height="19"/>
                      <i:Interaction.Triggers>
                        <i:EventTrigger EventName="SelectionChanged">
-                           <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=FromDepartments, Path=SelectedValue}"/>
+                           <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep2, Path=SelectedValue}"/>
                        </i:EventTrigger>
                    </i:Interaction.Triggers>
                 </InlineUIContainer></TextBlock>
