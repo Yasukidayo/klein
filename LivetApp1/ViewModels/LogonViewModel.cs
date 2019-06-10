@@ -65,6 +65,9 @@ namespace LivetApp1.ViewModels
 
             if (authorizedUser != null) // Logon 成功
             {
+                SessionService.Instance.IsAuthorized = true;
+                SessionService.Instance.AuthorizedUser = authorizedUser;
+              //  Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Authorized"));
                 try
                 {
 
