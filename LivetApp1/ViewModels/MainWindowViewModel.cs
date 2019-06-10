@@ -323,6 +323,31 @@ namespace LivetApp1.ViewModels
 
         #endregion
 
+        #region UserDeleteCommand
+        private ListenerCommand<User> _UserDeleteCommand;
+
+        public ListenerCommand<User> UserDeleteCommand
+        {
+
+            get
+            {
+                if (_UserDeleteCommand == null)
+                {
+                    _UserDeleteCommand = new ListenerCommand<User>(UserDelete);
+                }
+                return _UserDeleteCommand;
+            }
+        }
+
+        public async void UserDelete(User User)
+        {
+            System.Diagnostics.Debug.WriteLine("DeleteCommand" + User.Id);
+            User deletedUser = await User.DeleteUserAsync(User.Id);
+
+            this.Initialize();
+        }
+        #endregion
+
 
         public async void Initialize()
         {
