@@ -43,7 +43,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" Background="#FFB6C1" Margin="-74,-1,274,228" RenderTransformOrigin="0.5,0.5">
+            <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" Background="#FFB6C1" Margin="-101,-1,245,1" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
 
                     <TransformGroup>
@@ -55,7 +55,7 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
 
-            <TextBlock Grid.Column="0"  FontSize="30" VerticalAlignment="Bottom" Background="#AFEEEE" Height="335" Margin="222,-3,-23,228" RenderTransformOrigin="0.5,0.5">
+            <TextBlock Grid.Column="0"  FontSize="30" VerticalAlignment="Bottom" Background="#AFEEEE" Height="562" Margin="218,-3,-52,1" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -112,7 +112,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="390,431.446,0,0" TextWrapping="Wrap" Text="部署　名前　" VerticalAlignment="Top"/>
             <Button Content="感謝カード作成" Command="{Binding ShowNewCommand}" HorizontalAlignment="Left" Margin="351,447.406,0,0" VerticalAlignment="Top" Width="128"/>
 
-            
+
 
 
 
