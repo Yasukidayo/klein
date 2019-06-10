@@ -101,7 +101,7 @@
                 <TextBox  Text="{Binding User.Name}" Canvas.Left="160" Canvas.Top="65" Height="20" Width="200"
                             Style="{StaticResource WatermarkTextbox}"  Tag="名前を入力してください"/>
 
-                <TextBlock  Text="Password" Canvas.Left="95" Canvas.Top="98" Height="22" Width="70"/>
+                <TextBlock  Text="Password" Canvas.Left="95" Canvas.Top="95" Height="22" Width="70"/>
                 <PasswordBox Height="20" Width="200"  Canvas.Left="160" Canvas.Top="95" 
                              InputMethod.PreferredImeState="On" InputMethod.PreferredImeConversionMode="Alphanumeric">
                     <i:Interaction.Behaviors>
