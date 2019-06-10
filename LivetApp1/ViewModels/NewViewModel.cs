@@ -137,9 +137,12 @@ namespace LivetApp1.ViewModels
             User user = new User();
             this.User = await user.GetUsersAsync();
 
+            IRestService service = new RestService();
+            this.FromUser = await service.GetDepUsersAsync(null);
+
             if (SessionService.Instance.AuthorizedUser != null)
             {
-                this.User = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
+
                 this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
                 this.ToUser = this.FromUser;
             }
@@ -166,7 +169,16 @@ namespace LivetApp1.ViewModels
         public async void ToDepartmentsChanged(long DepartmentId)
         {
             System.Diagnostics.Debug.WriteLine(DepartmentId);
-            this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
+
+            if (SessionService.Instance.AuthorizedUser != null)
+            {
+                this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
+            }
+            else
+            {
+                IRestService service = new RestService();
+                this.ToUser = await service.GetDepUsersAsync(DepartmentId);
+            }
         }
         #endregion
 
@@ -204,12 +216,12 @@ namespace LivetApp1.ViewModels
             {
                 if (_FromDepartmentsChangedCommand == null)
                 {
-                    _FromDepartmentsChangedCommand = new ListenerCommand<long>(SelectionChanged);
+                    _FromDepartmentsChangedCommand = new ListenerCommand<long>(FromDepartmentsChanged);
                 }
                 return _FromDepartmentsChangedCommand;
             }
         }
-        public void SelectionChanged(long parameter)
+        public void FromDepartmentsChanged(long parameter)
         {
 
            FromUser = this.User.Where(e => parameter == e.DepartmentId).ToList();

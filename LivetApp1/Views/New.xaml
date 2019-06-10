@@ -43,15 +43,15 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17"/><InlineUIContainer>
-                 <ComboBox x:Name="Dep1" ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="169" Height="19">
+                    <ComboBox x:Name="Dep1" ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValuePath="Id" Width="169" Height="19">
                       <i:Interaction.Triggers>
-                       <i:EventTrigger EventName="SelectionChanged">
+                        <i:EventTrigger EventName="SelectionChanged">
                            <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep1, Path=SelectedValue}"/>
-                       </i:EventTrigger>
-                   </i:Interaction.Triggers>
-                   
+                        </i:EventTrigger>
+                       </i:Interaction.Triggers> 
                     </ComboBox>
                 </InlineUIContainer></TextBlock>
+                
                 <TextBlock ><Run Text="名前:" FontSize="17"/><InlineUIContainer>
                         <ComboBox ItemsSource="{Binding FromUser}" DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.FromId}" SelectedValuePath="Id" Width="169" Height="19"/>
             
@@ -64,16 +64,18 @@
             <UniformGrid  Columns="3">
 
                 <TextBlock ><Run Text="部署名:" FontSize="17" /><InlineUIContainer>
-                    <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"   Width="169" Height="19"/>
-                     <i:Interaction.Triggers>
-                       <i:EventTrigger EventName="SelectionChanged">
-                           <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep2, Path=SelectedValue}"/>
-                       </i:EventTrigger>
-                   </i:Interaction.Triggers>
+                    <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"  SelectedValuePath="Id" Width="169" Height="19">
+                       <i:Interaction.Triggers>
+                         <i:EventTrigger EventName="SelectionChanged">
+                           <i:InvokeCommandAction Command="{Binding ToDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep2, Path=SelectedValue}"/>
+                         </i:EventTrigger>
+                       </i:Interaction.Triggers> 
+                     </ComboBox>  
+
                 </InlineUIContainer></TextBlock>
                 
                 <TextBlock ><Run Text="名前:" FontSize="17" /><InlineUIContainer>
-                        <ComboBox ItemsSource="{Binding User}"  DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.ToId}" SelectedValuePath="Id" Width="169" Height="19"/>
+                        <ComboBox ItemsSource="{Binding ToUser}"  DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.ToId}" SelectedValuePath="Id" Width="169" Height="19"/>
                     </InlineUIContainer></TextBlock>
 
             </UniformGrid>
