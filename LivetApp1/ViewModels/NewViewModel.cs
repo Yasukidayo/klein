@@ -92,7 +92,22 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region FromUsersProperty
+        private List<User> _FromUser2;
 
+        public List<User> FromUser2
+        {
+            get
+            { return _FromUser2; }
+            set
+            {
+                if (_FromUser2 == value)
+                    return;
+                _FromUser2 = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
 
         #region DepartmentsProperty
         private List<Department> _Department;
@@ -131,27 +146,7 @@ namespace LivetApp1.ViewModels
 
         }
 
-        #region FromDepartmentsChangedCommand
-        private ListenerCommand<long> _FromDepartmentsChangedCommand;
-
-        public ListenerCommand<long> FromDepartmentsChangedCommand
-        {
-            get
-            {
-                if (_FromDepartmentsChangedCommand == null)
-                {
-                    _FromDepartmentsChangedCommand = new ListenerCommand<long>(FromDepartmentsChanged);
-                }
-                return _FromDepartmentsChangedCommand;
-            }
-        }
-
-        public async void FromDepartmentsChanged(long DepartmentId)
-        {
-            System.Diagnostics.Debug.WriteLine(DepartmentId);
-            this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(DepartmentId);
-        }
-        #endregion
+      
 
         #region ToDepartmentsChangedCommand
         private ListenerCommand<long> _ToDepartmentsChangedCommand;
@@ -201,6 +196,24 @@ namespace LivetApp1.ViewModels
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Created"));
         }
         #endregion
+        //To部署が変更されたときに発生するコマンド
+        private ListenerCommand<long> _FromDepartmentsChangedCommand;
+        public ListenerCommand<long> FromDepartmentsChangedCommand
+        {
+            get
+            {
+                if (_FromDepartmentsChangedCommand == null)
+                {
+                    _FromDepartmentsChangedCommand = new ListenerCommand<long>(SelectionChanged);
+                }
+                return _FromDepartmentsChangedCommand;
+            }
+        }
+        public void SelectionChanged(long parameter)
+        {
 
+           FromUser = this.User.Where(e => parameter == e.DepartmentId).ToList();
+        }
+        
     }
 }
