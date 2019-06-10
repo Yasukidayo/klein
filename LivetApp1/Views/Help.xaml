@@ -63,14 +63,21 @@
             <UniformGrid x:Name="uniformGrid1" Columns="2">
                 <Button Content="戻る" Click="buttun1"   Height="21" Margin="0,0,136,0" />
             </UniformGrid>
-            <TextBox Text="Q" />
-            <TextBlock Text="A" />
-            <TextBox Text="Q" />
-            <TextBlock Text="A" />
-            <TextBox Text="Q" />
-            <TextBlock Text="A" />
-            <TextBox Text="Q" />
-            <TextBlock Text="A" />
+            
+            <TextBox Text="Q  管理者ログインとは何ですか?" />
+            <TextBlock Text="A  一般のログインと違って感謝カードシステムを管理する画面にとぶことができます"/>
+            <TextBlock></TextBlock>
+            <TextBox Text="Q  管理者ログインをするとどのようなことができますか?" />
+            <TextBlock Text="A  業務改善や代表事例にチェックを入れられた感謝カードを見たり、ユーザーの登録や参照でユーザー一覧を&#xa;見ることができます"/>
+            <TextBlock></TextBlock>
+            <TextBox Text="Q  感謝カード作成の時に業務改善や代表事例にチェックを入れるとどうなりますか?"/>
+            <TextBlock Text="A  管理者画面の業務改善、代表示例に保存されます"/>
+            <TextBlock></TextBlock>
+            <TextBox Text="Q  名前や部署がわからない相手に感謝カードを送ることはできますか?" />
+            <TextBlock Text="A  社員リストに顔写真付きで部署、名前が載っているのでそこから探して感謝カードを送ることができます"/>
+            <TextBlock></TextBlock>
+            <TextBox Text="Q  感謝カードの受信履歴や送信履歴を見ることはできますか?" />
+            <TextBlock Text="A  一般ログインした後のホーム画面で見ることができます"/>
 
         </StackPanel>
     </Grid>
