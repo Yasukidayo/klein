@@ -60,12 +60,24 @@ namespace LivetApp1.ViewModels
         public async void Logon()
         {
             User authorizedUser = await this.User.LogonAsync();
+            System.Diagnostics.Debug.WriteLine("Logon");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
             if (authorizedUser != null) // Logon 成功
             {
-                SessionService.Instance.IsAuthorized = true;
-                SessionService.Instance.AuthorizedUser = authorizedUser;
-                Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Authorized"));
+                try
+                {
+
+                    window.Hide();
+                    MainWindowViewModel ViewModel = new MainWindowViewModel();
+                    var message = new TransitionMessage(typeof(Views.MainWindow), ViewModel, TransitionMode.Modal, "Logon");
+                    Messenger.Raise(message);
+                }
+                finally
+                {
+
+                    window.ShowDialog();
+                }
             }
             else // Logon 失敗
             {

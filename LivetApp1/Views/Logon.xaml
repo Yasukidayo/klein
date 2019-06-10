@@ -29,9 +29,10 @@
 
         <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
 
-        <!-- LogonViewModel からの TransitionMessage("Authorized") を受け取とってログオン画面を閉じる処理。 -->
-        <l:InteractionMessageTrigger MessageKey="Authorized" Messenger="{Binding Messenger}">
-            <l:WindowInteractionMessageAction/>
+       
+
+        <l:InteractionMessageTrigger MessageKey="Logon" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
         <l:InteractionMessageTrigger MessageKey="ShowLogon2" Messenger="{Binding Messenger}">
