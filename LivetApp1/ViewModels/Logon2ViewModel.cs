@@ -122,24 +122,24 @@ namespace LivetApp1.ViewModels
         }
         #endregion
         #region Logon
-        private ViewModelCommand _Logon3Command;
+        private ViewModelCommand _ShowLogonCommand;
 
-        public ViewModelCommand Logon3Command
+        public ViewModelCommand ShowLogonCommand
 
         {
             get
             {
-                if (_Logon3Command == null)
+                if (_ShowLogonCommand == null)
                 {
-                    _Logon3Command = new ViewModelCommand(Logon3);
+                    _ShowLogonCommand = new ViewModelCommand(ShowLogon);
                 }
-                return _Logon3Command;
+                return _ShowLogonCommand;
             }
         }
 
-        public void Logon3()
+        public void ShowLogon()
         {
-            System.Diagnostics.Debug.WriteLine("Logon3");
+            System.Diagnostics.Debug.WriteLine("ShowLogon");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
             try
@@ -147,7 +147,7 @@ namespace LivetApp1.ViewModels
                 // MainWindow を非表示
                 window.Hide();
                 LogonViewModel ViewModel = new LogonViewModel();
-                var message = new TransitionMessage(typeof(Views.Logon), ViewModel, TransitionMode.Modal, "Logon3");
+                var message = new TransitionMessage(typeof(Views.Logon), ViewModel, TransitionMode.Modal, "ShowLogon");
                 Messenger.Raise(message);
             }
             finally

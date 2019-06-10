@@ -2,11 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
-        xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="管理者ログイン画面" Height="350" Width="525">
+        Title="管理者ログイン画面" Height="300" Width="520">
 
     <Window.DataContext>
         <vm:Logon2ViewModel/>
@@ -33,7 +31,11 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
-     
+        <l:InteractionMessageTrigger MessageKey="ShowLogon" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
+        </l:InteractionMessageTrigger>
+
+
 
 
 
@@ -64,21 +66,29 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        
-        <StackPanel  Grid.RowSpan="4">
-            <UniformGrid  Columns="3">
-                <TextBlock  Height="20" Width="70"   Text="Name" RenderTransformOrigin="-1.72,1.6"/>
-                <TextBox Height="20" Text="{Binding User.Name}" Margin="20,0,26,0"/>
-            </UniformGrid>
-            <UniformGrid  Columns="3" HorizontalAlignment="Right" Width="517">
-                <TextBlock Height="20" Width="70" Text="Password"/>
-                <TextBox Height="20" Text="{Binding User.Password}" Margin="26,0,24,0"/>
-            </UniformGrid>
-            <Button Height="22"  Margin="158,10,154,10" Command="{Binding Logon2Command}" Content="Login"/>
+
+        <StackPanel>
+            <Canvas>
+                <TextBlock  Height="22" Width="70"   Text="Name" Canvas.Left="95" Canvas.Top="63"/>
+                <TextBox Height="20" Width="200" Text="{Binding User.Name}" Canvas.Left="160" Canvas.Top="60"/>
+
+                <TextBlock Height="22" Width="70" Text="Password" Canvas.Left="95" Canvas.Top="93"/>
+
+                <PasswordBox Height="20"  Width="200" InputMethod.PreferredImeState="On"
+                         InputMethod.PreferredImeConversionMode="Alphanumeric" Canvas.Left="160" Canvas.Top="90">
+                    <i:Interaction.Behaviors>
+                        <l:PasswordBoxBindingSupportBehavior Password="{Binding User.Password}" />
+                    </i:Interaction.Behaviors>
+                </PasswordBox>
+
+
+                <Button Height="22" Width="100" Command="{Binding Logon2Command}" 
+                        Content="Login" Canvas.Left="210" Canvas.Top="140"/>
+            </Canvas>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" Grid.RowSpan="4" Width="76">
-            <Button Content="一般ログイン" Click="Button1" Height="24"/>
+            <Button Content="一般ログイン" Command="{Binding ShowLogonCommand}" Height="24"/>
         </StackPanel>
     </Grid>
 </Window>

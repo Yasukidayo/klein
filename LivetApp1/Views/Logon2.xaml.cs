@@ -31,9 +31,6 @@ namespace LivetApp1.Views
         {
             InitializeComponent();
         }
-        private void Button1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }

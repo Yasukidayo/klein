@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="Home2" Height="350" Width="525">
+        Title="管理者ホーム" Height="350" Width="525">
 
     <Window.DataContext>
         <vm:Home2ViewModel/>
@@ -83,6 +83,6 @@
         <Button Content="代表事例" Command="{Binding ShowJireiCommand}" HorizontalAlignment="Left" Margin="184.697,134.058,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.162,0" Height="50"/>
         <Button Content="登録画面" Command="{Binding ShowTourokugamenCommand}" HorizontalAlignment="Left" Margin="184.697,184.058,0,0" VerticalAlignment="Top" Width="156" Height="50"/>
         <Button Content="参照" Command="{Binding ShowSanshouCommand}" HorizontalAlignment="Left" Margin="184.697,230.23,0,0" VerticalAlignment="Top" Width="156" Height="50"/>
-        <Button Content="ログアウト"  Command="{Binding ShowLogon2Command}" Margin="392.969,10,0,0" VerticalAlignment="Top" Width="100.758" Height="29.051"/>
+        <Button Content="ログアウト"  Click="Button1" Margin="392.969,10,0,0" VerticalAlignment="Top" Width="100.758" Height="29.051"/>
     </Grid>
 </Window>
