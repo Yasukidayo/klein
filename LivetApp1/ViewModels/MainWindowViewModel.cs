@@ -42,11 +42,7 @@ namespace LivetApp1.ViewModels
        
       
 
-         public void Initialize()
-         {
-             var message = new TransitionMessage(typeof(Views.Logon), new LogonViewModel(), TransitionMode.Modal, "ShowLogon");
-             Messenger.Raise(message);
-         }
+        
 
         #region ShowNew
         private ViewModelCommand _ShowNewCommand;
@@ -328,7 +324,7 @@ namespace LivetApp1.ViewModels
         #endregion
 
 
-        public async void Initialize2()
+        public async void Initialize()
         {
           
             IRestService service = new RestService();   // ThanksCard thanksCard = new ThanksCard();
