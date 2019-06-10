@@ -88,7 +88,7 @@
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" Grid.RowSpan="4" Width="76">
-            <Button Content="一般ログイン" Command="{Binding ShowLogonCommand}" Height="24"/>
+            <Button Content="一般ログイン" Click="Button1" Height="24"/>
         </StackPanel>
     </Grid>
 </Window>
