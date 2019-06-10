@@ -35,12 +35,26 @@
             <l:TransitionInteractionMessageAction InvokeActionOnlyWhenWindowIsActive="False"/>
         </l:InteractionMessageTrigger>
 
-
-
-
-
-
     </i:Interaction.Triggers>
+    <Window.Resources>
+        <Style x:Key="WatermarkTextbox" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid Background="White">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="WaterMarkLabel" Text="{TemplateBinding Tag}" Opacity=".5" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Visibility="Collapsed"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
 
        
@@ -69,13 +83,14 @@
 
         <StackPanel>
             <Canvas>
-                <TextBlock  Height="22" Width="70"   Text="Name" Canvas.Left="95" Canvas.Top="63"/>
-                <TextBox Height="20" Width="200" Text="{Binding User.Name}" Canvas.Left="160" Canvas.Top="60"/>
+                <TextBlock   Text="Name" Height="22" Width="70"  Canvas.Left="95" Canvas.Top="68"/>
+                <TextBox  Text="{Binding User.Name}" Height="20" Width="200" Canvas.Left="160" Canvas.Top="65"
+                         Style="{StaticResource WatermarkTextbox}"  Tag="名前を入力してください"/>
 
-                <TextBlock Height="22" Width="70" Text="Password" Canvas.Left="95" Canvas.Top="93"/>
+                <TextBlock Height="22" Width="70" Text="Password" Canvas.Left="95" Canvas.Top="98"/>
 
                 <PasswordBox Height="20"  Width="200" InputMethod.PreferredImeState="On"
-                         InputMethod.PreferredImeConversionMode="Alphanumeric" Canvas.Left="160" Canvas.Top="90">
+                         InputMethod.PreferredImeConversionMode="Alphanumeric" Canvas.Left="160" Canvas.Top="95">
                     <i:Interaction.Behaviors>
                         <l:PasswordBoxBindingSupportBehavior Password="{Binding User.Password}" />
                     </i:Interaction.Behaviors>
@@ -83,7 +98,7 @@
 
 
                 <Button Height="22" Width="100" Command="{Binding Logon2Command}" 
-                        Content="Login" Canvas.Left="210" Canvas.Top="140"/>
+                        Content="Login" Canvas.Left="210" Canvas.Top="145"/>
             </Canvas>
         </StackPanel>
 
