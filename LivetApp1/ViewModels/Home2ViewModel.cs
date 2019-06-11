@@ -21,8 +21,43 @@ namespace LivetApp1.ViewModels
         public void Initialize()
         {
         }
+        #region ShowSoushin
+        private ViewModelCommand _ShowSoushinCommand;
 
-        #region ShowKejiban
+        public ViewModelCommand ShowSoushinCommand
+
+        {
+            get
+            {
+                if (_ShowSoushinCommand == null)
+                {
+                    _ShowSoushinCommand = new ViewModelCommand(ShowSoushin);
+                }
+                return _ShowSoushinCommand;
+            }
+        }
+
+        public void ShowSoushin()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowSoushin");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                SoushinViewModel ViewModel = new SoushinViewModel();
+                var message = new TransitionMessage(typeof(Views.Soushin), ViewModel, TransitionMode.Modal, "ShowSoushin");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+        #region ShowJirei
         private ViewModelCommand _ShowJireiCommand;
 
         public ViewModelCommand ShowJireiCommand
@@ -121,6 +156,42 @@ namespace LivetApp1.ViewModels
                 window.Hide();
                 TourokugamenViewModel ViewModel = new TourokugamenViewModel();
                 var message = new TransitionMessage(typeof(Views.tourokugamen), ViewModel, TransitionMode.Modal, "ShowTourokugamen");
+                Messenger.Raise(message);
+            }
+            finally
+            {
+                // MainWindow を再表示
+                window.ShowDialog();
+            }
+        }
+        #endregion
+        #region ShowAddDepartment
+        private ViewModelCommand _ShowAddDepCommand;
+
+        public ViewModelCommand ShowAddDepCommand
+
+        {
+            get
+            {
+                if (_ShowAddDepCommand == null)
+                {
+                    _ShowAddDepCommand = new ViewModelCommand(ShowAddDep);
+                }
+                return _ShowAddDepCommand;
+            }
+        }
+
+        public void ShowAddDep()
+        {
+            System.Diagnostics.Debug.WriteLine("ShowAddDep");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
+
+            try
+            {
+                // MainWindow を非表示
+                window.Hide();
+                AddDepartmentViewModel ViewModel = new AddDepartmentViewModel();
+                var message = new TransitionMessage(typeof(Views.AddDepartment), ViewModel, TransitionMode.Modal, "ShowAddDep");
                 Messenger.Raise(message);
             }
             finally
