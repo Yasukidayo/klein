@@ -74,6 +74,31 @@ namespace LivetApp1.ViewModels
             this.Departments = await dept.GetDepartmentsAsync();
         }
 
+        #region UserEditCommand
+        private ListenerCommand<User> _UserEditCommand;
+
+        public ListenerCommand<User> UserEditCommand
+        {
+            get
+            {
+                if (_UserEditCommand == null)
+                {
+                    _UserEditCommand = new ListenerCommand<User>(UserEdit);
+                }
+                return _UserEditCommand;
+            }
+        }
+
+        public void UserEdit(User User)
+        {
+            System.Diagnostics.Debug.WriteLine("EditCommand" + User.Id);
+            EditUserViewModel ViewModel = new EditUserViewModel();
+            ViewModel.User = User;
+            var message = new TransitionMessage(typeof(Views.EditUser), ViewModel, TransitionMode.Modal, "UserEdit");
+            Messenger.Raise(message);
+        }
+        #endregion
+
         #region UserDeleteCommand
         private ListenerCommand<User> _UserDeleteCommand;
 
@@ -98,6 +123,32 @@ namespace LivetApp1.ViewModels
             this.Initialize();
         }
         #endregion
+
+        #region DepartmentEditCommand
+        private ListenerCommand<Department> _DepartmentEditCommand;
+
+        public ListenerCommand<Department> DepartmentEditCommand
+        {
+            get
+            {
+                if (_DepartmentEditCommand == null)
+                {
+                    _DepartmentEditCommand = new ListenerCommand<Department>(DepartmentEdit);
+                }
+                return _DepartmentEditCommand;
+            }
+        }
+
+        public void DepartmentEdit(Department Department)
+        {
+            System.Diagnostics.Debug.WriteLine("EditCommand" + Department.Id);
+            DepEditViewModel ViewModel = new DepEditViewModel();
+            ViewModel.Department = Department;
+            var message = new TransitionMessage(typeof(Views.DepEdit), ViewModel, TransitionMode.Modal, "DepartmentEdit");
+            Messenger.Raise(message);
+        }
+        #endregion
+
 
         #region DepartmentDeleteCommand
         private ListenerCommand<Department> _DepartmentDeleteCommand;

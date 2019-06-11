@@ -61,6 +61,7 @@
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="ViewModels\AddDepartmentViewModel.cs" />
     <Compile Include="ViewModels\DepEditViewModel.cs" />
+    <Compile Include="ViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\gyoumukaizenViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home2ViewModel.cs" />
@@ -81,6 +82,9 @@
     </Compile>
     <Compile Include="Views\DepEdit.xaml.cs">
       <DependentUpon>DepEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\gyoumukaizen.xaml.cs">
       <DependentUpon>gyoumukaizen.xaml</DependentUpon>
@@ -129,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DepEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

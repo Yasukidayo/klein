@@ -15,20 +15,21 @@ using LivetApp1.Models;
 
 namespace LivetApp1.ViewModels
 {
-    public class DepEditViewModel : ViewModel
+    public class EditUserViewModel : ViewModel
     {
-        #region DepartmentProperty
-        private Department _Department;
 
-        public Department Department
+        #region UserProperty
+        private User _User;
+
+        public User User
         {
             get
-            { return _Department; }
+            { return _User; }
             set
             {
-                if (_Department == value)
+                if (_User == value)
                     return;
-                _Department = value;
+                _User = value;
                 RaisePropertyChanged();
             }
         }
@@ -53,7 +54,8 @@ namespace LivetApp1.ViewModels
 
         public async void Initialize()
         {
-            this.Departments = await this.Department.GetDepartmentsAsync();
+            Department dept = new Department();
+            this.Departments = await dept.GetDepartmentsAsync();
         }
 
         #region SubmitCommand
@@ -73,7 +75,7 @@ namespace LivetApp1.ViewModels
 
         public async void Submit()
         {
-            Department updatedDepartment = await Department.PutDepartmentAsync(this.Department);
+            User updatedUser = await User.PutUserAsync(this.User);
             //TODO: Error handling
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Edited"));
         }
