@@ -37,7 +37,7 @@
         <Canvas>
             <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
         </Canvas>
-        <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False"
+        <DataGrid ItemsSource="{Binding ThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True"
                  Width="780" Margin="5,30,7,4" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="25">

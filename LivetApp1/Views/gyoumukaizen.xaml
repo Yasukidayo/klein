@@ -38,7 +38,7 @@
             <Button Content="戻る" Click="Button1" Height="20" Width="150"  Canvas.Left="10" />
         </Canvas>
 
-            <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False" 
+            <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True"
                       Height="480" Width="724"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
                 <DataGrid.Columns>
 
