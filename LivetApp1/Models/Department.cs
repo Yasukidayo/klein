@@ -80,6 +80,23 @@ namespace LivetApp1.Models
         }
         #endregion
 
+        #region ParentProperty
+        private Department _Parent;
+
+        public Department Parent
+        {
+            get
+            { return _Parent; }
+            set
+            {
+                if (_Parent == value)
+                    return;
+                _Parent = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         #region Department
 
         public async Task<List<Department>> GetDepartmentsAsync()
