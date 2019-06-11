@@ -50,6 +50,11 @@ namespace LivetApp1.Views
         {
 
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }  
 
 }
