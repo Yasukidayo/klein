@@ -43,11 +43,11 @@
         <StackPanel Grid.RowSpan="2">
             <Canvas>
 
-                <TextBlock Text="From:" FontSize="25" Canvas.Top="40" Canvas.Left="60" />
+                <TextBlock Text="From:" FontSize="25" Canvas.Top="30" Canvas.Left="60" />
 
-                <TextBlock Text="部署名" FontSize="21"  Canvas.Top="44" Canvas.Left="123" />
+                <TextBlock Text="部署名" FontSize="21"  Canvas.Top="34" Canvas.Left="123" />
                 <ComboBox x:Name="Dep1" ItemsSource="{Binding Department}" DisplayMemberPath="Name"  FontSize="11"
-                              SelectedValuePath="Id" Width="169" Height="21" Canvas.Top="48" Canvas.Left="190" >
+                              SelectedValuePath="Id" Width="169" Height="21" Canvas.Top="38" Canvas.Left="190" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding FromDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep1, Path=SelectedValue}"/>
@@ -55,26 +55,26 @@
                     </i:Interaction.Triggers>
                 </ComboBox>
 
-                <TextBlock Text="名前" FontSize="21" Canvas.Top="44" Canvas.Left="383" />
+                <TextBlock Text="名前" FontSize="21" Canvas.Top="34" Canvas.Left="383" />
                 <ComboBox ItemsSource="{Binding FromUser}" DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.FromId}"
-                    FontSize="11" SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="49" Canvas.Left="435" />
+                    FontSize="11" SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="39" Canvas.Left="435" />
 
 
 
-                <TextBlock Text="To:" FontSize="25"  Canvas.Top="80" Canvas.Left="89" />
+                <TextBlock Text="To:" FontSize="25"  Canvas.Top="70" Canvas.Left="89" />
 
-                <TextBlock Text="部署名" FontSize="21"  Canvas.Top="84" Canvas.Left="123"/>
+                <TextBlock Text="部署名" FontSize="21"  Canvas.Top="74" Canvas.Left="123"/>
                 <ComboBox x:Name="Dep2" ItemsSource="{Binding Department}"  DisplayMemberPath="Name"  FontSize="11"
-                              SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="88" Canvas.Left="190">
+                              SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="78" Canvas.Left="190">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding ToDepartmentsChangedCommand}" CommandParameter="{Binding ElementName=Dep2, Path=SelectedValue}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </ComboBox>
-                <TextBlock  Text="名前" FontSize="21" Canvas.Top="84" Canvas.Left="383" />
+                <TextBlock  Text="名前" FontSize="21" Canvas.Top="74" Canvas.Left="383" />
                 <ComboBox ItemsSource="{Binding ToUser}"  DisplayMemberPath="Name"  SelectedValue="{Binding ThanksCard.ToId}"
-                            FontSize="11" SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="89" Canvas.Left="435"/>
+                            FontSize="11" SelectedValuePath="Id" Width="169" Height="21"  Canvas.Top="79" Canvas.Left="435"/>
 
                 <TextBlock Text="作成日" FontSize="18" Canvas.Top="126" Canvas.Left="5"/>
                 <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"  FontSize="10"

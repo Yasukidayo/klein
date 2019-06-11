@@ -92,24 +92,7 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-        #region FromUsersProperty
-        private List<User> _FromUser2;
-
-        public List<User> FromUser2
-        {
-            get
-            { return _FromUser2; }
-            set
-            {
-                if (_FromUser2 == value)
-                    return;
-                _FromUser2 = value;
-                RaisePropertyChanged();
-            }
-        }
-        #endregion
-
-        #region DepartmentsProperty
+        #region DepartmentProperty
         private List<Department> _Department;
 
         public List<Department> Department
@@ -125,6 +108,8 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
+
+      
 
 
         public async void Initialize()

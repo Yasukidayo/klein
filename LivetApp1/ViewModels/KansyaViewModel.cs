@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-
 using Livet;
 using Livet.Commands;
 using Livet.Messaging;
 using Livet.Messaging.IO;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
-
 using LivetApp1.Models;
 using LivetApp1.Services;
+using System.Windows;
 
 namespace LivetApp1.ViewModels
 {
@@ -87,6 +86,23 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region DepartmentIdProperty
+        private long _DepartmentId;
+
+        public long DepartmentId
+        {
+            get
+            { return _DepartmentId; }
+            set
+            {
+                if (_DepartmentId == value)
+                    return;
+                _DepartmentId = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         #region DepartmentsProperty
         private List<Department> _Department;
 
@@ -104,6 +120,8 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+      
+
 
         public async void Initialize()
         {
@@ -113,22 +131,13 @@ namespace LivetApp1.ViewModels
 
             User user = new User();
 
-            IRestService service = new RestService();
-            this.ToUser = await service.GetDepUsersAsync(null);
-
             if (SessionService.Instance.AuthorizedUser != null)
             {
-
                 this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
-                this.User = await user.GetUsersAsync();
+             //   this.User = await user.GetUsersAsync();
                 this.Department = await department.GetDepartmentsAsync();
-
             }
-
         }
-
-
-      
 
         #region ToDepartmentsChangedCommand
         private ListenerCommand<long> _ToDepartmentsChangedCommand;
@@ -160,10 +169,6 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
-
-
-
-
 
         #region SubmitCommand
         private ViewModelCommand _SubmitCommand;

@@ -29,7 +29,6 @@ namespace LivetApp1.Models
         }
         #endregion
 
-
         #region CodeProperty
         private long _CD;
 
