@@ -14,20 +14,20 @@ using System.Windows.Shapes;
 
 namespace LivetApp1.Views
 {
-	/* 
+    /* 
 	 * ViewModelからの変更通知などの各種イベントを受け取る場合は、PropertyChangedWeakEventListenerや
      * CollectionChangedWeakEventListenerを使うと便利です。独自イベントの場合はLivetWeakEventListenerが使用できます。
      * クローズ時などに、LivetCompositeDisposableに格納した各種イベントリスナをDisposeする事でイベントハンドラの開放が容易に行えます。
      *
      * WeakEventListenerなので明示的に開放せずともメモリリークは起こしませんが、できる限り明示的に開放するようにしましょう。
      */
-     
+
     /// <summary>
-    /// Home2.xaml の相互作用ロジック
+    /// Soushin.xaml の相互作用ロジック
     /// </summary>
-    public partial class Home2 : Window
+    public partial class Soushin : Window
     {
-        public Home2()
+        public Soushin()
         {
             InitializeComponent();
         }
@@ -35,11 +35,6 @@ namespace LivetApp1.Views
         private void Button1(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

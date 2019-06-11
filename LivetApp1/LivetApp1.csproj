@@ -59,6 +59,7 @@
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Services\SessionService.cs" />
+    <Compile Include="ViewModels\AddDepartmentViewModel.cs" />
     <Compile Include="ViewModels\gyoumukaizenViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home2ViewModel.cs" />
@@ -71,8 +72,12 @@
     <Compile Include="ViewModels\RankingViewModel.cs" />
     <Compile Include="ViewModels\SanshouViewModel.cs" />
     <Compile Include="ViewModels\ShainViewModel.cs" />
+    <Compile Include="ViewModels\SoushinViewModel.cs" />
     <Compile Include="ViewModels\TourokugamenViewModel.cs" />
     <Compile Include="ViewModels\ZyushinViewModel.cs" />
+    <Compile Include="Views\AddDepartment.xaml.cs">
+      <DependentUpon>AddDepartment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\gyoumukaizen.xaml.cs">
       <DependentUpon>gyoumukaizen.xaml</DependentUpon>
     </Compile>
@@ -106,12 +111,19 @@
     <Compile Include="Views\Shain.xaml.cs">
       <DependentUpon>Shain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Soushin.xaml.cs">
+      <DependentUpon>Soushin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tourokugamen.xaml.cs">
       <DependentUpon>Tourokugamen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Zyushin.xaml.cs">
       <DependentUpon>Zyushin.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AddDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\gyoumukaizen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Shain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Soushin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
