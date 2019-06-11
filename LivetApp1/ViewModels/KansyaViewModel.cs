@@ -187,6 +187,7 @@ namespace LivetApp1.ViewModels
 
         public async void Submit()
         {
+            ThanksCard.FromId = AuthorizedUser.Id;
             ThanksCard createdThanksCard = await ThanksCard.PostThanksCardAsync(this.ThanksCard);
             //TODO: Error handling
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Created"));

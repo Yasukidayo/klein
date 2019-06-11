@@ -87,7 +87,7 @@
                 <CheckBox Content="代表案件"  IsChecked="{Binding ThanksCard.Flag2}"
                         FontSize="13"   Canvas.Top="190" Canvas.Left="110" Height="30"  />
                 <TextBlock   Text="本文" FontSize="18" Canvas.Top="215" Canvas.Left="5"/>
-                <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True" 
+                <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True"  TextWrapping="Wrap"
                           Canvas.Top="240"  Height="280" Width="720"/>
 
 
