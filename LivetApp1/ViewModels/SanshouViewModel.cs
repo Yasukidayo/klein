@@ -35,11 +35,29 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region DepartmentsProperty
+        private List<Department> _Departments;
+
+        public List<Department> Departments
+        {
+            get
+            { return _Departments; }
+            set
+            {
+                if (_Departments == value)
+                    return;
+                _Departments = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         public async void Initialize()
         {
             this.UpdateUsers();
             User user = new User();
             this.User = await user.GetUsersAsync();
+            this.UpdateDepartments();
         }
 
         private async void UpdateUsers()
@@ -48,6 +66,12 @@ namespace LivetApp1.ViewModels
             {
                 this.User = await SessionService.Instance.AuthorizedUser.GetUsersAsync();
             }
+        }
+
+        private async void UpdateDepartments()
+        {
+            Department dept = new Department();
+            this.Departments = await dept.GetDepartmentsAsync();
         }
 
         #region UserDeleteCommand
@@ -74,6 +98,30 @@ namespace LivetApp1.ViewModels
             this.Initialize();
         }
         #endregion
+
+        #region DepartmentDeleteCommand
+        private ListenerCommand<Department> _DepartmentDeleteCommand;
+
+        public ListenerCommand<Department> DepartmentDeleteCommand
+        {
+            get
+            {
+                if (_DepartmentDeleteCommand == null)
+                {
+                    _DepartmentDeleteCommand = new ListenerCommand<Department>(DepartmentDelete);
+                }
+                return _DepartmentDeleteCommand;
+            }
+        }
+        public async void DepartmentDelete(Department Department)
+        {
+            System.Diagnostics.Debug.WriteLine("DeleteCommand" + Department.Id);
+            Department deletedDepartment = await Department.DeleteDepartmentAsync(Department.Id);
+
+            this.Initialize();
+        }
+        #endregion
+
 
 
     }
