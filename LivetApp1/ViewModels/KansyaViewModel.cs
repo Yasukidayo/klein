@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
-
 using Livet;
 using Livet.Commands;
 using Livet.Messaging;
 using Livet.Messaging.IO;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
-
 using LivetApp1.Models;
-using static System.Net.Mime.MediaTypeNames;
-using System.Windows;
 using LivetApp1.Services;
+using System.Windows;
 
 namespace LivetApp1.ViewModels
 {
-    public class NewViewModel : ViewModel
+    public class KansyaViewModel : ViewModel
     {
-        
-      
+
 
         #region ThanksCardProperty
         private ThanksCard _ThanksCard;
@@ -39,7 +35,6 @@ namespace LivetApp1.ViewModels
             }
         }
         #endregion
-
 
         #region UsersProperty
         private List<User> _User;
@@ -75,43 +70,40 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-        #region FromUsersProperty
-        private List<User> _FromUser;
-
-        public List<User> FromUser
+        #region LogonUserProperty
+        private User _AuthorizedUser;
+        public User AuthorizedUser
         {
             get
-            { return _FromUser; }
+            { return _AuthorizedUser; }
             set
             {
-                if (_FromUser == value)
+                if (_AuthorizedUser == value)
                     return;
-                _FromUser = value;
+                _AuthorizedUser = value;
                 RaisePropertyChanged();
             }
         }
         #endregion
 
-        #region FromUsersProperty
-        private List<User> _FromUser2;
+        #region DepartmentIdProperty
+        private long _DepartmentId;
 
-        public List<User> FromUser2
+        public long DepartmentId
         {
             get
-            { return _FromUser2; }
+            { return _DepartmentId; }
             set
             {
-                if (_FromUser2 == value)
+                if (_DepartmentId == value)
                     return;
-                _FromUser2 = value;
+                _DepartmentId = value;
                 RaisePropertyChanged();
             }
         }
         #endregion
 
-     
-
-        #region DepartmentProperty
+        #region DepartmentsProperty
         private List<Department> _Department;
 
         public List<Department> Department
@@ -134,26 +126,18 @@ namespace LivetApp1.ViewModels
         public async void Initialize()
         {
             this.ThanksCard = new ThanksCard();
-
             Department department = new Department();
-            this.Department = await department.GetDepartmentsAsync();
+            this.AuthorizedUser = SessionService.Instance.AuthorizedUser;
 
             User user = new User();
-            this.User = await user.GetUsersAsync();
-
-            IRestService service = new RestService();
-            this.FromUser = await service.GetDepUsersAsync(null);
 
             if (SessionService.Instance.AuthorizedUser != null)
             {
-
-                this.FromUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
-                this.ToUser = this.FromUser;
+                this.ToUser = await SessionService.Instance.AuthorizedUser.GetDepUsersAsync(null);
+             //   this.User = await user.GetUsersAsync();
+                this.Department = await department.GetDepartmentsAsync();
             }
-
         }
-
-      
 
         #region ToDepartmentsChangedCommand
         private ListenerCommand<long> _ToDepartmentsChangedCommand;
@@ -186,10 +170,6 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
-    
-
-
-
         #region SubmitCommand
         private ViewModelCommand _SubmitCommand;
 
@@ -207,29 +187,14 @@ namespace LivetApp1.ViewModels
 
         public async void Submit()
         {
+            ThanksCard.FromId = AuthorizedUser.Id;
             ThanksCard createdThanksCard = await ThanksCard.PostThanksCardAsync(this.ThanksCard);
             //TODO: Error handling
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Created"));
         }
         #endregion
         //To部署が変更されたときに発生するコマンド
-        private ListenerCommand<long> _FromDepartmentsChangedCommand;
-        public ListenerCommand<long> FromDepartmentsChangedCommand
-        {
-            get
-            {
-                if (_FromDepartmentsChangedCommand == null)
-                {
-                    _FromDepartmentsChangedCommand = new ListenerCommand<long>(FromDepartmentsChanged);
-                }
-                return _FromDepartmentsChangedCommand;
-            }
-        }
-        public void FromDepartmentsChanged(long parameter)
-        {
+     
 
-           FromUser = this.User.Where(e => parameter == e.DepartmentId).ToList();
-        }
-        
     }
 }

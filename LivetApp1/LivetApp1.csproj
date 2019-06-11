@@ -63,6 +63,7 @@
     <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home2ViewModel.cs" />
     <Compile Include="ViewModels\JireiViewModel.cs" />
+    <Compile Include="ViewModels\KansyaViewModel.cs" />
     <Compile Include="ViewModels\kejibanViewModel.cs" />
     <Compile Include="ViewModels\Logon2ViewModel.cs" />
     <Compile Include="ViewModels\LogonViewModel.cs" />
@@ -83,6 +84,9 @@
     </Compile>
     <Compile Include="Views\Jirei.xaml.cs">
       <DependentUpon>Jirei.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Kansya.xaml.cs">
+      <DependentUpon>Kansya.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\kejiban.xaml.cs">
       <DependentUpon>kejiban.xaml</DependentUpon>
@@ -121,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Jirei.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Kansya.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -44,25 +44,25 @@ namespace LivetApp1.ViewModels
 
         
 
-        #region ShowNew
-        private ViewModelCommand _ShowNewCommand;
+        #region ShowKansya
+        private ViewModelCommand _ShowKansyaCommand;
 
-        public ViewModelCommand ShowNewCommand
+        public ViewModelCommand ShowKansyaCommand
 
         {
             get
             {
-                if (_ShowNewCommand == null)
+                if (_ShowKansyaCommand == null)
                 {
-                    _ShowNewCommand = new ViewModelCommand(ShowNew);
+                    _ShowKansyaCommand = new ViewModelCommand(ShowKansya);
                 }
-                return _ShowNewCommand;
+                return _ShowKansyaCommand;
             }
         }
 
-        public void ShowNew()
+        public void ShowKansya()
         {
-            System.Diagnostics.Debug.WriteLine("ShowNew");
+            System.Diagnostics.Debug.WriteLine("ShowKansya");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault((w) => w.IsActive);
 
           
@@ -71,8 +71,8 @@ namespace LivetApp1.ViewModels
             {
                 // MainWindow を非表示
                 window.Hide();
-                NewViewModel ViewModel = new NewViewModel();
-                var message = new TransitionMessage(typeof(Views.New), ViewModel, TransitionMode.Modal, "ShowNew");
+                KansyaViewModel ViewModel = new KansyaViewModel();
+                var message = new TransitionMessage(typeof(Views.Kansya), ViewModel, TransitionMode.Modal, "ShowKansya");
                 Messenger.Raise(message);
             }
             finally
