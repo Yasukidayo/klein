@@ -353,6 +353,99 @@ namespace LivetApp1.Services
         }
         #endregion
 
+        #region Responsemessage
+
+        public async Task<List<Responsemessage>> GetResponsemessagesAsync()
+        {
+            List<Responsemessage> responseResponsemessages = null;
+            try
+            {
+                var response = await Client.GetAsync(this.BaseUrl + "/api/Responsemessages");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseResponsemessages = JsonConvert.DeserializeObject<List<Responsemessage>>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.GetResponsemessagesAsync: " + e);
+            }
+            return responseResponsemessages;
+        }
+
+        public async Task<Responsemessage> PostResponsemessageAsync(Responsemessage responsemessage)
+        {
+            var jObject = JsonConvert.SerializeObject(responsemessage);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Responsemessage responseResponsemessage = null;
+            try
+            {
+                var response = await Client.PostAsync(this.BaseUrl + "/api/Responsemessages", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseResponsemessage = JsonConvert.DeserializeObject<Responsemessage>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PostResponsemessageAsync: " + e);
+            }
+            return responseResponsemessage;
+        }
+
+        public async Task<Responsemessage> PutResponsemessageAsync(Responsemessage responsemessage)
+        {
+            var jObject = JsonConvert.SerializeObject(responsemessage);
+
+            //Make Json object into content type
+            var content = new StringContent(jObject);
+            //Adding header of the contenttype
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Responsemessage responseResponsemessage = null;
+            try
+            {
+                var response = await Client.PutAsync(this.BaseUrl + "/api/Responsemessages/" + responsemessage.Id, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseResponsemessage = JsonConvert.DeserializeObject<Responsemessage>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.PutResponsemessageAsync: " + e);
+            }
+            return responseResponsemessage;
+        }
+
+        public async Task<Responsemessage> DeleteResponsemessageAsync(long Id)
+        {
+            Responsemessage responseResponsemessage = null;
+            try
+            {
+                var response = await Client.DeleteAsync(this.BaseUrl + "/api/Responsemessages/" + Id);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    responseResponsemessage = JsonConvert.DeserializeObject<Responsemessage>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception in RestService.DeleteResponsemessageAsync: " + e);
+            }
+            return responseResponsemessage;
+        }
+        #endregion
+
 
     }
 }

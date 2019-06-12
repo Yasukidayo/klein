@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Responsemessage.cs" />
     <Compile Include="Models\ThanksCard.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IRestService.cs" />
