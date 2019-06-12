@@ -61,6 +61,32 @@ namespace LivetApp1.ViewModels
 
 
         }
+
+        #region ThanksCardDeleteCommand
+        private ListenerCommand<ThanksCard> _ThanksCardDeleteCommand;
+
+        public ListenerCommand<ThanksCard> ThanksCardDeleteCommand
+        {
+
+            get
+            {
+                if (_ThanksCardDeleteCommand == null)
+                {
+                    _ThanksCardDeleteCommand = new ListenerCommand<ThanksCard>(ThanksCardDelete);
+                }
+                return _ThanksCardDeleteCommand;
+            }
+        }
+
+        public async void ThanksCardDelete(ThanksCard ThanksCard)
+        {
+            System.Diagnostics.Debug.WriteLine("DeleteCommand" + ThanksCard.Id);
+            ThanksCard deletedThanksCard = await ThanksCard.DeleteThanksCardAsync(ThanksCard.Id);
+
+            this.Initialize();
+        }
+        #endregion
+
         /*
         #region SubmitCommand
         private ViewModelCommand _SubmitCommand;
