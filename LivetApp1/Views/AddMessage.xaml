@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
        ResizeMode="NoResize"
-        Title="メッセージ登録" Height="250" Width="325">
+        Title="メッセージ登録" Height="240" Width="325">
     
     <Window.DataContext>
         <vm:AddMessageViewModel/>
@@ -67,10 +67,10 @@
             <Canvas>
 
                 <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
-                <TextBlock Text="メッセージ"  Canvas.Left="50" Canvas.Top="70"/>
-                <TextBox Text="{Binding ResponseMessage.Message}" Width="150" Canvas.Left="110" Canvas.Top="70"/>
+                <TextBlock Text="メッセージ"  Canvas.Left="40" Canvas.Top="70"/>
+                <TextBox Text="{Binding ResponseMessage.Message}" Width="150" Canvas.Left="100" Canvas.Top="70"/>
               
-                <Button Content="追加" Command="{Binding SubmitCommand}" Width="120" Height="40" Canvas.Left="115" Canvas.Top="160"/>
+                <Button Content="追加" Command="{Binding SubmitCommand}" Width="125" Height="40" Canvas.Left="100" Canvas.Top="140"/>
             </Canvas>
         </StackPanel>
     </Grid>
