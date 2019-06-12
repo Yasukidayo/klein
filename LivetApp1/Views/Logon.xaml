@@ -4,6 +4,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
+        ResizeMode="NoResize"
         Title="ともよせストア" Height="300" Width="520">
 
 

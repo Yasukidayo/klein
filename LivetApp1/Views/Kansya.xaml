@@ -6,7 +6,8 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-       Title="感謝カードの作成。"  Height="600" Width="725">
+        ResizeMode="NoResize"
+        Title="感謝カードの作成。"  Height="600" Width="725">
     
     <Window.DataContext>
         <vm:KansyaViewModel/>
@@ -72,14 +73,14 @@
                              Width="120" Height="20"  Canvas.Top="119" Canvas.Left="62"/>
                 <TextBlock   Text="タイトル"  FontSize="18" Canvas.Top="145" Canvas.Left="5" />
                 <TextBox Text="{Binding ThanksCard.Title}"  
-                         Width="660" Height="20"  Canvas.Top="149" Canvas.Left="62" />
+                         Width="647" Height="20"  Canvas.Top="149" Canvas.Left="62" />
                 <CheckBox Content="事業改善案"  IsChecked="{Binding ThanksCard.Flag1}" 
                        FontSize="13"     Canvas.Top="190" Canvas.Left="5" Height="30" />
                 <CheckBox Content="代表案件"  IsChecked="{Binding ThanksCard.Flag2}"
                         FontSize="13"   Canvas.Top="190" Canvas.Left="110" Height="30"  />
                 <TextBlock   Text="本文" FontSize="18" Canvas.Top="215" Canvas.Left="5"/>
                 <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True"   TextWrapping="Wrap"
-                          Canvas.Top="240"  Height="280" Width="720"/>
+                          Canvas.Top="240"  Height="280" Width="709"/>
 
 
                 <Button Content="作成"  Command="{Binding SubmitCommand}"

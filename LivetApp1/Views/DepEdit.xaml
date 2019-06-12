@@ -6,6 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
+        ResizeMode="NoResize"
         Title="部課変更" Height="250" Width="325">
     
     <Window.DataContext>

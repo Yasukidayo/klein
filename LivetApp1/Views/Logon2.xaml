@@ -4,6 +4,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
+        ResizeMode="NoResize"
         Title="管理者ログイン画面" Height="300" Width="520">
 
     <Window.DataContext>
