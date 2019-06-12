@@ -75,6 +75,9 @@ namespace LivetApp1.ViewModels
             User user = new User();
             this.User = await user.GetUsersAsync();
             this.UpdateDepartments();
+
+            Responsemessage responsemessage = new Responsemessage();
+            this.Responsemessage = await responsemessage.GetResponsemessagesAsync();
         }
 
         private async void UpdateUsers()
@@ -186,6 +189,31 @@ namespace LivetApp1.ViewModels
             Department deletedDepartment = await Department.DeleteDepartmentAsync(Department.Id);
 
             this.Initialize();
+        }
+        #endregion
+
+        #region ResponsemessageEditCommand
+        private ListenerCommand<Responsemessage> _MessageEditCommand;
+
+        public ListenerCommand<Responsemessage> MessageEditCommand
+        {
+            get
+            {
+                if (_MessageEditCommand == null)
+                {
+                    _MessageEditCommand = new ListenerCommand<Responsemessage>(MessageEdit);
+                }
+                return _MessageEditCommand;
+            }
+        }
+
+        public void MessageEdit(Responsemessage Responsemessage)
+        {
+            System.Diagnostics.Debug.WriteLine("EditCommand" + Responsemessage.Id);
+            EditMessageViewModel ViewModel = new EditMessageViewModel();
+            ViewModel.Responsemessage = Responsemessage;
+            var message = new TransitionMessage(typeof(Views.EditMessage), ViewModel, TransitionMode.Modal, "MessageEdit");
+            Messenger.Raise(message);
         }
         #endregion
 

@@ -10,7 +10,6 @@ using Livet.Messaging;
 using Livet.Messaging.IO;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
-
 using LivetApp1.Models;
 
 namespace LivetApp1.ViewModels

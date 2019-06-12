@@ -33,7 +33,7 @@ namespace LivetApp1.Services
         // DepartmentUsers REST API Client
         Task<List<User>> GetDepUsersAsync(long? DepartmentId);
 
-        // Department REST API Client
+        // ResponseMessage REST API Client
         Task<List<Responsemessage>> GetResponsemessagesAsync();
         Task<Responsemessage> PostResponsemessageAsync(Responsemessage responsemessage);
         Task<Responsemessage> PutResponsemessageAsync(Responsemessage responsemessage);

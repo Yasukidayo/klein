@@ -39,6 +39,12 @@
             <l:TransitionInteractionMessageAction/>
         </l:InteractionMessageTrigger>
 
+
+        <l:InteractionMessageTrigger MessageKey="MessageEdit" Messenger="{Binding Messenger}">
+            <l:TransitionInteractionMessageAction/>
+        </l:InteractionMessageTrigger>
+
+
     </i:Interaction.Triggers>
 
     <Grid>
@@ -114,14 +120,14 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <!-- CommandParameter に {Binding} とだけ記述すると、MainWindowViewModel.Departments の要素、つまり Department モデルを指定したことになる。-->
-                                    <Button Content="編集" Command="{Binding DataContext.DepartmentEditCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                    <Button Content="編集" Command="{Binding DataContext.MessageEditCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn Header="">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="削除"   Foreground="#FFFFFF" Background="#FF0000" Command="{Binding DataContext.DepartmentDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                    <Button Content="削除"   Foreground="#FFFFFF" Background="#FF0000" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
