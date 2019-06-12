@@ -95,7 +95,7 @@
                     <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                                <Button x:Name="Button3" Content="削除" Foreground="#FFFFFF" Background="#FF0000" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button x:Name="Button3" Content="削除" Foreground="#FFFFFF" Background="#FF0000" Command="{Binding DataContext.SubmitCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -66,7 +66,7 @@
             <Canvas>
                 <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
 
-                <TextBlock Text="Name"  Canvas.Left="50" Canvas.Top="50"/>
+                <TextBlock Text="名前"  Canvas.Left="50" Canvas.Top="50"/>
                 <TextBox Text="{Binding User.Name}"  Width="150" Canvas.Left="110" Canvas.Top="50"/>
                 <TextBlock Text="Password" Canvas.Left="50" Canvas.Top="70"/>
                 <TextBox Text="{Binding User.Password}" Width="150" Canvas.Left="110" Canvas.Top="70"/>

@@ -61,5 +61,28 @@ namespace LivetApp1.ViewModels
 
 
         }
+        /*
+        #region SubmitCommand
+        private ViewModelCommand _SubmitCommand;
+
+        public ViewModelCommand SubmitCommand
+        {
+            get
+            {
+                if (_SubmitCommand == null)
+                {
+                    _SubmitCommand = new ViewModelCommand(Submit);
+                }
+                return _SubmitCommand;
+            }
+        }
+
+        public async void Submit()
+        {
+            ThanksCard updatedThanksCard = await ThanksCard.PutThanksCardAsync(this.ThanksCard);
+            //TODO: Error handling
+            Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Edited"));
+        }
+        #endregion  */
     }
 }
