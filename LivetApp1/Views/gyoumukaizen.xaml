@@ -92,7 +92,7 @@
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="削除" Foreground="#FFFFFF" Background="#FF0000"  Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button Content="削除" Foreground="#FFFFFF" Background="#FF0000"  Command="{Binding DataContext.ThanksCardDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

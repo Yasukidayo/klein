@@ -22,6 +22,7 @@ namespace LivetApp1.Services
         // TanksCard REST API Client
         Task<List<ThanksCard>> GetThanksCardsAsync();
         Task<ThanksCard> PostThanksCardAsync(ThanksCard thanksCard);
+        Task<ThanksCard> DeleteThanksCardAsync(long Id);
 
         // Department REST API Client
         Task<List<Department>> GetDepartmentsAsync();

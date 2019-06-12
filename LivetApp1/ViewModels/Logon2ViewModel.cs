@@ -80,7 +80,7 @@ namespace LivetApp1.ViewModels
             }
             else // Logon 失敗
             {
-                System.Diagnostics.Debug.WriteLine("ログオンに失敗しました。");
+                MessageBox.Show("NameまたはPasswordが違います。");
             }
 
         }
