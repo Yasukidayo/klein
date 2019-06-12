@@ -221,6 +221,13 @@ namespace LivetApp1.Models
             ThanksCard createdThanksCard = await rest.PostThanksCardAsync(thanksCard);
             return createdThanksCard;
         }
+
+        public async Task<ThanksCard> DeleteThanksCardAsync(long Id)
+        {
+            IRestService rest = new RestService();
+            ThanksCard deletedThanksCard = await rest.DeleteThanksCardAsync(Id);
+            return deletedThanksCard;
+        }
         #endregion
 
     }
