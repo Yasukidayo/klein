@@ -138,7 +138,7 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Content="送信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="176"/>
+                <TextBlock Text="送信箱" Height="18" Width="70" Canvas.Left="150" Canvas.Top="176"/>
                 <DataGrid ItemsSource="{Binding FromThanksCards}" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True"
                       SelectionChanged="DataGrid_SelectionChanged"  LoadingRow="DataGrid_LoadingRow" Height="145" Width="460" Canvas.Left="150" Canvas.Top="197" >
                     <DataGrid.Columns>
@@ -175,7 +175,6 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-
             </Canvas>
         </StackPanel>
         <StackPanel>

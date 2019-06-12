@@ -323,7 +323,6 @@ namespace LivetApp1.ViewModels
 
         #endregion
 
-
         public async void Initialize()
         {
           
