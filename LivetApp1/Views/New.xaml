@@ -80,8 +80,8 @@
                 <TextBlock Text="作成日" FontSize="18" Canvas.Top="126" Canvas.Left="5"/>
                 <DatePicker SelectedDate="{Binding ThanksCard.CreatedDateTime}"  FontSize="10"
                              Width="120" Height="20"  Canvas.Top="129" Canvas.Left="62"/>
-                <TextBlock   Text="タイトル"  FontSize="18" Canvas.Top="155" Canvas.Left="5" />
-                <TextBox Text="{Binding ThanksCard.Title}"  
+                <TextBlock Text="タイトル"  FontSize="18" Canvas.Top="155" Canvas.Left="5" />
+                <TextBox Text="{Binding ThanksCard.Title}" MaxLength="25"  
                          Width="647" Height="20"  Canvas.Top="159" Canvas.Left="62" />
                 <CheckBox Content="事業改善案"  IsChecked="{Binding ThanksCard.Flag1}" 
                        FontSize="13"     Canvas.Top="190" Canvas.Left="5" Height="30" />
@@ -89,7 +89,7 @@
                         FontSize="13"   Canvas.Top="190" Canvas.Left="110" Height="30"  />
                 <TextBlock   Text="本文" FontSize="18" Canvas.Top="215" Canvas.Left="5"/>
                 <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True"  TextWrapping="Wrap"
-                          Canvas.Top="240"  Height="280" Width="709"/>
+                        MaxLength="250"    Canvas.Top="240"  Height="280" Width="709"/>
 
 
                 <Button Content="作成"  Command="{Binding SubmitCommand}"
