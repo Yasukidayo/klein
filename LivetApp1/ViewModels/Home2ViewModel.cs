@@ -47,7 +47,7 @@ namespace LivetApp1.ViewModels
                 // MainWindow を非表示
                 window.Hide();
                 SoushinViewModel ViewModel = new SoushinViewModel();
-                var message = new TransitionMessage(typeof(Views.Soushin), ViewModel, TransitionMode.Modal, "ShowSoushin");
+                var message = new TransitionMessage(typeof(Views.AddMessage), ViewModel, TransitionMode.Modal, "ShowSoushin");
                 Messenger.Raise(message);
             }
             finally

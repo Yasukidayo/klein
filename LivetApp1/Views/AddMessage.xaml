@@ -1,0 +1,77 @@
+﻿<Window x:Class="LivetApp1.Views.AddMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:v="clr-namespace:LivetApp1.Views"
+        xmlns:vm="clr-namespace:LivetApp1.ViewModels"
+       ResizeMode="NoResize"
+        Title="メッセージ登録" Height="250" Width="325">
+    
+    <Window.DataContext>
+        <vm:AddMessageViewModel/>
+    </Window.DataContext>
+    
+     <i:Interaction.Triggers>
+     
+     	<!--Viewに特別な要件が存在しない限りは、トリガーやアクションの自作にこだわらず積極的にコードビハインドを使いましょう -->
+    	<!--Viewのコードビハインドは、基本的にView内で完結するロジックとViewModelからのイベントの受信(専用リスナを使用する)に限るとトラブルが少なくなります -->
+    	<!--Livet1.1からはコードビハインドでViewModelのイベントを受信するためのWeakEventLisnterサポートが追加されています --> 
+        
+        <!--WindowのContentRenderedイベントのタイミングでViewModelのInitializeメソッドが呼ばれます-->
+        <i:EventTrigger EventName="ContentRendered">
+            <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Initialize"/>
+        </i:EventTrigger>
+
+        <!--Windowが閉じたタイミングでViewModelのDisposeメソッドが呼ばれます-->
+        <i:EventTrigger EventName="Closed">
+            <l:DataContextDisposeAction/>
+        </i:EventTrigger>
+
+        <l:InteractionMessageTrigger MessageKey="Created" Messenger="{Binding Messenger}">
+            <l:WindowInteractionMessageAction/>
+        </l:InteractionMessageTrigger>
+
+        <!--WindowのCloseキャンセル処理に対応する場合は、WindowCloseCancelBehaviorの使用を検討してください-->
+
+    </i:Interaction.Triggers>
+
+    <Grid>
+
+        <TextBlock Grid.Column="0"  FontSize="30" VerticalAlignment="Bottom" Background="#AFEEEE" Height="224" Margin="140,-3,-34,-2" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="14.503"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="21.242"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock Grid.Column="0" Text="" FontWeight="Bold" Foreground="White" FontSize="20" Background="#FFB6C1" Margin="-84,-1,177,1" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="14.472"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="30.742"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+
+        <StackPanel>
+            <Canvas>
+
+                <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
+                <TextBlock Text="メッセージ"  Canvas.Left="50" Canvas.Top="70"/>
+                <TextBox Text="{Binding ResponseMessage.Message}" Width="150" Canvas.Left="110" Canvas.Top="70"/>
+              
+                <Button Content="追加" Command="{Binding SubmitCommand}" Width="120" Height="40" Canvas.Left="115" Canvas.Top="160"/>
+            </Canvas>
+        </StackPanel>
+    </Grid>
+</Window>
