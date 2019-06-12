@@ -106,10 +106,10 @@ namespace LivetApp1.Models
             return Departments;
         }
 
-        public async Task<Department> PostDepartmentAsync(Department Department)
+        public async Task<Department> PostDepartmentAsync(Department department)
         {
             IRestService rest = new RestService();
-            Department createdDepartment = await rest.PostDepartmentAsync(Department);
+            Department createdDepartment = await rest.PostDepartmentAsync(department);
             return createdDepartment;
         }
 
