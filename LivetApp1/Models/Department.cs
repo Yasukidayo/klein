@@ -81,9 +81,9 @@ namespace LivetApp1.Models
         #endregion
 
         #region ParentProperty
-        private Department _Parent;
+        private Responsemessage _Parent;
 
-        public Department Parent
+        public Responsemessage Parent
         {
             get
             { return _Parent; }

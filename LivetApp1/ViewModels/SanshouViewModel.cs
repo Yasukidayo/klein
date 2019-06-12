@@ -141,7 +141,7 @@ namespace LivetApp1.ViewModels
 
         public void DepartmentEdit(Department Department)
         {
-            System.Diagnostics.Debug.WriteLine("EditCommand" + Department.Id);
+            System.Diagnostics.Debug.WriteLine((string)("EditCommand" + Department.Id));
             DepEditViewModel ViewModel = new DepEditViewModel();
             ViewModel.Department = Department;
             var message = new TransitionMessage(typeof(Views.DepEdit), ViewModel, TransitionMode.Modal, "DepartmentEdit");
@@ -166,7 +166,7 @@ namespace LivetApp1.ViewModels
         }
         public async void DepartmentDelete(Department Department)
         {
-            System.Diagnostics.Debug.WriteLine("DeleteCommand" + Department.Id);
+            System.Diagnostics.Debug.WriteLine((string)("DeleteCommand" + Department.Id));
             Department deletedDepartment = await Department.DeleteDepartmentAsync(Department.Id);
 
             this.Initialize();
