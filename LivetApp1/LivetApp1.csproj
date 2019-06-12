@@ -61,7 +61,9 @@
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="ViewModels\AddDepartmentViewModel.cs" />
+    <Compile Include="ViewModels\AddMessageViewModel.cs" />
     <Compile Include="ViewModels\DepEditViewModel.cs" />
+    <Compile Include="ViewModels\EditMessageViewModel.cs" />
     <Compile Include="ViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\gyoumukaizenViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
@@ -80,8 +82,14 @@
     <Compile Include="Views\AddDepartment.xaml.cs">
       <DependentUpon>AddDepartment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddMessage.xaml.cs">
+      <DependentUpon>AddMessage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepEdit.xaml.cs">
       <DependentUpon>DepEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditMessage.xaml.cs">
+      <DependentUpon>EditMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditUser.xaml.cs">
       <DependentUpon>EditUser.xaml</DependentUpon>
@@ -129,7 +137,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DepEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

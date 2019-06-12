@@ -52,6 +52,23 @@ namespace LivetApp1.ViewModels
         }
         #endregion
 
+        #region  ResponsemessageProperty
+        private List<Responsemessage> _Responsemessage;
+
+        public List<Responsemessage> Responsemessage
+        {
+            get
+            { return _Responsemessage; }
+            set
+            {
+                if (_Responsemessage == value)
+                    return;
+                _Responsemessage = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         public async void Initialize()
         {
             this.UpdateUsers();
@@ -148,7 +165,6 @@ namespace LivetApp1.ViewModels
             Messenger.Raise(message);
         }
         #endregion
-
 
         #region DepartmentDeleteCommand
         private ListenerCommand<Department> _DepartmentDeleteCommand;

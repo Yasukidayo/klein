@@ -45,24 +45,24 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        #region BodyProperty
-        private string _Body;
-        [JsonProperty("Body")]
-        public string Body
+        #region MessageProperty
+        private string _Message;
+        [JsonProperty("Message")]
+        public string Message
         {
             get
-            { return _Body; }
+            { return _Message; }
             set
             {
-                if (_Body == value)
+                if (_Message == value)
                     return;
-                _Body = value;
+                _Message = value;
                 RaisePropertyChanged();
             }
         }
         #endregion
 
-        #region ParentProperty
+        #region ThanksCardProperty
         private ThanksCard _ThanksCardResponses;
 
         public ThanksCard ThanksCardResponses
@@ -77,6 +77,42 @@ namespace LivetApp1.Models
                 RaisePropertyChanged();
             }
         }
+
+        public static implicit operator Responsemessage(Department v)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Responsemessage
+        public async Task<List<Responsemessage>> GetResponsemessagesAsync()
+        {
+            IRestService rest = new RestService();
+            List<Responsemessage> responsemessages = await rest.GetResponsemessagesAsync();
+            return responsemessages;
+        }
+
+        public async Task<Responsemessage> PostResponsemessageAsync(Responsemessage responsemessage)
+        {
+            IRestService rest = new RestService();
+            Responsemessage createdResponsemessage = await rest.PostResponsemessageAsync(responsemessage);
+            return createdResponsemessage;
+        }
+
+        public async Task<Responsemessage> PutResponsemessageAsync(Responsemessage responsemessage)
+        {
+            IRestService rest = new RestService();
+            Responsemessage updatedResponsemessage = await rest.PutResponsemessageAsync(responsemessage);
+            return updatedResponsemessage;
+        }
+
+        public async Task<Responsemessage> DeleteResponsemessageAsync(long Id)
+        {
+            IRestService rest = new RestService();
+            Responsemessage deletedResponsemessage = await rest.DeleteResponsemessageAsync(Id);
+            return deletedResponsemessage;
+        }
+
         #endregion
     }
 }

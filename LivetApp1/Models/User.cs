@@ -104,10 +104,10 @@ namespace LivetApp1.Models
         }
         #endregion
 
-        #region DepartmenrProperty
-        private Responsemessage _Department;
+        #region DepartmentProperty
+        private Department _Department;
 
-        public Responsemessage Department
+        public Department Department
         {
             get
             { return _Department; }
