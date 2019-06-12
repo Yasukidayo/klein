@@ -91,7 +91,6 @@
                 <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True"  TextWrapping="Wrap"
                         MaxLength="250"    Canvas.Top="240"  Height="280" Width="709"/>
 
-
                 <Button Content="作成"  Command="{Binding SubmitCommand}"
                         Width="150"  Height="21" Canvas.Top="525" Canvas.Left="111"/>
                 <Button Content="キャンセル" Click="buttun1" Height="21" Width="150" Canvas.Top="525" Canvas.Right="111" />
