@@ -86,10 +86,8 @@
             </TextBlock.RenderTransform>
         </TextBlock>
 
-        <StackPanel >
-            <TextBlock Text="このページは管理者画面のホームです。" />
-        </StackPanel>
-        <Button Content="送信" Command="{Binding ShowSoushinCommand}" HorizontalAlignment="Left" Margin="245,145,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.081,0.304" Height="50"/>
+      
+        <Button Content="メッセージ追加" Command="{Binding ShowSoushinCommand}" HorizontalAlignment="Left" Margin="245,145,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.081,0.304" Height="50"/>
         <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" HorizontalAlignment="Left" Margin="90,95,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.081,0.304" Height="50"/>
         <Button Content="代表事例" Command="{Binding ShowJireiCommand}" HorizontalAlignment="Left" Margin="245,95,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.162,0" Height="50"/>
         <Button Content="ユーザ追加" Command="{Binding ShowTourokugamenCommand}" HorizontalAlignment="Left" Margin="89,195,0,0" VerticalAlignment="Top" Width="156" Height="50"/>

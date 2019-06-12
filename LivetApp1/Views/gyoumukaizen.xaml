@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         ResizeMode="NoResize"
-        Title="業務改善案" Height="550" Width="745">
+        Title="業務改善案" Height="550" Width="765">
 
     <Window.DataContext>
         <vm:gyoumukaizenViewModel/>
@@ -40,10 +40,10 @@
         </Canvas>
 
             <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True"
-                      Height="480" Width="724"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
+                      Height="480" Width="744"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="タイトル"   Binding="{Binding Title}" Width="120" >
+                    <DataGridTextColumn Header="タイトル"   Binding="{Binding Title}" Width="110" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -51,7 +51,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
+                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="280"  >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -59,7 +59,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="70" >
+                    <DataGridTextColumn Header="From" Binding="{Binding From.Name}" Width="64" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -67,7 +67,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="70" >
+                    <DataGridTextColumn Header="To" Binding="{Binding To.Name}" Width="64" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
