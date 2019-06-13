@@ -83,9 +83,9 @@
                 <TextBlock Text="タイトル"  FontSize="18" Canvas.Top="155" Canvas.Left="5" />
                 <TextBox Text="{Binding ThanksCard.Title}" MaxLength="25"  
                          Width="647" Height="20"  Canvas.Top="159" Canvas.Left="62" />
-                <CheckBox Content="事業改善案"  IsChecked="{Binding ThanksCard.Flag1}" 
+                <CheckBox Content="業務改善案"  IsChecked="{Binding ThanksCard.Flag1}" 
                        FontSize="13"     Canvas.Top="190" Canvas.Left="5" Height="30" />
-                <CheckBox Content="代表案件"  IsChecked="{Binding ThanksCard.Flag2}"
+                <CheckBox Content="代表事例"  IsChecked="{Binding ThanksCard.Flag2}"
                         FontSize="13"   Canvas.Top="190" Canvas.Left="110" Height="30"  />
                 <TextBlock   Text="本文" FontSize="18" Canvas.Top="215" Canvas.Left="5"/>
                 <TextBox  Text="{Binding ThanksCard.Body}" AcceptsReturn="True"  TextWrapping="Wrap"
