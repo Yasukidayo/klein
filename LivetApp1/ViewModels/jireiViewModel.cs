@@ -57,7 +57,9 @@ namespace LivetApp1.ViewModels
             ThanksCard thanksCard = new ThanksCard();
             this.ThanksCards = await thanksCard.GetThanksCardsAsync();
 
-          Jirei = ThanksCards.Where(x => x.Flag2 == true).ToList();
+          Jirei = ThanksCards.Where(x => x.Flag2 == true
+          ).OrderByDescending(x => x.CreatedDateTime
+          ).ToList();
 
 
         }

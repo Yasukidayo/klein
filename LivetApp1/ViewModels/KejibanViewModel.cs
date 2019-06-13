@@ -40,6 +40,7 @@ namespace LivetApp1.ViewModels
         {
             ThanksCard thanksCard = new ThanksCard();
             this.ThanksCards = await thanksCard.GetThanksCardsAsync();
+            ThanksCards = ThanksCards.OrderByDescending(x => x.CreatedDateTime).ToList();
         }
 
       

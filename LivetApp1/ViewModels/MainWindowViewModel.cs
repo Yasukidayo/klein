@@ -353,11 +353,13 @@ namespace LivetApp1.ViewModels
             //ここでユーザーカードにログイン済みのユーザーのみにフィルタリングする。
             ToThanksCards = ThanksCards.Where(x =>
                                      x.ToId == AuthorizedUser.Id //ここでログイン済みのユーザーがもらったものを表示
-                                        ).ToList();
+                                        ).OrderByDescending(x => x.CreatedDateTime)
+                                        .ToList();
 
             FromThanksCards = ThanksCards.Where(x =>
                                         x.FromId == AuthorizedUser.Id //ここでログイン済みのユーザーの送ったものを抽出                      
-                                       ).ToList();
+                                       ).OrderByDescending(x =>x.CreatedDateTime)
+                                       .ToList();
 
         }
     }
