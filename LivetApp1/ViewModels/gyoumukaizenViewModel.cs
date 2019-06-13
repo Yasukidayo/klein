@@ -82,7 +82,9 @@ namespace LivetApp1.ViewModels
         {
             ThanksCard thanksCard = new ThanksCard();
             this.ThanksCards = await thanksCard.GetThanksCardsAsync();
-            Gyoumu = ThanksCards.Where(x => x.Flag1 == true).ToList();
+            Gyoumu = ThanksCards.Where(x => x.Flag1 == true
+            ).OrderByDescending(x => x.CreatedDateTime
+            ).ToList();
         }
     }
 }
