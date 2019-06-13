@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
          ResizeMode="NoResize"
-        Title="ユーザ登録" Height="250" Width="325">
+        Title="ユーザ登録" Height="270" Width="325">
 
     <Window.DataContext>
         <vm:TourokugamenViewModel/>
@@ -72,9 +72,9 @@
                 <TextBox Text="{Binding User.Password}" Width="150" Canvas.Left="110" Canvas.Top="70"/>
                 <TextBlock Text="管理者権限" Canvas.Left="50" Canvas.Top="90"/>
                 <CheckBox IsChecked="{Binding User.IsAdmin}" Canvas.Left="110" Canvas.Top="90"/>
-                <TextBlock Text="所属部署" Canvas.Left="50" Canvas.Top="110"/>
+                <TextBlock Text="所属部署" Canvas.Left="50" Canvas.Top="113"/>
                 <ComboBox ItemsSource="{Binding Department}" DisplayMemberPath="Name" SelectedValue="{Binding User.DepartmentId}" SelectedValuePath="Id"
-                          FontSize="10" Height="17" Width="150" Canvas.Left="110" Canvas.Top="110"/>
+                          FontSize="12" Height="20" Width="150" Canvas.Left="110" Canvas.Top="110"/>
                 <Button Content="作成" Command="{Binding SubmitCommand}"  Width="120" Height="40" Canvas.Left="115" Canvas.Top="160"/>
             </Canvas>
         </StackPanel>
