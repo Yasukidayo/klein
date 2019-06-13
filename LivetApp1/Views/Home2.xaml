@@ -86,14 +86,11 @@
             </TextBlock.RenderTransform>
         </TextBlock>
 
-        <StackPanel >
-            <TextBlock Text="このページは管理者画面のホームです。" />
-        </StackPanel>
-        <Button Content="送信" Command="{Binding ShowSoushinCommand}" HorizontalAlignment="Left" Margin="245,145,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.081,0.304" Height="50"/>
-        <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" HorizontalAlignment="Left" Margin="90,95,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.081,0.304" Height="50"/>
+    <!--   <Button Content="送信" Command="{Binding ShowSoushinCommand}" HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="-0.081,0.304" Height="50"/>  -->
+        <Button Content="業務改善" Command="{Binding ShowgyoumukaizenCommand}" HorizontalAlignment="Left" Margin="90,95,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="-0.081,0.304" Height="50"/>
         <Button Content="代表事例" Command="{Binding ShowJireiCommand}" HorizontalAlignment="Left" Margin="245,95,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.162,0" Height="50"/>
         <Button Content="ユーザ追加" Command="{Binding ShowTourokugamenCommand}" HorizontalAlignment="Left" Margin="89,195,0,0" VerticalAlignment="Top" Width="156" Height="50"/>
-        <Button Content="部課追加" Command="{Binding ShowAddDepCommand}" HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.081,0.304" Height="50"/>
+        <Button Content="部課追加" Command="{Binding ShowAddDepCommand}" HorizontalAlignment="Left" Margin="245,145,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="-0.081,0.304" Height="50"/>
         <Button Content="参照" Command="{Binding ShowSanshouCommand}" HorizontalAlignment="Left" Margin="89,145,0,0" VerticalAlignment="Top" Width="156" Height="50" Click="Button_Click"/>
         <Button Content="ログアウト"  Click="Button1" Margin="392.969,10,0,0" VerticalAlignment="Top" Width="100.758" Height="29.051"/>
     </Grid>
