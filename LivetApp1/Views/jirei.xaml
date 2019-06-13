@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
-        Title="代表事例" Height="550" Width="745">
+        Title="代表事例" Height="550" Width="765">
     
     <Window.DataContext>
         <vm:JireiViewModel/>
@@ -39,12 +39,12 @@
             </Canvas>
 
             <DataGrid ItemsSource="{Binding Jirei}" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True"
-                  Height="480" Width="724"  Margin="0,30,0,0" SelectionChanged="DataGrid_SelectionChanged"   LoadingRow="DataGrid_LoadingRow" >
+                  Height="480" Width="744"  Margin="0,30,0,0" SelectionChanged="DataGrid_SelectionChanged"   LoadingRow="DataGrid_LoadingRow" >
             <DataGrid.Columns>
 
                 
 
-                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="120" >
+                    <DataGridTextColumn Header="タイトル" Binding="{Binding Title}" Width="107" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -52,7 +52,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
+                <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="290"  >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />

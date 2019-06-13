@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         ResizeMode="NoResize"
-        Title="Shain" Height="359.188" Width="525">
+        Title="社員リスト" Height="359.188" Width="525">
 
 
     <Window.DataContext>

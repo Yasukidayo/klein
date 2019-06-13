@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         ResizeMode="NoResize"
-        Title="業務改善案" Height="550" Width="745">
+        Title="業務改善案" Height="550" Width="765">
 
     <Window.DataContext>
         <vm:gyoumukaizenViewModel/>
@@ -40,10 +40,10 @@
         </Canvas>
 
             <DataGrid ItemsSource="{Binding Gyoumu}"   AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True"
-                      Height="480" Width="724"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
+                      Height="480" Width="744"  Margin="0,30,0,0"   LoadingRow="DataGrid_LoadingRow"  >
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="タイトル"   Binding="{Binding Title}" Width="120" >
+                    <DataGridTextColumn Header="タイトル"   Binding="{Binding Title}" Width="107" >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -51,7 +51,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="300"  >
+                    <DataGridTextColumn Header="感謝の言葉" Binding="{Binding Body}" Width="290"  >
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextWrapping" Value="Wrap" />
@@ -85,7 +85,7 @@
                     <DataGridTemplateColumn Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Button2"  Content= "送信する" Click ="Button2" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
+                                <Button x:Name="Button2"  Content= "送信" Click ="Button2" Command="{Binding DataContext.UserDeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

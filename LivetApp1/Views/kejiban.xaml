@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         ResizeMode="NoResize"
-        Title="kejiban" Height="350" Width="820">
+        Title="掲示板" Height="350" Width="820">
 
     <Window.DataContext>
         <vm:kejibanViewModel/>
