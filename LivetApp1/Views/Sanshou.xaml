@@ -53,8 +53,8 @@
                       CanUserAddRows="False" Canvas.Left="5" Canvas.Top="35"  LoadingRow="DataGrid_LoadingRow"  >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                        <DataGridTextColumn Header="名前" Binding="{Binding Name}" Width="95"/>
-                        <DataGridTextColumn Header="パスワード" Binding="{Binding Password}" Width="95"/>
+                        <DataGridTextColumn Header="名前" Binding="{Binding Name}" Width="100"/>
+                        <DataGridTextColumn Header="パスワード" Binding="{Binding Password}" Width="100"/>
                         <DataGridTextColumn Header="部署" Binding="{Binding Department.Name}" Width="60"/>
                         <DataGridTextColumn Header="権限" Binding="{Binding IsAdmin}" />
                         <DataGridTemplateColumn Header="">
@@ -82,8 +82,8 @@
                       CanUserAddRows="False" Canvas.Left="5" Canvas.Top="210" LoadingRow="DataGrid_LoadingRow">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                        <DataGridTextColumn Header="名前" Binding="{Binding Name}" Width="140" />
-                        <DataGridTextColumn Header="親部署" Binding="{Binding Parent.Name}"  Width="140" />
+                        <DataGridTextColumn Header="名前" Binding="{Binding Name}" Width="145" />
+                        <DataGridTextColumn Header="親部署" Binding="{Binding Parent.Name}"  Width="145" />
                         <DataGridTemplateColumn Header="">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

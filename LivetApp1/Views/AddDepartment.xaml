@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:LivetApp1.Views"
         xmlns:vm="clr-namespace:LivetApp1.ViewModels"
         ResizeMode="NoResize"
-        Title="部課登録" Height="250" Width="325">
+        Title="部課登録" Height="270" Width="325">
     
     <Window.DataContext>
         <vm:AddDepartmentViewModel/>
@@ -70,8 +70,8 @@
                 <Button Content="戻る" Click="Button1" Height="20" Width="100"  Canvas.Left="10" />
                 <TextBlock Text="Name"  Canvas.Left="50" Canvas.Top="70"/>
                 <TextBox Text="{Binding Department.Name}" Width="150" Canvas.Left="110" Canvas.Top="70"/>
-                <TextBlock Text="所属部" Canvas.Left="50" Canvas.Top="93"/>
-                <ComboBox SelectedItem="{Binding Department.Parent}" FontSize="10" Canvas.Left="110" Canvas.Top="93" Height="17" Width="150"
+                <TextBlock Text="所属部" Canvas.Left="50" Canvas.Top="101"/>
+                <ComboBox SelectedItem="{Binding Department.Parent}" FontSize="12" Canvas.Left="110" Canvas.Top="98" Height="20" Width="150"
                       ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValue="{Binding Department.Parent}"/>
 
                 <Button Content="追加" Command="{Binding SubmitCommand}" Width="120" Height="40" Canvas.Left="115" Canvas.Top="160"/>
